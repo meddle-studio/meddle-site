@@ -1,0 +1,47 @@
+{%- for menu in site.menus -%}
+  {%- if menu.title == "Header" -%}
+    {%- assign header-menu = menu -%}
+  {%- endif %}
+{%- endfor %}
+<!--  HEADER -->
+{%- if site.data.announcement.active -%}
+<header class="header-container container-fluid mx-5 promotion_true">
+  {%- include nav-promotion.html -%}
+{%- else -%}
+<header class="header-container container-fluid mx-5">
+{%- endif -%}
+  <div class="header-top row pt-3 pb-2 justify-content-between">
+    <div class="header-mark col-2">M</div>
+  <div class="header-marquee col-5 align-self-end ml-auto">
+    <div class="marquee-inner d-flex">
+      <p class="p header_principle">Why do all the cars, phones, and buildings look the same?</p>
+      <p class="p header_principle">Because the business world values incremental cost-cutting, time-saving standardization, and risk-adverse iteration.</p>
+      <p class="p header_principle">But should we be willing to accept that in order to profit and scale, we have to sacrifice beauty, meaning, warmth, and passion?</p>
+      <p class="p header_principle">We say no.</p>
+      <p class="p header_principle">We believe people deserve better.</p>
+    </div>
+  </div>
+  <button class="button header-cta">Contact</button>
+  </div>
+</header>
+  <div class="separator-separator">
+    <div class="separator-icon"></div>
+    <span class="separator-line"></span>
+    <div class="separator-icon"></div>
+  </div>
+  <div class="header-header row">
+  <svg id="logo" data-name="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1985 153.88" class="header_title__h8YkR" fill="#fffef4">
+  <title>MEDDLE</title>
+    <path d="M147.5,0c34.73,31.63,45.36,67.87,50.08,102.9h4.43c3.98-35.19,16.19-70.8,48.99-102.9h148v153.44h-130l-.99-92.52h-5.01c-5.87,25.57-17.33,50.97-33.88,75.55l-1.57.3c-7.01-.45-54.95.67-57.06-.48-1.44-.78-6.15-9.02-7.2-10.74-12.9-21.05-20.93-42.96-26.28-64.63h-6.01v92.52H1.5c-.11,0-1.5-.63-1.5-.68V0h147.5Z"/>
+      <path d="M1064,0h184.49c120.24,2.91,172.98,40.64,157.37,92.67-23.71,79.04-212.57,57.63-338.41,60.79-1.02.1-3.45-.33-3.45-.7V0ZM1200,106.95h33.5c46.38,0,46.24-42.29,25.91-54.12-6.59-3.83-20.3-6.36-30.91-6.36h-28.5v60.47Z"/>
+    <path d="M714,153.44V0h183.49c93.79,2.21,154.83,25.96,159.56,69.25,5.29,48.47-41.12,79.46-151.56,83.73-63.74.98-127.68.21-191.49.46ZM850,106.95h33.5c44.2,0,43.48-38.67,29.69-50.86-6.74-5.96-20.74-9.61-35.69-9.61h-27.5v60.47Z"/>
+    <path d="M702,0v48.74h-154v15.8h144v22.56h-144v17.15h152.5c.11,0,1.5.63,1.5.68v47.84s-1.39.68-1.5.68h-287c-.11,0-1.5-.63-1.5-.68V0h290Z"/>
+    <path d="M1985,0v48.74h-153v15.8h142.5c.11,0,1.5.63,1.5.68v21.89h-144v17.15h153v49.19h-289V0h289Z"/>
+    <polygon points="1557 0 1557 104.25 1685 104.25 1685 153.44 1421 153.44 1421 0 1557 0"/>
+  </svg>
+  </div>
+  <div class="separator-separator">
+    <div class="separator-icon"></div>
+    <span class="separator-line"></span>
+    <div class="separator-icon"></div>
+  </div>

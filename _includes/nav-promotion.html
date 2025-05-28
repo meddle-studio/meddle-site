@@ -1,0 +1,32 @@
+
+{%- assign all_savings = site.rates | where: "title", "Savings" | first -%}
+{%- assign savings = all_savings.rate | last -%}
+{%- assign all_mm = site.rates | where: "title", "Money Market" | first -%}
+{%- assign mm = all_mm.rate | last -%}
+{%- assign all_hysa = site.rates | where: "title", "High Yield Savings" | first -%}
+{%- assign hysa = all_hysa.rate | last -%}
+{%- assign all_cd = site.rates | where: "title", "CD" | first -%}
+{%- assign cd = all_cd.rate | last -%}
+{%- assign all_spend = site.rates | where: "title", "Checking" | first -%}
+{%- if spend != "" -%}
+{%- assign all_spend = site.rates | where: "title", "Spend Account" | first -%}
+{%- endif -%}
+{%- assign spend = all_spend.rate | last -%}
+<span id="promo" class="nav__promotion" data-aos="{{ site.data.announcement.animation }}" data-aos-anchor="top-bottom">
+  <div class="nav__promotion-item -bg-green visible" role="promotion-item">
+    <div class="promo-content px-2 px-md-3">
+      <a href="{{ site.data.announcement.link }}" class="-black">
+        <div class="d-flex text-left align-content-center">
+          <div class="-semiBold">{{ site.data.announcement.message | replace: '¡SAVINGS_APY!', savings.apy | replace: '¡MONEY-MARKET_APY!', mm.apy | replace: '¡HYSA_APY!', hysa.apy | replace: '¡CD_APY!', cd.apy | replace: '¡SPEND_APY!', spend.apy | replace: '¡SAVINGS_RATE!', savings.rate | replace: '¡MONEY-MARKET_RATE!', mm.rate | replace: '¡HYSA_RATE!', hysa.rate | replace: '¡CD_RATE!', cd.rate | replace: '¡SPEND_RATE!', spend.rate | replace: '¡SAVINGS_DATE!', all_savings.date | replace: '¡HYSA_DATE!', all_hysa.date | replace: '¡CD_DATE!', all_cd.date | replace: '¡SPEND_DATE!', all_spend.date | replace: '¡MONEY-MARKET_DATE!', all_mm.date }}
+          </div>
+          <div class="ml-2">
+            {% if site.data.announcement.cta and site.data.announcement.cta != '' %}
+            &ensp;<div class="tag -bg-black -white d-inline -rounded">{{ site.data.announcement.cta }}</div>
+            {% endif %}
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="promocloser" id="promocloser"></div>
+</span>

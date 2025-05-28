@@ -1,0 +1,343 @@
+<!-- Identity -->
+
+<script type="application/ld+json">
+  {
+      "@context": "http://schema.org",
+      "@type": "Corporation",
+      "name": "{{ site.brand }}",
+      "url": "{{ site.url }}/",
+            "telephone": "{{ site.supportPhone }}",
+      "email": "{{ site.supportEmail }}",
+      "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "{{ site.addressLine1 }}",
+          "addressLocality": "St. Petersburg",
+          "addressRegion": "FL",
+          "postalCode": "33702",
+          "addressCountry": "US"
+      },
+      "location": {
+          "@type": "Place",
+          "name": "{{ site.brand }}",
+          "hasMap": "https://www.google.com/maps/place/{{ site.addressLine1 | url_encode }}%20{{ site.addressLine2 | url_encode }}",
+          "telephone": "{{ site.supportPhone }}",
+          "url": "{{ site.url }}/",
+                    "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "32.2528695",
+              "longitude": "-110.8880287"
+          },
+          "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "{{ site.addressLine1 }}",
+              "addressLocality": "St. Petersburg",
+              "addressRegion": "FL",
+              "postalCode": "33702",
+              "addressCountry": "US"
+          }
+      },
+      "contactPoint": [
+          {
+              "@type": "ContactPoint",
+              "telephone": "{{ site.supportPhone }}",
+              "contactType": "general"
+          }
+      ]
+  }
+  </script>
+
+<!-- WebSite -->
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "{{ site.brand }}",
+    "description": "{{ site.description }}",
+    "url": "{{ site.url }}/",
+    "image": "{{ site.url }}{{ site.image }}",
+        "copyrightHolder": {
+        "@type": "Corporation",
+        "name": "{{ site.brand }}",
+        "url": "{{ site.url }}/",
+              "telephone": "{{ site.supportPhone }}",
+      "email": "{{ site.supportEmail }}",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "{{ site.addressLine1 }}",
+          "addressLocality": "St. Petersburg",
+          "addressRegion": "FL",
+          "postalCode": "33702",
+          "addressCountry": "US"
+         },
+          "location": {
+            "@type": "Place",
+            "name": "{{ site.brand }}",
+            "hasMap": "https://www.google.com/maps/place/{{ site.addressLine1 | url_encode }}%20{{ site.addressLine2 | url_encode }}",
+            "telephone": "{{ site.supportPhone }}",
+            "url": "{{ site.url }}/",
+                        "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "32.2528695",
+                "longitude": "-110.8880287"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "{{ site.addressLine1 }}",
+              "addressLocality": "St. Petersburg",
+              "addressRegion": "FL",
+              "postalCode": "33702",
+              "addressCountry": "US"
+          }
+        },
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "telephone": "{{ site.supportPhone }}",
+                "contactType": "general"
+            }
+        ]
+    },
+    "author": {
+        "@type": "Corporation",
+        "name": "{{ site.brand }}",
+        "url": "{{ site.url }}/",
+                  "telephone": "{{ site.supportPhone }}",
+        "email": "{{ site.supportEmail }}",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "{{ site.addressLine1 }}",
+          "addressLocality": "St. Petersburg",
+          "addressRegion": "FL",
+          "postalCode": "33702",
+          "addressCountry": "US"
+      },
+        "location": {
+          "@type": "Place",
+          "name": "{{ site.brand }}",
+          "hasMap": "https://www.google.com/maps/place/{{ site.addressLine1 | url_encode }}%20{{ site.addressLine2 | url_encode }}",
+          "telephone": "{{ site.supportPhone }}",
+          "url": "{{ site.url }}/",
+                    "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "32.2528695",
+              "longitude": "-110.8880287"
+          },
+          "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "{{ site.addressLine1 }}",
+              "addressLocality": "St. Petersburg",
+              "addressRegion": "FL",
+              "postalCode": "33702",
+              "addressCountry": "US"
+          }
+      },
+        "contactPoint": [
+          {
+              "@type": "ContactPoint",
+              "telephone": "{{ site.supportPhone }}",
+              "contactType": "general"
+          }
+      ]
+  },
+    "creator": {
+        "@type": "Organization"
+    }
+}
+</script>
+
+<!-- Place -->
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Place",
+    "name": "{{ site.brand }}",
+    "hasMap": "https://www.google.com/maps/place/{{ site.addressLine1 | url_encode }}%20{{ site.addressLine2 | url_encode }}",
+    "telephone": "{{ site.supportPhone }}",
+    "url": "{{ site.url }}/",
+          "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "32.2528695",
+        "longitude": "-110.8880287"
+          },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ site.addressLine1 }}",
+      "addressLocality": "St. Petersburg",
+      "addressRegion": "FL",
+      "postalCode": "33702",
+      "addressCountry": "US"
+    }
+}
+</script>
+
+<!-- Main Entity of Page -->
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "name": "{{ site.brand }}",
+    "description": "{{ site.description }}",
+    "image": {
+        "@type": "ImageObject",
+        "url": "{{ site.url }}{{ site.image }}",
+        "width": "1200",
+        "height": "624"
+    },
+    "url": "{{ site.url }}/",
+    "mainEntityOfPage": "{{ site.url }}/",
+    "inLanguage": "en_us",
+    "headline": "{{ site.brand }}",
+    "dateCreated": "2024-06-02T14:24:30+0000",
+    "dateFLdified": "2024-07-08T17:21:05+0000",
+    "datePublished": "2024-07-15T17:18:04+0000",
+    "copyrightYear": "2024",
+    "author": {
+        "@type": "Corporation",
+        "name": "{{ site.brand }}",
+        "url": "{{ site.url }}/",
+                "telephone": "{{ site.supportPhone }}",
+      "email": "{{ site.supportEmail }}",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "{{ site.addressLine1 }}",
+          "addressLocality": "St. Petersburg",
+          "addressRegion": "FL",
+          "postalCode": "33702",
+          "addressCountry": "US"
+      },
+        "location": {
+          "@type": "Place",
+          "name": "{{ site.brand }}",
+          "hasMap": "https://www.google.com/maps/place/{{ site.addressLine1 | url_encode }}%20{{ site.addressLine2 | url_encode }}",
+          "telephone": "{{ site.supportPhone }}",
+          "url": "{{ site.url }}/",
+                    "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "32.2528695",
+              "longitude": "-110.8880287"
+          },
+          "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "{{ site.addressLine1 }}",
+              "addressLocality": "St. Petersburg",
+              "addressRegion": "FL",
+              "postalCode": "33702",
+              "addressCountry": "US"
+          }
+      },
+        "contactPoint": [
+          {
+              "@type": "ContactPoint",
+              "telephone": "{{ site.supportPhone }}",
+              "contactType": "general"
+          }
+      ]
+  },
+    "copyrightHolder": {
+        "@type": "Corporation",
+        "name": "{{ site.brand }}",
+        "url": "{{ site.url }}/",
+                "telephone": "{{ site.supportPhone }}",
+      "email": "{{ site.supportEmail }}",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "{{ site.addressLine1 }}",
+          "addressLocality": "St. Petersburg",
+          "addressRegion": "FL",
+          "postalCode": "33702",
+          "addressCountry": "US"
+      },
+        "location": {
+          "@type": "Place",
+          "name": "{{ site.brand }}",
+          "hasMap": "https://www.google.com/maps/place/{{ site.addressLine1 | url_encode }}%20{{ site.addressLine2 | url_encode }}",
+          "telephone": "{{ site.supportPhone }}",
+          "url": "{{ site.url }}/",
+                    "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "32.2528695",
+              "longitude": "-110.8880287"
+          },
+          "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "{{ site.addressLine1 }}",
+              "addressLocality": "St. Petersburg",
+              "addressRegion": "FL",
+              "postalCode": "33702",
+              "addressCountry": "US"
+          }
+      },
+        "contactPoint": [
+          {
+              "@type": "ContactPoint",
+              "telephone": "{{ site.supportPhone }}",
+              "contactType": "general"
+          }
+      ]
+  },
+    "publisher": {
+        "@type": "Organization",
+        "name": "{{ site.brand }}",
+        "url": "{{ site.url }}/",
+                "telephone": "{{ site.supportPhone }}",
+      "email": "{{ site.supportEmail }}",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "{{ site.addressLine1 }}",
+          "addressLocality": "St. Petersburg",
+          "addressRegion": "FL",
+          "postalCode": "33702",
+          "addressCountry": "US"
+      },
+        "location": {
+          "@type": "Place",
+          "name": "{{ site.brand }}",
+          "hasMap": "https://www.google.com/maps/place/{{ site.addressLine1 | url_encode }}%20{{ site.addressLine2 | url_encode }}",
+          "telephone": "{{ site.supportPhone }}",
+          "url": "{{ site.url }}/",
+                    "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "32.2528695",
+              "longitude": "-110.8880287"
+          },
+          "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "{{ site.addressLine1 }}",
+              "addressLocality": "St. Petersburg",
+              "addressRegion": "FL",
+              "postalCode": "33702",
+              "addressCountry": "US"
+          }
+      },
+        "contactPoint": [
+          {
+              "@type": "ContactPoint",
+              "telephone": "{{ site.supportPhone }}",
+              "contactType": "general"
+          }
+      ]
+  }
+}
+</script>
+
+<!-- Breadcrumbs -->
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": "1",
+            "item": {
+                "@id": "{{ site.url }}/",
+                "name": "Homepage"
+            }
+        }
+    ]
+}
+</script>
