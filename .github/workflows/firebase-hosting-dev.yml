@@ -1,0 +1,44 @@
+name: Deploy to Firebase Hosting on Dev branch merge
+'on':
+  push:
+    branches:
+      - '*'
+      - '!main'
+jobs:
+  build_and_preview:
+    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo's default branch
+        uses: actions/checkout@v3
+      - name: Build the site in the jekyll/builder container
+        run: |
+          docker run \
+          -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+          jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll"
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.8.x
+          cache: npm
+      - name: Install Firebase Tools
+        run: npm install -g firebase-tools@13.23.1
+      - name: npm ci
+        run: npm ci
+      - name: Setup Ruby/Bundler
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.6.3'
+          bundler-cache: true
+          cache-version: 1
+      - name: Build TinaCMS
+        env:
+          TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
+          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+        run: npx tinacms build && bundle exec jekyll build --future
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HUSTL_8133D }}'
+          projectId: meddle-b24f1
