@@ -1,7 +1,7 @@
 brand: "Meddle"
 url: "https://meddle.studio"
-title: "Meddle | Interfere with the status quo."
-description: "Meddle is an independent brand and digital studio."
+title: "Meddle"
+description: "Meddle is a brand and design studio for industry challengers who aren't afraid to interfere with the status quo."
 logo: "/assets/images/logo.svg"
 logoWht: "/assets/images/logo-wht.svg"
 logoMark: "/assets/images/apple-touch-icon.png"
@@ -10,11 +10,11 @@ addressLine1: "7901 4th St N, STE 300"
 addressLine2: "St. Petersburg, FL, 33702"
 supportEmail: "hello@meddle.studio"
 #supportPhone: "877-626-9378"
-gtm: ""
+gtm: "GTM-5S4496S9"
 #facebook: "https://www.facebook.com/HUSTLFinancial"
 #twitter: "http://x.com/hustlfinancial"
 #linkedin: "https://www.linkedin.com/company/hustlfinancial"
-instagram: "https://www.instagram.com/meddledesignco/"
+instagram: "https://www.instagram.com/meddledesign.co/"
 
 # Build settings
 markdown: kramdown

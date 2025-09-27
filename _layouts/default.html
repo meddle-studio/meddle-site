@@ -1,0 +1,106 @@
+{%- if page.image -%}
+{%- assign image = page.image -%}
+{%- else -%}
+{%- assign image = site.image -%}
+{%- endif -%}
+<!DOCTYPE html><!--
+ __  __ ___ ___  ___  _    ___ 
+|  \/  | __|   \|   \| |  | __|
+| |\/| | _|| |) | |) | |__| _| 
+|_|  |_|___|___/|___/|____|___|
+
+-->
+<html lang="en"><head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','{{ site.gtm }}');</script>
+  <!-- End Google Tag Manager -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{% if page.description %}{{ page.description}}{% endif %}">
+  <meta name="author" content="{{ site.brand }}">
+  <meta name="generator" content="Meddle">
+  <title>{% if page.title %}{{ page.title }}{% unless page.title contains 'Meddle' %} | {{ site.brand }} {% endunless %}{% else %}{{ site.title }}{% endif %}</title>
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="en_us" />
+  <meta property="og:url" content="{{ site.url }}{{ page.url| remove: 'index.html' }}" />
+  <meta name="og:title" property="og:title" content="{% if page.title %}{{ page.title }}{% unless page.title contains 'Meddle' %} | {{ site.brand }} {% endunless %}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description}}{% endif %}" />
+  <meta property="og:image" content="{{ site.url }}{{ image }}" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1669" />
+  <meta property="og:image:height" content="1000" />
+  {% if page.robots %}
+  <meta name="robots" content="{{ page.robots }}" />
+  {% endif %}
+  {% if paginator.next_page %}
+  <link rel="next" href="{{ paginator.next_page_path | absolute_url }}" />
+  {% endif %}
+  <link rel="canonical" href="{{ site.url }}{% if page.canonical %}{{ page.canonical }}{% else %}{{ page.url | remove: 'index.html' }}{% endif %}" />
+  <link rel="shortlink" href="{{ site.url }}{{ page.url | remove: 'index.html' }}" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% unless page.title contains 'Meddle' %} | {{ site.brand }} {% endunless %}{% else %}{{ site.title }}{% endif %}" />
+  <meta name="twitter:description" content="{% if page.description %}{{ page.description}}{% endif %}" />
+  <meta name="twitter:image" content="{{ image }}" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  {% if page.aos %}
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  {% endif %}
+
+  {% if page.permalink == "/" %}
+  {% include schema.html %}
+  {% endif %}
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="/assets/images/icon-192.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/assets/images/icon-512.png" sizes="16x16" type="image/png">
+  <link rel="manifest" href="/manifest.json">
+
+  <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js?ver=3.6.3" id="jquery-js"></script>
+  <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js?ver=1.13.2" id="jqueryui-js"></script>
+  {% if page.form %}
+  <script defer src="https://www.google.com/recaptcha/api.js" async defer></script>
+  {% endif %}
+  <link href="/assets/css/site.css?{{ site.time | date: '%m%d%Y&%H-%M' }}" rel="stylesheet">
+  <!-- -->
+  {% if page.permalink == "/" %}
+  <meta name="facebook-domain-verification" content="80wgprwko217pd0h4plsu2olyw9v4p" />
+  {% endif %}
+</head>
+<body class="html{% if page.classes %} {{ page.classes }}{% endif %}{% if layout.classes %} {{ layout.classes }}{% endif %} {% if page.reduced_nav == true %}reduced-nav{% endif %}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.gtm }}"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="{% if page.theme %} theme-{{ page.theme }}{% else %}theme-dark{% endif %} layout">
+  {% comment %}{% include header.html %}{% endcomment %}
+	<main class="layout-main">
+    {{ content}}
+  </main>
+  {% include footer.html %}
+</div>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script defer src="/assets/js/site.js?{{ site.time | date: '%m%d%Y&%H-%M' }}"></script>
+{% if page.lightbox %}
+<script defer type="text/javascript" src="/assets/js/lightbox.js"></script>
+<link rel="stylesheet" href="/assets/css/lightbox.css">
+{% endif %}
+{% if page.aos %}
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>AOS.init();</script>
+{% endif %}
+</body>
+</html>
