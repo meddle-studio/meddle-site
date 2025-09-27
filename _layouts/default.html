@@ -85,7 +85,7 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <div class="{% if page.theme %} theme-{{ page.theme }}{% else %}theme-dark{% endif %} layout">
-  {% include header.html %}
+  {% comment %}{% include header.html %}{% endcomment %}
 	<main class="layout-main">
     {{ content}}
   </main>
