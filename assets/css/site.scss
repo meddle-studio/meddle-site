@@ -449,3 +449,41 @@ footer {
     margin-right: 6px;
   }
 }
+
+#scroll-section {
+    position: relative;
+    /* Set a height that determines the total scroll distance for the effect */
+    height: 300vh;
+}
+#pinned-paragraph {
+    position: relative;
+    top: 0;
+}
+#pinned-paragraph.is-fixed {
+    position: fixed;
+    top: 50vh; /* This will center it on the screen while fixed */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 0; /* Remove top padding when fixed */
+    width: 80%;
+    max-width: 1200px;
+}
+.word-by-word-text span {
+    color: #595959; /* Initial muted color */
+    transition: color 0.1s ease-out;
+}
+.word-by-word-text span.colored {
+    color: $white;
+}
+@media (orientation: landscape) {
+  .orientation-landscape {display: flex;}
+  .orientation-portrait {display: none;}
+}
+@media (orientation: portrait) {
+  .orientation-portrait {display: flex;}
+  .orientation-landscape {display: none;}
+}
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+  #logo-xl-mobile {max-width: 500px;}
+  #about h2 {font-size: 45px;}
+}
