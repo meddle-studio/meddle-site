@@ -4,7 +4,8 @@ layout: default
 aos: true
 
 ---
-<section class="position-relative z-1 vh-100 dvh-100 -bg-black d-flex align-items-center justify-content-center">
+<header id="#">
+  <section class="position-relative z-1 vh-100 svh-100 -bg-black d-flex align-items-center justify-content-center">
     <video autoplay muted loop playsinline webkit-playsinline preload="metadata" class="position-absolute inset-0 w-100 h-100 object-fit-cover object-position-center">
         <source src="/assets/images/mid-desktop-sm.mp4" type="video/mp4" media="(orientation: landscape)">
         <source src="/assets/images/mid-mobile-sm.mp4" type="video/mp4" media="(orientation: portrait)">
@@ -18,8 +19,29 @@ aos: true
           <path d="M1990,0v108h-153v35h142.5c.11,0,1.5,1.39,1.5,1.5v48.5h-144v38h153v109h-289V0h289Z"/>
           <polygon points="1561 0 1561 231 1689 231 1689 340 1425 340 1425 0 1561 0"/>
         </svg>
+      </div>
+    <div id="primary-navigation-home" class="w-100 d-md-block">
+      <div class="mx-2 mx-md-3">
+        <nav class="navbar navbar-expand pt-2 pb-4 w-100">
+          <ul role="menubar" aria-label="Primary Navigation Home" class="navbar-nav d-flex w-100">
+            <li class="nav-item">
+              <a href="#" class="nav-link active" aria-current="page" aria-label="Home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#about" class="nav-link" aria-label="About">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="#capabilities" class="nav-link" aria-label="Capabilities">Capabilities</a>
+            </li>
+            <li class="nav-item ms-auto">
+              <a href="#footer" class="nav-link" aria-label="Contact">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
-</section>
+  </section>
+</header>
 <section id="about" class="position-relative -bg-black">
     <div class="container">
         <div class="d-flex align-items-center justify-content-center vh-100">
@@ -27,11 +49,11 @@ aos: true
         </div>
     </div>
 </section>
-<section id="how" class="position-relative -bg-white py-5">
+<section id="capabilities" class="position-relative -bg-white py-5">
     <div class="container">
         <h3 class="-black col-md-9 col-lg-7 col-xl-6 pt-md-5 pb-3 pb-lg-5 -light">Through careful <em>understanding and collaboration</em>, we partner with you to seamlessly integrate your vision with our creative expertise, <em>co-creating</em> exciting, memorable brands and digital experiences that captivate audiences.</h3>
         <hr class="-black">
-        <div class="row pt-3 pt-lg-5 pb-md-5">
+        <div id="" class="row pt-3 pt-lg-5 pb-md-5">
           <div class="col-12 col-lg-3">
             <h3 class="-bold -grey mb-3">Core Capabilities</h3>
           </div>
