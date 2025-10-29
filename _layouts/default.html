@@ -18,7 +18,7 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','{{ site.gtm }}');</script>
   <!-- End Google Tag Manager -->
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{% if page.description %}{{ page.description}}{% endif %}">
   <meta name="author" content="{{ site.brand }}">
@@ -26,10 +26,10 @@
   <title>{% if page.title %}{{ page.title }}{% unless page.title contains 'Meddle' %} | {{ site.brand }} {% endunless %}{% else %}{{ site.title }}{% endif %}</title>
   <meta property="og:type" content="article" />
   <meta property="og:locale" content="en_us" />
-  <meta property="og:url" content="{{ site.url }}{{ page.url| remove: 'index.html' }}" />
+  <meta property="og:url" content="{{ page.url | remove: 'index.html' | absolute_url }}" />
   <meta name="og:title" property="og:title" content="{% if page.title %}{{ page.title }}{% unless page.title contains 'Meddle' %} | {{ site.brand }} {% endunless %}{% else %}{{ site.title }}{% endif %}">
   <meta property="og:description" content="{% if page.description %}{{ page.description}}{% endif %}" />
-  <meta property="og:image" content="{{ site.url }}{{ image }}" />
+  <meta property="og:image" content="{{ image | absolute_url }}" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1669" />
   <meta property="og:image:height" content="1000" />
@@ -39,8 +39,8 @@
   {% if paginator.next_page %}
   <link rel="next" href="{{ paginator.next_page_path | absolute_url }}" />
   {% endif %}
-  <link rel="canonical" href="{{ site.url }}{% if page.canonical %}{{ page.canonical }}{% else %}{{ page.url | remove: 'index.html' }}{% endif %}" />
-  <link rel="shortlink" href="{{ site.url }}{{ page.url | remove: 'index.html' }}" />
+  <link rel="canonical" href="{% if page.canonical %}{{ page.canonical | absolute_url }}{% else %}{{ page.url | remove: 'index.html' | absolute_url }}{% endif %}" />
+  <link rel="shortlink" href="{{ page.url | remove: 'index.html' | absolute_url }}" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />

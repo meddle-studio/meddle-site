@@ -6,12 +6,15 @@ aos: true
 ---
 <header id="#">
   <section class="position-relative z-1 vh-100 svh-100 -bg-black d-flex align-items-center justify-content-center">
-    <video autoplay muted loop playsinline webkit-playsinline preload="metadata" class="position-absolute inset-0 w-100 h-100 object-fit-cover object-position-center">
+    
+    <video autoplay muted loop playsinline webkit-playsinline preload="metadata" class="position-absolute inset-0 w-100 h-100 object-fit-cover object-position-center" title="Abstract background video animation">
         <source src="/assets/images/mid-desktop-sm.mp4" type="video/mp4" media="(orientation: landscape)">
         <source src="/assets/images/mid-mobile-sm.mp4" type="video/mp4" media="(orientation: portrait)">
     </video>
+    
     <div class="position-sticky sticky-top w-100 p-3 -white mix-blend-difference">
-        <svg id="logo-xl" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1990 436" preserveAspectRatio="xMidYMin meet" fill="currentColor" class="w-100 h-100 justify-between m-0 p-0 leading-none"><title>MEDDLE</title>
+        <svg id="logo-xl" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1990 436" preserveAspectRatio="xMidYMin meet" fill="currentColor" class="w-100 h-100 justify-between m-0 p-0 leading-none" role="img">
+          <title>MEDDLE</title>
           <path d="M147.5,0c34.73,70.09,45.36,150.4,50.08,228.02h4.43c3.98-77.97,16.19-156.88,48.99-228.02h148v340h-130l-.99-205.01h-5.01c-5.87,56.67-17.33,112.94-33.88,167.41l-1.57.67c-7.01-.99-54.95,1.48-57.06-1.05-1.44-1.73-6.15-19.98-7.2-23.8-12.9-46.64-20.93-95.18-26.28-143.22h-6.01v205.01H1.5c-.11,0-1.5-1.39-1.5-1.5V0h147.5Z"/>
           <path d="M1068,0h184.49c120.24,6.46,172.98,90.06,157.37,205.36-23.71,175.14-212.57,127.71-338.41,134.69-1.02.22-3.45-.72-3.45-1.55V0ZM1204,237h33.5c46.38,0,46.24-93.71,25.91-119.91-6.59-8.49-20.3-14.09-30.91-14.09h-28.5v134Z"/>
           <path d="M713,340V0h183.49c93.79,4.89,154.83,57.52,159.56,153.45,5.29,107.41-41.12,176.07-151.56,185.54-63.74,2.18-127.68.47-191.49,1.01ZM849,237h33.5c44.2,0,43.48-85.69,29.69-112.69-6.74-13.21-20.74-21.31-35.69-21.31h-27.5v134Z"/>
@@ -19,22 +22,23 @@ aos: true
           <path d="M1990,0v108h-153v35h142.5c.11,0,1.5,1.39,1.5,1.5v48.5h-144v38h153v109h-289V0h289Z"/>
           <polygon points="1561 0 1561 231 1689 231 1689 340 1425 340 1425 0 1561 0"/>
         </svg>
-      </div>
+    </div>
+    
     <div id="primary-navigation-home" class="w-100 d-md-block">
       <div class="mx-2 mx-md-3">
         <nav class="navbar navbar-expand pt-2 pb-4 w-100">
-          <ul role="menubar" aria-label="Primary Navigation Home" class="navbar-nav d-flex w-100">
+          <ul aria-label="Primary Navigation Home" class="navbar-nav d-flex w-100">
             <li class="nav-item">
-              <a href="#" class="nav-link active" aria-current="page" aria-label="Home">Home</a>
+              <a href="#" class="nav-link active" aria-current="page">Home</a>
             </li>
             <li class="nav-item">
-              <a href="#about" class="nav-link" aria-label="About">About</a>
+              <a href="#about" class="nav-link">About</a>
             </li>
             <li class="nav-item">
-              <a href="#capabilities" class="nav-link" aria-label="Capabilities">Capabilities</a>
+              <a href="#capabilities" class="nav-link">Capabilities</a>
             </li>
             <li class="nav-item ms-auto">
-              <a href="#footer" class="nav-link" aria-label="Contact">Contact</a>
+              <a href="#footer" class="nav-link">Contact</a>
             </li>
           </ul>
         </nav>
@@ -42,6 +46,7 @@ aos: true
     </div>
   </section>
 </header>
+
 <section id="about" class="position-relative -bg-black">
     <div class="container">
         <div class="d-flex align-items-center justify-content-center vh-100">
@@ -49,40 +54,50 @@ aos: true
         </div>
     </div>
 </section>
+
 <section id="capabilities" class="position-relative -bg-white py-5">
     <div class="container">
         <h3 class="-black col-md-9 col-lg-7 col-xl-6 pt-md-5 pb-3 pb-lg-5 -light">Through careful <em>understanding and collaboration</em>, we partner with you to seamlessly integrate your vision with our creative expertise, <em>co-creating</em> exciting, memorable brands and digital experiences that captivate audiences.</h3>
-        <hr class="-black">
-        <div id="" class="row pt-3 pt-lg-5 pb-md-5">
+        
+        <hr class="-black" aria-hidden="true">
+        
+        <div class="row pt-3 pt-lg-5 pb-md-5">
           <div class="col-12 col-lg-3">
             <h3 class="-bold -grey mb-3">Core Capabilities</h3>
           </div>
+          
           <div class="col-12 col-md-4 col-lg-3 mb-3 mb-md-0">
-            <h5 class="-bold -grey aos-md" data-aos="fade-right" data-aos-duration="1000"><small>Strategy</small></h5>
-            <h3 class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Brand Strategy</h3>
-            <h3 class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Consultancy</h3>
-            <h3 class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Information Architecture</h3>
-            <h3 class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Messaging</h3>
-            <h3 class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Positioning</h3>
-            <h3 class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Strategic Framework</h3>
+            <h5 class="-bold -grey aos-md" data-aos="fade-right" data-aos-duration="1000" id="strategy-heading"><small>Strategy</small></h5>
+            <ul class="list-unstyled" aria-labelledby="strategy-heading">
+              <li class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Brand Strategy</li>
+              <li class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Consultancy</li>
+              <li class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Information Architecture</li>
+              <li class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Messaging</li>
+              <li class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Positioning</li>
+              <li class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Strategic Framework</li>
+            </ul>
           </div>
           <div class="mt-4 mt-md-0 col-12 col-md-4 col-lg-3 mb-3 mb-md-0">
-            <h5 class="-bold -grey aos-md" data-aos="fade-right" data-aos-duration="1000"><small>Creative</small></h5>
-            <h3 class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Art Direction</h3>
-            <h3 class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Brand Identity</h3>
-            <h3 class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Graphic Design</h3>
-            <h3 class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Illustration</h3>
-            <h3 class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Storytelling</h3>
-            <h3 class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Web Design</h3>
+            <h5 class="-bold -grey aos-md" data-aos="fade-right" data-aos-duration="1000" id="creative-heading"><small>Creative</small></h5>
+            <ul class="list-unstyled" aria-labelledby="creative-heading">
+              <li class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Art Direction</li>
+              <li class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Brand Identity</li>
+              <li class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Graphic Design</li>
+              <li class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Illustration</li>
+              <li class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Storytelling</li>
+              <li class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Web Design</li>
+            </ul>
           </div>
           <div class="mt-4 mt-md-0 col-12 col-md-4 col-lg-3">
-            <h5 class="-bold -grey aos-md" data-aos="fade-right" data-aos-duration="1000"><small>Production</small></h5>
-            <h3 class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Animation</h3>
-            <h3 class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Brand Launch</h3>
-            <h3 class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Campaigns</h3>
-            <h3 class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Guidelines</h3>
-            <h3 class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Film &amp; Photography</h3>
-            <h3 class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Web Development</h3>
+            <h5 class="-bold -grey aos-md" data-aos="fade-right" data-aos-duration="1000" id="production-heading"><small>Production</small></h5>
+            <ul class="list-unstyled" aria-labelledby="production-heading">
+              <li class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Animation</li>
+              <li class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Brand Launch</li>
+              <li class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Campaigns</li>
+              <li class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Guidelines</li>
+              <li class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Film &amp; Photography</li>
+              <li class="-black -light aos-mobile-only py-3 py-md-0" data-aos="fade-right">Web Development</li>
+            </ul>
           </div>
         </div>
     </div>
