@@ -9,11 +9,9 @@ image: "/assets/images/meddle-thumb.png"
 addressLine1: "7901 4th St N, STE 300"
 addressLine2: "St. Petersburg, FL, 33702"
 supportEmail: "hello@meddle.studio"
-#supportPhone: "877-626-9378"
+#supportPhone: "555-555-5555"
 gtm: "GTM-5S4496S9"
-#facebook: "https://www.facebook.com/HUSTLFinancial"
-#twitter: "http://x.com/hustlfinancial"
-#linkedin: "https://www.linkedin.com/company/hustlfinancial"
+#linkedin: "https://www.linkedin.com/company/meddlestudio"
 instagram: "https://www.instagram.com/meddledesign.co/"
 
 # Build settings
