@@ -582,7 +582,11 @@ section.svh-100 {
   .orientation-landscape {display: none;}
   /*#footer a {text-decoration:underline;}*/
 }
+@media only screen and (min-width: 320px) and (max-width: 375px) {
+  #capabilities h3 {margin-right: 1em;}
+}
 @media only screen and (min-width: 768px) {
+  .vh-md-100 {height: 100vh !important;}
   .aos-mobile-only[data-aos] {
       opacity: 1 !important;
       transform: none !important;
@@ -602,6 +606,6 @@ section.svh-100 {
   .nav-link {font-size: 12px;}
 }
 @media screen and (min-width: 768px) and (max-width: 991.98px) {
-  #about h2 {font-size: 45px;}
+  #about h2 {font-size: 43px;}
   .nav-link {font-size: 16px;}
 }
