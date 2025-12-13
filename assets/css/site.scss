@@ -74,13 +74,13 @@ $font-tertiary: 'Libre Baskerville';
 .-grey       {color: var(--grey) !important;}
 
 .-bg-black   {background-color: var(--black) !important;}
-.-bg-white   {background-color: var(--white) !important;}
+.-bg-white   {background-color: var(--white) !important;color:var(--black);}
 .-bg-green   {background-color: var(--green) !important;}
 .-bg-purple  {background-color: var(--purple)!important;}
 .-bg-grey    {background-color: var(--grey)  !important;}
 .-font       {font-family: $font !important;}
 .-font-secondary {font-family: $font-secondary !important;}
-.-font-tertiary  {font-family: $font-tertiary !important;}
+.-font-tertiary  {font-family: $font-tertiary !important;font-optical-sizing: auto;}
 .-dec-none {text-decoration: none;}
 .ml-auto{margin-left: auto !important;}
 .mr-auto{margin-right: auto !important;}
@@ -268,6 +268,7 @@ html {
 	font-weight: bolder;
 	font-family: Arial, Helvetica, sans-serif;
 	font-family: var(--font);
+  font-optical-sizing: auto;
 	background-color: var(--theme-primary);
 	color: var(--theme-secondary);
 	scrollbar-width: thin
@@ -282,10 +283,16 @@ html {
 body {
 	min-height: 100vh
 }
-h1,h2,h3,h4,h5 {
+h1,h2,h3,h4,h5,
+.h1,.h2,.h3,.h4,.h5 {
   font-family: $font;
   letter-spacing: -.042em;
 }
+.h1 {@extend h1;}
+.h2 {@extend h2;}
+.h3 {@extend h3;}
+.h4 {@extend h4;}
+.h5 {@extend h5;}
 .p, p, li {
   font-family: $font;
   font-weight: 500;
@@ -293,6 +300,7 @@ h1,h2,h3,h4,h5 {
   line-height: 1.4em;
   letter-spacing: -.042em;
 }
+.p {font-size: 1.2rem !important;}
 a,
 button,
 input,
@@ -421,6 +429,7 @@ svg.icon rect[stroke] {
   mix-blend-mode: difference;
 }
 #about {
+  .vh-100 {min-height: 632px;}
   h2 {
     line-height: 1.3;
     font-size: 30px;
@@ -475,7 +484,7 @@ footer {
     transition: color .95s cubic-bezier(.19,1,.22,1);
 }
 
-header div.position-sticky.w-100 {
+header .position-sticky.w-100 {
   margin-bottom: calc(var(--navbar-height) - 12px) !important;
 }
 #primary-navigation-home {
@@ -611,3 +620,38 @@ section.svh-100 {
   #about h2 {font-size: 43px;}
   .nav-link {font-size: 16px;}
 }
+/* START Sprint Page */
+.-font-heirarchy {
+  p {}
+  h1 {font-size: 50px;}
+  h2 {font-size: 30px;}
+  h3 {font-size: 20px;}
+  @media screen and (max-width: 1199.98px) {
+    h1 {font-size: 80px;}
+    h2 {font-size: 52px;}
+    h3 {font-size: 24px;}
+  }
+  @media screen and (min-width: 1200px) {
+    h1 {font-size: 110px;}
+    h2 {font-size: 60px;}
+    h3 {font-size: 24px;}
+  }
+}
+ul.arrow-list {
+  li {
+    position: relative;
+    list-style: none;
+    &::before {
+      content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 29"><path d="M 2.133 14.197 L 29 14.25 M 30.161 14.197 L 17.885 2.299 M 30.161 14.197 L 17.885 26.096" fill="transparent" stroke-width="4" stroke="rgb(56,56,56)" stroke-linecap="square"></path></svg>');
+      /* Adjust size and position with background-size, etc. */
+      width: 1em;
+      height: 1em;
+      display: inline-block;
+      margin-right: 0.5em;
+      position: absolute;
+      left: 0;
+      top: 0.2em;
+    }
+  }
+}
+/* END Sprint Page */
