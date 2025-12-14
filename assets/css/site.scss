@@ -52,7 +52,7 @@ $font-tertiary: 'Libre Baskerville';
 	--layout-columns-gap: 4.2666666667vw;
 	--layout-margin: 4.2666666667vw;
 	--layout-width: calc(100vw - (2 * var(--layout-margin)));
-	--layout-column-width: calc((var(--layout-width) - ((var(--layout-columns-count) - 1) * var(--layout-columns-gap))) / var(--layout-columns-count))
+	--layout-column-width: calc((var(--layout-width) - ((var(--layout-columns-count) - 1) * var(--layout-columns-gap))) / var(--layout-columns-count));
   font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
 }
 
@@ -92,7 +92,8 @@ em {
 }
 .-bold, strong, .text-bold {
   font-weight: 900 !important;
-}.-semiBold {
+}
+.-semiBold {
   font-weight: 600 !important;
 }
 .-medium {
@@ -238,17 +239,21 @@ hr {opacity: 1;}
 	color: $grey !important;
 }
 .theme-light {
-	--theme-primary: #fffef4;
+	/*--theme-primary: #fffef4;*/
+  --theme-primary: #e8e8e8;
 	--theme-primary-transparent: rgba(255, 254, 244, 0);
-	--theme-secondary: #000;
+	/*--theme-secondary: #000;*/
+  --theme-secondary: #1a1918;
 	--theme-secondary-transparent: transparent;
 	--theme-contrast: red;
 	--theme-contrast-transparent: rgba(255, 0, 0, 0)
 }
 .theme-dark {
-	--theme-primary: #000;
+	/*--theme-primary: #000;*/
+  --theme-primary: #1a1918;
 	--theme-primary-transparent: transparent;
-	--theme-secondary: #fffef4;
+	/*--theme-secondary: #fffef4;*/
+  --theme-secondary: #e8e8e8;
 	--theme-secondary-transparent: rgba(255, 254, 244, 0);
 	--theme-contrast: red;
 	--theme-contrast-transparent: rgba(255, 0, 0, 0)
@@ -621,12 +626,15 @@ section.svh-100 {
   .nav-link {font-size: 16px;}
 }
 /* START Sprint Page */
+svg.logo-sm {
+  height: 30px !important;
+  width: auto !important;
+}
 .-font-heirarchy {
-  p {}
   h1 {font-size: 50px;}
   h2 {font-size: 30px;}
   h3 {font-size: 20px;}
-  @media screen and (max-width: 1199.98px) {
+  @media screen and (min-width:768px) and (max-width: 1199.98px) {
     h1 {font-size: 80px;}
     h2 {font-size: 52px;}
     h3 {font-size: 24px;}
@@ -651,6 +659,24 @@ ul.arrow-list {
       position: absolute;
       left: 0;
       top: 0.2em;
+    }
+  }
+}
+.page-sprint {
+  header {
+    h1, .h1 {
+      letter-spacing: -0.03em;
+      line-height: 1;
+      em {font-size:87%;}
+    }
+    h3,.h3 {font-size:26px;}
+    .p {font-size: 1rem !important;}
+    @media screen and (min-width: 1200px) {
+      h1,.h1 {
+        font-size: 100px;
+      }
+      h3,.h3 {font-size:32px;}
+      .p {font-size: 1.2rem !important;}
     }
   }
 }
