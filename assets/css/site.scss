@@ -626,6 +626,14 @@ section.svh-100 {
   .nav-link {font-size: 16px;}
 }
 /* START Sprint Page */
+.list-bordered {
+  padding-left: 0;
+  list-style: inside;
+}
+.list-bordered li,
+.list-bordered ol {
+  border-bottom: 1px solid $black;
+}
 svg.logo-sm {
   height: 30px !important;
   width: auto !important;
@@ -646,19 +654,21 @@ svg.logo-sm {
   }
 }
 ul.arrow-list {
+  padding-left: 0;
   li {
     position: relative;
     list-style: none;
+    padding-left: 1.67em;
     &::before {
       content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 29"><path d="M 2.133 14.197 L 29 14.25 M 30.161 14.197 L 17.885 2.299 M 30.161 14.197 L 17.885 26.096" fill="transparent" stroke-width="4" stroke="rgb(56,56,56)" stroke-linecap="square"></path></svg>');
-      /* Adjust size and position with background-size, etc. */
+      /* Adjust size with background-size */
       width: 1em;
       height: 1em;
       display: inline-block;
       margin-right: 0.5em;
       position: absolute;
       left: 0;
-      top: 0.2em;
+      top: 0.75em;
     }
   }
 }
@@ -677,6 +687,15 @@ ul.arrow-list {
       }
       h3,.h3 {font-size:32px;}
       .p {font-size: 1.2rem !important;}
+    }
+  }
+  p.col-lg-10.h3 {line-height: 1.5em;}
+  #lets-go {
+    .nav-link {
+      border: 1.5px solid $white;
+      &:hover {
+        border-color: transparent;
+      }
     }
   }
 }
