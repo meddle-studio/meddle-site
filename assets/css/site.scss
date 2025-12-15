@@ -637,6 +637,9 @@ section.svh-100 {
 svg.logo-sm {
   height: 30px !important;
   width: auto !important;
+  @media screen and (max-width: 767.98px) {
+    height: 24px !important;
+  }
 }
 .-font-heirarchy {
   h1 {font-size: 50px;}
@@ -686,6 +689,12 @@ ul.arrow-list {
         font-size: 100px;
       }
       h3,.h3 {font-size:32px;}
+      .p {font-size: 1.2rem !important;}
+    }
+  }
+  main section {
+    .p {font-size: 1rem !important;}
+    @media screen and (min-width: 1200px) {
       .p {font-size: 1.2rem !important;}
     }
   }
