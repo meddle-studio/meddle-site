@@ -16,8 +16,8 @@ instagram: "https://www.instagram.com/meddledesign.co/"
 
 # Build settings
 markdown: kramdown
-#plugins:
-  #- jekyll-redirect-from
+# plugins:
+#   - jekyll-redirect-from
 exclude:
 #  - .forestryio
 # - _css

@@ -656,7 +656,7 @@ svg.logo-sm {
     h3 {font-size: 24px;}
   }
 }
-ul.arrow-list {
+ul.arrow-list, ul.no-good {
   padding-left: 0;
   li {
     position: relative;
@@ -674,6 +674,12 @@ ul.arrow-list {
       top: 0.75em;
     }
   }
+}
+ul.no-good li::before {
+  content:"×";
+  top: 0.067em;
+  font-weight: 400;
+  font-size: 1.75em;
 }
 .page-sprint {
   header {
