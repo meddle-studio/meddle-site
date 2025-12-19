@@ -708,8 +708,17 @@ ul.no-good li::before {
   #lets-go {
     .nav-link {
       border: 1.5px solid $white;
+      transform: scale(.99);
       &:hover {
+        background-color: rgba($grey, .3);
         border-color: transparent;
+        box-shadow: 0 0 20px rgba($white,.8);
+        transform: translateY(-4px);
+      }
+      &:active {
+        transform: scale(.95)translateY(2px);
+        box-shadow: none;
+        transition: all .25s ease;
       }
     }
   }
