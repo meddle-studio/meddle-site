@@ -190,7 +190,7 @@ layout: none
 </div>
 
 <script>
-    // 1. CUSTOM SELECT LOGIC
+   // 1. CUSTOM SELECT LOGIC (Remains the same for UI)
     document.querySelectorAll('.meddle-select-wrapper').forEach(wrapper => {
         const trigger = wrapper.querySelector('.meddle-select-trigger');
         const hiddenInput = wrapper.querySelector('input[type="hidden"]');
@@ -216,7 +216,7 @@ layout: none
         }
     });
 
-    // 2. HUBSPOT API SUBMISSION
+    // 2. FIXED HUBSPOT API SUBMISSION
     const form = document.getElementById('meddle-hubspot-form');
     const submitBtn = document.getElementById('submit-btn');
 
@@ -230,24 +230,33 @@ layout: none
         const endpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
 
         const formData = new FormData(form);
-        const nameParts = formData.get('full_name').trim().split(' ');
+        
+        // Parse name for CRM first/last name fields
+        const full_name = formData.get('full_name') || "";
+        const nameParts = full_name.trim().split(' ');
+        
+        // Extract multi-select values (checkboxes)
         const projectTypes = Array.from(formData.getAll('project_type')).join(';');
 
+        // This payload uses the exact internal property names found in your Form.mhtml
         const data = {
             "fields": [
-                { "name": "full_name", "value": formData.get('full_name') },
+                { "name": "0-1/full_name", "value": full_name },
                 { "name": "firstname", "value": nameParts[0] },
                 { "name": "lastname", "value": nameParts.slice(1).join(' ') || ' ' },
-                { "name": "email", "value": formData.get('email') },
-                { "name": "company", "value": formData.get('name') },
-                { "name": "website", "value": formData.get('website') },
-                { "name": "message", "value": formData.get('message') },
-                { "name": "project_type", "value": projectTypes },
-                { "name": "timeline", "value": formData.get('timeline') },
-                { "name": "budget_expectation", "value": formData.get('budget_expectation') },
-                { "name": "how_did_you_hear_about_us", "value": formData.get('how_did_you_hear_about_us') }
+                { "name": "0-1/email", "value": formData.get('email') },
+                { "name": "0-2/name", "value": formData.get('name') },
+                { "name": "0-1/website", "value": formData.get('website') || "" },
+                { "name": "0-1/message", "value": formData.get('message') || "" },
+                { "name": "0-1/project_type", "value": projectTypes },
+                { "name": "timeline", "value": formData.get('timeline') || "" },
+                { "name": "budget_expectation", "value": formData.get('budget_expectation') || "" },
+                { "name": "how_did_you_hear_about_us", "value": formData.get('how_did_you_hear_about_us') || "" }
             ],
-            "context": { "pageUri": window.location.href, "pageName": document.title }
+            "context": {
+                "pageUri": window.location.href,
+                "pageName": document.title
+            }
         };
 
         fetch(endpoint, {
@@ -256,9 +265,21 @@ layout: none
             body: JSON.stringify(data),
             mode: 'cors'
         }).then(res => {
-            if (res.ok) window.location.href = "https://calendly.com/matt-meddle/discovery-call";
-            else { alert("Submission failed. Check console for details."); submitBtn.disabled = false; }
-        }).catch(() => { submitBtn.disabled = false; });
+            if (res.ok) {
+                window.location.href = "https://calendly.com/matt-meddle/discovery-call";
+            } else {
+                return res.json().then(errorData => {
+                    console.error("HubSpot Error:", errorData);
+                    alert("Form Error: " + (errorData.errors?.[0]?.message || "Check console"));
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = "LET'S MEDDLE";
+                });
+            }
+        }).catch(err => {
+            console.error("Network Error:", err);
+            submitBtn.disabled = false;
+            submitBtn.innerText = "LET'S MEDDLE";
+        });
     });
 </script>
 </body>
