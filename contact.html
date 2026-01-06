@@ -1,0 +1,265 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Meddle Studio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root { --bs-body-bg: #050505; --bs-body-color: #f4f4f4; }
+        body { font-family: sans-serif; }
+        a {color: white;}
+        .ls-1 { letter-spacing: 0.1em; }
+        .ls-tight { letter-spacing: -0.03em; }
+
+        /* Meddle Input Aesthetic */
+        .meddle-input {
+            background-color: transparent !important;
+            border: none !important;
+            border-bottom: 1px solid #222 !important;
+            border-radius: 0 !important;
+            color: #fff !important;
+            padding: 1rem 0 !important;
+            font-size: 1.25rem !important;
+            transition: border-bottom-color 0.4s ease;
+        }
+        .meddle-input:focus { outline: none; box-shadow: none; border-bottom-color: #fff !important; }
+        .meddle-input::placeholder { color: #333; }
+
+        label { color: #666; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; margin-top: 2rem; display: block; }
+
+        /* Custom Dropdown UI */
+        .meddle-select-wrapper { position: relative; border-bottom: 1px solid #222; }
+        .meddle-select-trigger {
+            width: 100%; padding: 1rem 0; font-size: 1.25rem; color: #fff; background: transparent;
+            border: none; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+        }
+        .meddle-select-trigger::after {
+            content: ''; width: 8px; height: 8px; border-right: 1px solid #444; border-bottom: 1px solid #444;
+            transform: rotate(45deg); transition: 0.3s; margin-right: 10px;
+        }
+        .meddle-select-wrapper.open .meddle-select-trigger::after { transform: rotate(-135deg); border-color: #fff; }
+        
+        .meddle-options {
+            position: absolute; top: 100%; left: 0; right: 0; background: #0f0f0f;
+            border: 1px solid #222; z-index: 1000; display: none; padding: 0; margin: 0; list-style: none;
+        }
+        .meddle-select-wrapper.open .meddle-options { display: block; }
+        .meddle-option { padding: 1rem; cursor: pointer; color: #888; transition: 0.2s; }
+        .meddle-option:hover { background: #1a1a1a; color: #fff; }
+
+        /* Project Type Chips */
+        .project-chip { cursor: pointer; border: 1px solid #222; padding: 0.5rem 1.25rem; transition: 0.3s; color: #666; }
+        input[type="checkbox"]:checked + .project-chip { border-color: #fff; color: #fff; background: #111; }
+
+        .btn-meddle {
+            background-color: #fff; color: #000; border: none; font-weight: 800;
+            padding: 1.5rem 4rem; text-transform: uppercase; border-radius: 0; margin-top: 3rem;
+            transition: 0.3s;
+        }
+        .btn-meddle:hover { background-color: #ccc; transform: translateY(-2px); }
+        .btn-meddle:disabled { background-color: #333; color: #666; }
+    </style>
+</head>
+<body class="bg-black text-light">
+
+<div class="container-xl py-5">
+    <div class="row g-5">
+        <aside class="col-lg-5">
+                <div class="sticky-lg-top pt-lg-4" style="top: 2rem; z-index: 1;">
+                    <header class="mb-5">
+                        <h1 class="display-3 fw-bolder ls-tight lh-1 mb-4">
+                            Got a project in&nbsp;mind?<br>Let's talk.
+                        </h1>
+                        <span class="lead text-secondary fs-4 fw-light col-9 col-lg-11">
+                            hello@meddle.studio
+                        </span>
+                        <span class="col-3 text-right col-lg-1">
+							<button data-url="hello@meddle.studio" onclick="event.preventDefault();navigator.clipboard.writeText(this.dataset.url);var that = this;that.innerHTML='Copied';setTimeout(function(){that.innerHTML='Copy';}, 1000);" class="-grey">
+								Copy
+							</button>
+						</span>
+                        </span>
+                    </header>
+
+                    <div class="d-flex flex-column gap-5">
+                        
+                        <div class="border-start border-dark-subtle ps-4">
+                            <h2 class="h6 text-uppercase text-secondary ls-1 mb-2">Timing</h2>
+                            <p class="text-secondary-emphasis mb-0">
+                                Meddle operates as a lean, founder-led studio. We work with full devotion for a few select partners at a time. We don’t do "rush jobs." We do it right.
+                            </p>
+                        </div>
+
+                        <div class="border-start border-dark-subtle ps-4">
+                            <h2 class="h6 text-uppercase text-secondary ls-1 mb-2">Scope</h2>
+                            <p class="text-secondary-emphasis mb-0">
+                                We specialize in high-impact brand strategy, visual identity, and website design for challengers ready to punch above their weight. We solve critical business problems, not just cosmetic ones.
+                            </p>
+                        </div>
+
+                        <div class="border-start border-dark-subtle ps-4">
+                            <h2 class="h6 text-uppercase text-secondary ls-1 mb-2">Budget</h2>
+                            <p class="text-secondary-emphasis mb-0">
+                                Budgets vary by stakes and scope. Our engagements start at <strong class="text-white"> $25,000</strong>, with comprehensive overhauls typically landing between <strong class="text-white">$50k – $250k</strong>.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </aside>
+
+        <main class="col-lg-7 pt-lg-4">
+            <p class="display-6 fw-light lh-sm mb-5">This is a bit exciting. Ready to make something great?</p>
+            <form id="meddle-hubspot-form">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="full_name">What's your name?</label>
+                        <input type="text" name="full_name" id="full_name" class="form-control meddle-input" placeholder="Yourothy Namenton" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email">Email address</label>
+                        <input type="email" name="email" id="email" class="form-control meddle-input" placeholder="emailio@addresstevez.com" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="name">Company Name</label>
+                        <input type="text" name="name" id="name" class="form-control meddle-input" placeholder="The Next Big Thing, LLC" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="website">Website URL</label>
+                        <input type="url" name="website" id="website" class="form-control meddle-input" placeholder="https://">
+                    </div>
+                </div>
+
+                <label class="mb-3">What are we meddling with?</label>
+                <div class="d-flex flex-wrap gap-2">
+                    <label class="mt-0"><input type="checkbox" name="project_type" value="Brand" class="d-none"><span class="project-chip">Brand</span></label>
+                    <label class="mt-0"><input type="checkbox" name="project_type" value="Website" class="d-none"><span class="project-chip">Website</span></label>
+                    <label class="mt-0"><input type="checkbox" name="project_type" value="Art Direction" class="d-none"><span class="project-chip">Art Direction</span></label>
+                    <label class="mt-0"><input type="checkbox" name="project_type" value="Campaign" class="d-none"><span class="project-chip">Campaign</span></label>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Timeline</label>
+                        <div class="meddle-select-wrapper" id="timeline-select">
+                            <button type="button" class="meddle-select-trigger">Select timing</button>
+                            <ul class="meddle-options">
+                                <li class="meddle-option" data-value="ASAP">ASAP</li>
+                                <li class="meddle-option" data-value="In a month">In a month</li>
+                                <li class="meddle-option" data-value="In 2 – 3 months">In 2 – 3 months</li>
+                                <li class="meddle-option" data-value="In 3 – 6 months">In 3 – 6 months</li>
+                            </ul>
+                            <input type="hidden" name="timeline" id="timeline_input">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Budget Expectation</label>
+                        <div class="meddle-select-wrapper" id="budget-select">
+                            <button type="button" class="meddle-select-trigger">Select range</button>
+                            <ul class="meddle-options">
+                                <li class="meddle-option" data-value="Less than $50K">Less than $50K</li>
+                                <li class="meddle-option" data-value="$50K – $150K">$50K – $150K</li>
+                                <li class="meddle-option" data-value="$150K – $300K">$150K – $300K</li>
+                                <li class="meddle-option" data-value="$300K or more">$300K or more</li>
+                            </ul>
+                            <input type="hidden" name="budget_expectation" id="budget_input">
+                        </div>
+                    </div>
+                </div>
+
+                <label for="message">Message</label>
+                <textarea name="message" id="message" rows="2" class="form-control meddle-input" placeholder="Tell us about the dream..."></textarea>
+
+                <label for="how_did_you_hear_about_us">How did you hear about us?</label>
+                <input type="text" name="how_did_you_hear_about_us" id="how_did_you_hear_about_us" class="form-control meddle-input" placeholder="Saw a slick design on LinkedIn?">
+
+                <button type="submit" id="submit-btn" class="btn btn-meddle w-100 w-md-auto">Let's Meddle</button>
+            </form>
+        </main>
+
+  {% include footer.html %}
+    </div>
+</div>
+
+<script>
+    // 1. CUSTOM SELECT LOGIC
+    document.querySelectorAll('.meddle-select-wrapper').forEach(wrapper => {
+        const trigger = wrapper.querySelector('.meddle-select-trigger');
+        const hiddenInput = wrapper.querySelector('input[type="hidden"]');
+        
+        trigger.addEventListener('click', () => {
+            document.querySelectorAll('.meddle-select-wrapper').forEach(w => { if(w !== wrapper) w.classList.remove('open'); });
+            wrapper.classList.toggle('open');
+        });
+
+        wrapper.querySelectorAll('.meddle-option').forEach(opt => {
+            opt.addEventListener('click', () => {
+                const val = opt.getAttribute('data-value');
+                trigger.innerText = val;
+                hiddenInput.value = val;
+                wrapper.classList.remove('open');
+            });
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.meddle-select-wrapper')) {
+            document.querySelectorAll('.meddle-select-wrapper').forEach(w => w.classList.remove('open'));
+        }
+    });
+
+    // 2. HUBSPOT API SUBMISSION
+    const form = document.getElementById('meddle-hubspot-form');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.innerText = "SENDING...";
+
+        const portalId = '147536977';
+        const formId = '00e8fefa-5f4e-4b3b-87e0-cb534d4c0836';
+        const endpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
+
+        const formData = new FormData(form);
+        const nameParts = formData.get('full_name').trim().split(' ');
+        const projectTypes = Array.from(formData.getAll('project_type')).join(';');
+
+        const data = {
+            "fields": [
+                { "name": "full_name", "value": formData.get('full_name') },
+                { "name": "firstname", "value": nameParts[0] },
+                { "name": "lastname", "value": nameParts.slice(1).join(' ') || ' ' },
+                { "name": "email", "value": formData.get('email') },
+                { "name": "company", "value": formData.get('name') },
+                { "name": "website", "value": formData.get('website') },
+                { "name": "message", "value": formData.get('message') },
+                { "name": "project_type", "value": projectTypes },
+                { "name": "timeline", "value": formData.get('timeline') },
+                { "name": "budget_expectation", "value": formData.get('budget_expectation') },
+                { "name": "how_did_you_hear_about_us", "value": formData.get('how_did_you_hear_about_us') }
+            ],
+            "context": { "pageUri": window.location.href, "pageName": document.title }
+        };
+
+        fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+            mode: 'cors'
+        }).then(res => {
+            if (res.ok) window.location.href = "https://calendly.com/matt-meddle/discovery-call";
+            else { alert("Submission failed. Check console for details."); submitBtn.disabled = false; }
+        }).catch(() => { submitBtn.disabled = false; });
+    });
+</script>
+</body>
+</html>
