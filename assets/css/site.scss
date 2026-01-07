@@ -239,7 +239,7 @@ hr {opacity: 1;}
 	color: $grey !important;
 }
 .theme-light {
-	/*--theme-primary: #fffef4;*/
+	/*--theme-primary: $whiteef4;*/
   --theme-primary: #e8e8e8;
 	--theme-primary-transparent: rgba(255, 254, 244, 0);
 	/*--theme-secondary: #000;*/
@@ -252,7 +252,7 @@ hr {opacity: 1;}
 	/*--theme-primary: #000;*/
   --theme-primary: #1a1918;
 	--theme-primary-transparent: transparent;
-	/*--theme-secondary: #fffef4;*/
+	/*--theme-secondary: $whiteef4;*/
   --theme-secondary: #e8e8e8;
 	--theme-secondary-transparent: rgba(255, 254, 244, 0);
 	--theme-contrast: red;
@@ -625,6 +625,83 @@ section.svh-100 {
   #about h2 {font-size: 43px;}
   .nav-link {font-size: 16px;}
 }
+/* Form Styling START */
+.meddle-input {
+  background-color: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid $black !important;
+  border-radius: 0 !important;
+  color: $white !important;
+  padding: 1rem 0 !important;
+  font-size: 1.25rem !important;
+  transition: border-bottom-color 0.4s ease;
+}
+.meddle-input:focus { outline: none; box-shadow: none; border-bottom-color: $white !important; }
+.meddle-input::placeholder { color: #333; }
+label { color: $grey; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; margin-top: 2rem; display: block; }
+.meddle-select-wrapper { position: relative; border-bottom: 1px solid $black; }
+.meddle-select-trigger {
+  width: 100%; 
+  padding: 1rem 0; 
+  font-size: 1.25rem; 
+  color: $white; 
+  background: transparent;
+  border: none; 
+  text-align: left; 
+  cursor: pointer; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+}
+.meddle-select-trigger::after {
+  content: ''; 
+  width: 8px; 
+  height: 8px; 
+  border-right: 1px solid #444; 
+  border-bottom: 1px solid #444;
+  transform: rotate(45deg); transition: 0.3s; margin-right: 10px;
+}
+.meddle-select-wrapper.open .meddle-select-trigger::after { transform: rotate(-135deg); border-color: $white; }
+.meddle-options {
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    right: 0; 
+    background: #0f0f0f;
+    border: 1px solid $black; 
+    z-index: 1000; 
+    display: none; 
+    padding: 0; 
+    margin: 0; 
+    list-style: none;
+}
+.meddle-select-wrapper.open .meddle-options { display: block; }
+.meddle-option { padding: 1rem; cursor: pointer; color: #888; transition: 0.2s; }
+.meddle-option:hover { background: #1a1a1a; color: $white; }
+
+.project-chip { 
+  cursor: pointer; 
+  border: 1px solid $black; 
+  padding: 0.5rem 1.25rem; 
+  transition: 0.3s; 
+  color: #666; 
+}
+input[type="checkbox"]:checked + .project-chip { border-color: $white; color: $white; background: #111; }
+.btn-meddle {
+    background-color: $white; 
+    color: #000; 
+    border: none; 
+    font-weight: 800;
+    padding: 1.5rem 4rem; 
+    text-transform: uppercase; 
+    border-radius: 0; 
+    margin-top: 3rem;
+    transition: 0.3s;
+}
+.btn-meddle:hover { background-color: #ccc; transform: translateY(-2px); }
+.btn-meddle:disabled { background-color: #333; color: #666; }
+/* Form Styling END */
+
 /* START Sprint Page */
 .list-bordered {
   padding-left: 0;

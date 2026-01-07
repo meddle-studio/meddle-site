@@ -28,7 +28,7 @@
           },
           {
             "key": "Permissions-Policy",
-            "value": "accelerometer=(),autoplay=(),camera=(),clipboard-read=(),clipboard-write=(),fullscreen=(),geolocation=(),gyroscope=(),hid=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=()"
+            "value": "accelerometer=(),camera=(),clipboard-read=(),geolocation=(),gyroscope=(),hid=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=()"
           },
           {
             "key": "Referrer-Policy",

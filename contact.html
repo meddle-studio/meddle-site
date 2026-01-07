@@ -1,81 +1,22 @@
 ---
-layout: none
+theme: dark
+layout: default
+classes: page-contact
+date: 2026-01-28
+title: Contact Meddle: A brand and design studio for industry challengers
+description: Got a project in mind? Let's talk.
+permalink: contact
 ---
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Meddle Studio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <style>
-        :root { --bs-body-bg: #050505; --bs-body-color: #f4f4f4; }
-        body { font-family: sans-serif; }
-        a {color: white;}
-        .ls-1 { letter-spacing: 0.1em; }
-        .ls-tight { letter-spacing: -0.03em; }
-
-        /* Meddle Input Aesthetic */
-        .meddle-input {
-            background-color: transparent !important;
-            border: none !important;
-            border-bottom: 1px solid #222 !important;
-            border-radius: 0 !important;
-            color: #fff !important;
-            padding: 1rem 0 !important;
-            font-size: 1.25rem !important;
-            transition: border-bottom-color 0.4s ease;
-        }
-        .meddle-input:focus { outline: none; box-shadow: none; border-bottom-color: #fff !important; }
-        .meddle-input::placeholder { color: #333; }
-
-        label { color: #666; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; margin-top: 2rem; display: block; }
-
-        /* Custom Dropdown UI */
-        .meddle-select-wrapper { position: relative; border-bottom: 1px solid #222; }
-        .meddle-select-trigger {
-            width: 100%; padding: 1rem 0; font-size: 1.25rem; color: #fff; background: transparent;
-            border: none; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-        }
-        .meddle-select-trigger::after {
-            content: ''; width: 8px; height: 8px; border-right: 1px solid #444; border-bottom: 1px solid #444;
-            transform: rotate(45deg); transition: 0.3s; margin-right: 10px;
-        }
-        .meddle-select-wrapper.open .meddle-select-trigger::after { transform: rotate(-135deg); border-color: #fff; }
-        
-        .meddle-options {
-            position: absolute; top: 100%; left: 0; right: 0; background: #0f0f0f;
-            border: 1px solid #222; z-index: 1000; display: none; padding: 0; margin: 0; list-style: none;
-        }
-        .meddle-select-wrapper.open .meddle-options { display: block; }
-        .meddle-option { padding: 1rem; cursor: pointer; color: #888; transition: 0.2s; }
-        .meddle-option:hover { background: #1a1a1a; color: #fff; }
-
-        /* Project Type Chips */
-        .project-chip { cursor: pointer; border: 1px solid #222; padding: 0.5rem 1.25rem; transition: 0.3s; color: #666; }
-        input[type="checkbox"]:checked + .project-chip { border-color: #fff; color: #fff; background: #111; }
-
-        .btn-meddle {
-            background-color: #fff; color: #000; border: none; font-weight: 800;
-            padding: 1.5rem 4rem; text-transform: uppercase; border-radius: 0; margin-top: 3rem;
-            transition: 0.3s;
-        }
-        .btn-meddle:hover { background-color: #ccc; transform: translateY(-2px); }
-        .btn-meddle:disabled { background-color: #333; color: #666; }
-    </style>
-</head>
-<body class="bg-black text-light">
-
 <div class="container-xl py-5">
     <div class="row g-5">
         <aside class="col-lg-5">
                 <div class="sticky-lg-top pt-lg-4" style="top: 2rem; z-index: 1;">
                     <header class="mb-5">
+                        <span class="p pt-5 -font-secondary mb-3 text-uppercase -grey" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="250">Contact</span>
                         <h1 class="display-3 fw-bolder ls-tight lh-1 mb-4">
-                            Got a project in&nbsp;mind?<br>Let's talk.
+                            Got a project in&nbsp;mind? Let's&nbsp;talk.
                         </h1>
-                        <span class="lead text-secondary fs-4 fw-light col-9 col-lg-11">
+                        <span class="lead -white text-secondary fs-4 fw-light col-9 col-lg-11">
                             hello@meddle.studio
                         </span>
                         <span class="col-3 text-right col-lg-1">
@@ -86,26 +27,26 @@ layout: none
                         </span>
                     </header>
 
-                    <div class="d-flex flex-column gap-5">
+                    <div class="flex-column gap-5 d-none d-lg-flex">
                         
                         <div class="border-start border-dark-subtle ps-4">
-                            <h2 class="h6 text-uppercase text-secondary ls-1 mb-2">Timing</h2>
-                            <p class="text-secondary-emphasis mb-0">
+                            <h2 class="h5 text-secondary ls-1 mb-2 -bold"><small>Timing</small></h2>
+                            <p class="-drkText mb-0">
                                 Meddle operates as a lean, founder-led studio. We work with full devotion for a few select partners at a time. We don’t do "rush jobs." We do it right.
                             </p>
                         </div>
 
                         <div class="border-start border-dark-subtle ps-4">
-                            <h2 class="h6 text-uppercase text-secondary ls-1 mb-2">Scope</h2>
-                            <p class="text-secondary-emphasis mb-0">
+                           <h2 class="h5 text-secondary ls-1 mb-2 -bold"><small>Scope</small></h2>
+                            <p class="-drkText mb-0">
                                 We specialize in high-impact brand strategy, visual identity, and website design for challengers ready to punch above their weight. We solve critical business problems, not just cosmetic ones.
                             </p>
                         </div>
 
                         <div class="border-start border-dark-subtle ps-4">
-                            <h2 class="h6 text-uppercase text-secondary ls-1 mb-2">Budget</h2>
-                            <p class="text-secondary-emphasis mb-0">
-                                Budgets vary by stakes and scope. Our engagements start at <strong class="text-white"> $25,000</strong>, with comprehensive overhauls typically landing between <strong class="text-white">$50k – $250k</strong>.
+                            <h2 class="h5 text-secondary ls-1 mb-2 -bold"><small>Budget</small></h2>
+                            <p class="-drkText mb-0">
+                                Budgets vary by stakes and scope. Our engagements start at $30,000, with comprehensive projects typically landing between $90k – $250k.
                             </p>
                         </div>
 
@@ -113,16 +54,16 @@ layout: none
                 </div>
             </aside>
 
-        <main class="col-lg-7 pt-lg-4">
-            <p class="display-6 fw-light lh-sm mb-5">This is a bit exciting. Ready to make something great?</p>
+        <section class="col-lg-7 mt-0 mt-lg-5 pt-lg-4">
+            <p class="d-none d-lg-block display-6 fw-light lh-sm mb-5 -drkText">This is a bit exciting. Ready to make something&nbsp;great?</p>
             <form id="meddle-hubspot-form">
                 <div class="row">
                     <div class="col-md-6">
-                        <label for="full_name">What's your name?</label>
+                        <label for="full_name" class="mt-0 mt-lg-4">What's your name?</label>
                         <input type="text" name="full_name" id="full_name" class="form-control meddle-input" placeholder="Yourothy Namenton" required>
                     </div>
                     <div class="col-md-6">
-                        <label for="email">Email address</label>
+                        <label for="email" class="mt-0 mt-lg-4">Email address</label>
                         <input type="email" name="email" id="email" class="form-control meddle-input" placeholder="emailio@addresstevez.com" required>
                     </div>
                 </div>
@@ -140,10 +81,11 @@ layout: none
 
                 <label class="mb-3">What are we meddling with?</label>
                 <div class="d-flex flex-wrap gap-2">
-                    <label class="mt-0"><input type="checkbox" name="project_type" value="Brand" class="d-none"><span class="project-chip">Brand</span></label>
-                    <label class="mt-0"><input type="checkbox" name="project_type" value="Website" class="d-none"><span class="project-chip">Website</span></label>
-                    <label class="mt-0"><input type="checkbox" name="project_type" value="Art Direction" class="d-none"><span class="project-chip">Art Direction</span></label>
-                    <label class="mt-0"><input type="checkbox" name="project_type" value="Campaign" class="d-none"><span class="project-chip">Campaign</span></label>
+                    <label class="mt-0 mb-3 mb-md-0"><input type="checkbox" name="project_type" value="Brand" class="d-none"><span class="project-chip">Brand</span></label>
+                    <label class="mt-0 mb-3 mb-md-0"><input type="checkbox" name="project_type" value="Website" class="d-none"><span class="project-chip">Website</span></label>
+                    <label class="mt-0 mb-3 mb-md-0"><input type="checkbox" name="project_type" value="Art Direction" class="d-none"><span class="project-chip">Art Direction</span></label>
+                    <label class="mt-0 mb-3 mb-md-0"><input type="checkbox" name="project_type" value="Campaign" class="d-none"><span class="project-chip">Campaign</span></label>
+                    <label class="mt-0 mb-3 mb-md-0"><input type="checkbox" name="project_type" value="Other" class="d-none"><span class="project-chip">Other</span></label>
                 </div>
 
                 <div class="row">
@@ -165,8 +107,8 @@ layout: none
                         <div class="meddle-select-wrapper" id="budget-select">
                             <button type="button" class="meddle-select-trigger">Select range</button>
                             <ul class="meddle-options">
-                                <li class="meddle-option" data-value="Less than $50K">Less than $50K</li>
-                                <li class="meddle-option" data-value="$50K – $150K">$50K – $150K</li>
+                                <li class="meddle-option" data-value="Less than $50K">Less than $30K</li>
+                                <li class="meddle-option" data-value="$50K – $150K">$30K – $150K</li>
                                 <li class="meddle-option" data-value="$150K – $300K">$150K – $300K</li>
                                 <li class="meddle-option" data-value="$300K or more">$300K or more</li>
                             </ul>
@@ -183,9 +125,31 @@ layout: none
 
                 <button type="submit" id="submit-btn" class="btn btn-meddle w-100 w-md-auto">Let's Meddle</button>
             </form>
-        </main>
+            <div class="mt-5 pt-4 flex-column gap-5 d-flex d-lg-none">
+                        
+                <div class="border-start border-dark-subtle ps-4">
+                    <h2 class="h5 text-secondary ls-1 mb-2 -bold"><small>Timing</small></h2>
+                    <p class="-drkText mb-0">
+                        Meddle operates as a lean, founder-led studio. We work with full devotion for a few select partners at a time. We don’t do "rush jobs." We do it right.
+                    </p>
+                </div>
 
-  {% include footer.html %}
+                <div class="border-start border-dark-subtle ps-4">
+                    <h2 class="h5 text-secondary ls-1 mb-2 -bold"><small>Scope</small></h2>
+                    <p class="-drkText mb-0">
+                        We specialize in high-impact brand strategy, visual identity, and website design for challengers ready to punch above their weight. We solve critical business problems, not just cosmetic ones.
+                    </p>
+                </div>
+
+                <div class="border-start border-dark-subtle ps-4">
+                    <h2 class="h5 text-secondary ls-1 mb-2 -bold"><small>Budget</small></h2>
+                    <p class="-drkText mb-0">
+                        Budgets vary by stakes and scope. Our engagements start at $30,000, with comprehensive projects typically landing between $90k – $250k.
+                    </p>
+                </div>
+
+            </div>
+        </section>
     </div>
 </div>
 
@@ -282,5 +246,3 @@ layout: none
         });
     });
 </script>
-</body>
-</html>
