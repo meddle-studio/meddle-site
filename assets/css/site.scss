@@ -79,8 +79,8 @@ $font-tertiary: 'Libre Baskerville';
 .-bg-purple  {background-color: var(--purple)!important;}
 .-bg-grey    {background-color: var(--grey)  !important;}
 .-font       {font-family: $font !important;}
-.-font-secondary {font-family: $font-secondary !important;}
-.-font-tertiary  {font-family: $font-tertiary !important;font-optical-sizing: auto;}
+.-font-secondary, .-mono {font-family: $font-secondary !important;}
+.-font-tertiary, .-serif  {font-family: $font-tertiary !important;font-optical-sizing: auto;}
 .-dec-none {text-decoration: none;}
 .ml-auto{margin-left: auto !important;}
 .mr-auto{margin-right: auto !important;}
@@ -492,7 +492,7 @@ footer {
 header .position-sticky.w-100 {
   margin-bottom: calc(var(--navbar-height) - 12px) !important;
 }
-#primary-navigation-home {
+#primary-navigation-home, #primary-navigation {
     z-index: 1050;
     position: absolute;
     width: 100%;
@@ -625,6 +625,27 @@ section.svh-100 {
   #about h2 {font-size: 43px;}
   .nav-link {font-size: 16px;}
 }
+.page-contact {
+  .sticky-lg-top {margin-top: 2rem;}
+  #logo-xl {
+    z-index: 9999;
+    fill: $grey;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    -webkit-transition-duration: .15s;
+    transition-duration: .15s;
+    &:hover {fill: $white;}
+  }
+  .-drkText {color: rgba($white, .8) !important;}
+  #form {position: relative; z-index:1;}
+  @media screen and (min-width: 992px) {
+    .sticky-lg-top {margin-top: 0; top: 2rem; z-index: 1;}
+  }
+}
 /* Form Styling START */
 .meddle-input {
   background-color: transparent !important;
@@ -637,14 +658,14 @@ section.svh-100 {
   transition: border-bottom-color 0.4s ease;
 }
 .meddle-input:focus { outline: none; box-shadow: none; border-bottom-color: $white !important; }
-.meddle-input::placeholder { color: #333; }
-label { color: $grey; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; margin-top: 2rem; display: block; }
+.meddle-input::placeholder { color: rgba($white,0.25); }
+label { font-family: $font-secondary; color: $grey; font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; margin-top: 2rem; display: block; }
 .meddle-select-wrapper { position: relative; border-bottom: 1px solid $black; }
 .meddle-select-trigger {
   width: 100%; 
   padding: 1rem 0; 
-  font-size: 1.25rem; 
-  color: $white; 
+  font-size: 12px; 
+  color: rgba($white, .25); 
   background: transparent;
   border: none; 
   text-align: left; 
@@ -652,6 +673,9 @@ label { color: $grey; font-size: 0.7rem; text-transform: uppercase; letter-spaci
   display: flex; 
   justify-content: space-between; 
   align-items: center;
+  &.value {
+    color: $white;
+  }
 }
 .meddle-select-trigger::after {
   content: ''; 
@@ -667,9 +691,9 @@ label { color: $grey; font-size: 0.7rem; text-transform: uppercase; letter-spaci
     top: 100%; 
     left: 0; 
     right: 0; 
-    background: #0f0f0f;
+    background: $black;
     border: 1px solid $black; 
-    z-index: 1000; 
+    z-index: 800; 
     display: none; 
     padding: 0; 
     margin: 0; 
@@ -677,7 +701,7 @@ label { color: $grey; font-size: 0.7rem; text-transform: uppercase; letter-spaci
 }
 .meddle-select-wrapper.open .meddle-options { display: block; }
 .meddle-option { padding: 1rem; cursor: pointer; color: #888; transition: 0.2s; }
-.meddle-option:hover { background: #1a1a1a; color: $white; }
+.meddle-option:hover { background: rgba(40,40,40,.8); color: $white; }
 
 .project-chip { 
   cursor: pointer; 
@@ -686,20 +710,49 @@ label { color: $grey; font-size: 0.7rem; text-transform: uppercase; letter-spaci
   transition: 0.3s; 
   color: #666; 
 }
-input[type="checkbox"]:checked + .project-chip { border-color: $white; color: $white; background: #111; }
+input[type="checkbox"]:checked + .project-chip { border-color: $white; color: $white; background: $black; }
 .btn-meddle {
-    background-color: $white; 
-    color: #000; 
-    border: none; 
-    font-weight: 800;
-    padding: 1.5rem 4rem; 
-    text-transform: uppercase; 
-    border-radius: 0; 
+    border-radius: 54px;
+    background-color: rgba(40,40,40,.8);
+    --tw-text-opacity: 1;
+    color: $white;
+    --tw-backdrop-blur: blur(20px);
+    backdrop-filter: blur(20px) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    -webkit-transition-duration: .15s;
+    transition-duration: .15s;
+    -webkit-backdrop-filter: blur(20px) saturate(220%);
+    backdrop-filter: blur(20px) saturate(220%);
+    padding: 24.5px 34px;
+    line-height: 1;
+    margin-left: 4px;
+    font-family: $font-secondary;
+    text-transform: uppercase;
+    font-size: 14px;
+    border: 1.5px solid $white;
     margin-top: 3rem;
-    transition: 0.3s;
 }
-.btn-meddle:hover { background-color: #ccc; transform: translateY(-2px); }
+.btn-meddle:hover {
+  --tw-bg-opacity: 1;
+    background-color: rgba(144,144,144, .8);
+    backdrop-filter: saturate(190%) blur(60px);
+    -webkit-backdrop-filter: saturate(190%) blur(60px);
+    color: $white !important;
+    --tw-text-opacity: 1;
+}
 .btn-meddle:disabled { background-color: #333; color: #666; }
+.-textButton {
+  background: transparent; 
+  border:none;
+  font-size: 0.9rem;
+  &:hover {color: $white;}
+}
 /* Form Styling END */
 
 /* START Sprint Page */
