@@ -20,8 +20,6 @@ jobs:
         with:
           node-version: 20.8.x
           cache: npm
-      - name: Install Firebase Tools
-        run: npm install -g firebase-tools@13.23.1
       - name: npm ci
         run: npm ci
       - name: Setup Ruby/Bundler
@@ -41,3 +39,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HUSTL_8133D }}'
           channelId: live
           projectId: meddle-b24f1
+          firebaseToolsVersion: v13.23.1
