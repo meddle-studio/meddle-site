@@ -626,6 +626,7 @@ section.svh-100 {
   .nav-link {font-size: 16px;}
 }
 .page-contact {
+  background-color: $black;
   .sticky-lg-top {margin-top: 2rem;}
   #logo-xl {
     z-index: 9999;
@@ -659,12 +660,12 @@ section.svh-100 {
 }
 .meddle-input:focus { outline: none; box-shadow: none; border-bottom-color: $white !important; }
 .meddle-input::placeholder { color: rgba($white,0.25); }
-label { font-family: $font-secondary; color: $grey; font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; margin-top: 2rem; display: block; }
+label { font-family: $font-secondary; color: $grey; font-size: 12.6px; font-weight: 500; text-transform: uppercase; letter-spacing: normal; margin-top: 2rem; display: block; }
 .meddle-select-wrapper { position: relative; border-bottom: 1px solid $black; }
 .meddle-select-trigger {
   width: 100%; 
+  font-size: 1.2rem;
   padding: 1rem 0; 
-  font-size: 12px; 
   color: rgba($white, .25); 
   background: transparent;
   border: none; 

@@ -66,7 +66,7 @@ permalink: /contact/
                                 hello@meddle.studio
                             </a>
                             <div class="col text-right">
-                                <button data-url="hello@meddle.studio" onclick="event.preventDefault();navigator.clipboard.writeText(this.dataset.url);var that = this;that.innerHTML='Copied';setTimeout(function(){that.innerHTML='Copy';}, 1000);" class="decorate -grey -font-secondary text-uppercase -medium -textButton">
+                                <button data-url="hello@meddle.studio" onclick="event.preventDefault();navigator.clipboard.writeText(this.dataset.url);var that = this;that.innerHTML='Copied';setTimeout(function(){that.innerHTML='Copy';}, 1000);" class="-grey -font-secondary text-uppercase -medium -textButton">
                                     Copy
                                 </button>
                             </div>
@@ -109,23 +109,23 @@ permalink: /contact/
                         <input type="text" name="full_name" id="full_name" class="form-control meddle-input" placeholder="Yourothy Namenton" required>
                     </div>
                     <div class="col-md-6">
-                        <label for="email" class="mt-lg-2">Email address*</label>
+                        <label for="email" class="mt-lg-2">And your email address?*</label>
                         <input type="email" name="email" id="email" class="form-control meddle-input" placeholder="emailio@addresstevez.com" required>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
-                        <label for="name">Company Name*</label>
+                        <label for="name">Your company name too please.*</label>
                         <input type="text" name="name" id="name" class="form-control meddle-input" placeholder="The Next Big Thing, Inc." required>
                     </div>
                     <div class="col-md-6">
-                        <label for="website">Company URL (if you have one)</label>
+                        <label for="website">Your Company URL (if you have&nbsp;one)</label>
                         <input type="url" name="website" id="website" class="form-control meddle-input" placeholder="https://">
                     </div>
                 </div>
 
-                <label class="mb-3">What are we creating?*</label>
+                <label class="mb-3">What are we creating?* (check all that apply)</label>
                 <div class="d-flex flex-wrap gap-2">
                     <label class="mt-0 mb-3 mb-md-0"><input type="checkbox" name="project_type" value="Brand" class="d-none"><span class="project-chip">Brand</span></label>
                     <label class="mt-0 mb-3 mb-md-0"><input type="checkbox" name="project_type" value="Website" class="d-none"><span class="project-chip">Website</span></label>
@@ -149,7 +149,7 @@ permalink: /contact/
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label>Budget Expectation*</label>
+                        <label>What's Your Budget?*</label>
                         <div class="meddle-select-wrapper" id="budget-select">
                             <button type="button" class="meddle-select-trigger">Select range</button>
                             <ul class="meddle-options">
@@ -163,11 +163,11 @@ permalink: /contact/
                     </div>
                 </div>
 
-                <label for="message">Project Description*</label>
-                <textarea name="message" id="message" rows="2" class="form-control meddle-input" placeholder="Tell us about the dream..." required></textarea>
+                <label for="message">How can we help you out?*</label>
+                <textarea name="message" id="message" rows="2" class="form-control meddle-input" placeholder="We're excited to hear what you've got in mind! Please share details about&nbsp;your&nbsp;project..." required></textarea>
 
                 <label for="how_did_you_hear_about_us">How did you hear about us?*</label>
-                <input type="text" name="how_did_you_hear_about_us" id="how_did_you_hear_about_us" class="form-control meddle-input" placeholder="Saw a slick design on LinkedIn?" required>
+                <input type="text" name="how_did_you_hear_about_us" id="how_did_you_hear_about_us" class="form-control meddle-input" placeholder="Saw our work somewhere? Someone recommended us?" required>
 
                 <button type="submit" id="submit-btn" class="btn btn-meddle w-100 w-md-auto -font-secondary -medium">Submit</button>
             </form>
