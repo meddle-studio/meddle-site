@@ -752,7 +752,15 @@ input[type="checkbox"]:checked + .project-chip { border-color: $white; color: $w
   background: transparent; 
   border:none;
   font-size: 0.9rem;
-  &:hover {color: $white;}
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+  -webkit-transition-duration: .15s;
+  transition-duration: .15s;
+  &:hover {color: $white !important;}
 }
 /* Form Styling END */
 
