@@ -1,37 +1,40 @@
 name: Deploy to Firebase Hosting on PR
 'on': pull_request
+
 jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repo's default branch
+      - name: Check out repo
         uses: actions/checkout@v3
-      - name: Build the site in the jekyll/builder container
-        run: |
-          docker run \
-          -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-          jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll"
+
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 20.8.x
           cache: npm
+
       - name: npm ci
         run: npm ci
-      - name: Setup Ruby/Bundler
+
+      - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.6.3'
+          ruby-version: '3.2.9'
           bundler-cache: true
-          cache-version: 1
-      - name: Build TinaCMS
+
+      - name: Build TinaCMS and Jekyll
         env:
           TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-        run: npx tinacms build && bundle exec jekyll build --future
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+        run: |
+          npx tinacms build
+          bundle exec jekyll build --future
+
+      - name: Deploy Preview to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HUSTL_8133D }}'
