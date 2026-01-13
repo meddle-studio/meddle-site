@@ -4,77 +4,86 @@
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "{{ '/' | absolute_url }}#organization",
-      "name": "{{ site.brand }}",
-      "url": "{{ '/' | absolute_url }}",
-      "logo": "{{ site.logoWht | absolute_url }}",
-      "email": "{{ site.supportEmail }}",
-      {% if site.supportPhone %}"telephone": "{{ site.supportPhone }}",{% endif %}
+      "@id": "https://meddle.studio/#organization",
+      "name": "Meddle",
+      "url": "https://meddle.studio/",
+      "logo": "https://meddle.studio/assets/images/meddle-thumb.png",
+      "email": "hello@meddle.studio",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "{{ site.addressLine1 }}",
+        "streetAddress": "7901 4th St N, STE 300",
         "addressLocality": "St. Petersburg",
         "addressRegion": "FL",
         "postalCode": "33702",
         "addressCountry": "US"
       },
       "sameAs": [
-        "{{ site.instagram }}"
-        {% if site.twitter %},"{{ site.twitter }}"{% endif %}
-        {% if site.facebook %},"{{ site.facebook }}"{% endif %}
-        {% if site.linkedin %},"{{ site.linkedin }}"{% endif %}
-      ]
+        "https://www.instagram.com/meddledesign.co/",
+        "https://www.linkedin.com/in/matt-bacon-meddle/" 
+      ],
+      "founder": { "@id": "https://meddle.studio/#founder" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://meddle.studio/#founder",
+      "name": "Matt Bacon",
+      "jobTitle": "Founder & Creative Director",
+      "url": "https://meddle.studio/",
+      "worksFor": { "@id": "https://meddle.studio/#organization" },
+      "description": "A seasoned creative leader specializing in brand strategy, visual identity, and web development for industry challengers."
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Brand Strategy and Design",
+      "provider": { "@id": "https://meddle.studio/#organization" },
+      "areaServed": "Global",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "B2B SaaS Technology Startups, Financial Institutions, and Enterprise Clients"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "minPrice": "30000",
+        "description": "Comprehensive brand and design engagements starting at $30k."
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Creative Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Strategy" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Visual Identity & Logo Design" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Design & Development" } }
+        ]
+      }
     },
     {
       "@type": "WebSite",
-      "@id": "{{ '/' | absolute_url }}#website",
-      "url": "{{ '/' | absolute_url }}",
-      "name": "{{ site.brand }}",
-      "description": "{{ site.description }}",
-      "publisher": {
-        "@id": "{{ '/' | absolute_url }}#organization"
-      },
+      "@id": "https://meddle.studio/#website",
+      "url": "https://meddle.studio/",
+      "name": "Meddle",
+      "description": "Meddle is a brand and design studio for industry challengers who aren't afraid to interfere with the status quo.",
+      "publisher": { "@id": "https://meddle.studio/#organization" },
       "inLanguage": "en-US"
     },
     {
       "@type": "WebPage",
-      "@id": "{{ page.url | absolute_url }}",
-      "url": "{{ page.url | absolute_url }}",
-      "name": "{{ page.title | default: site.title }}",
-      "description": "{{ page.description | default: site.description }}",
-      "isPartOf": {
-        "@id": "{{ '/' | absolute_url }}#website"
-      },
+      "@id": "https://meddle.studio/",
+      "url": "https://meddle.studio/",
+      "name": "Meddle | Brand Design Studio for Industry Challengers",
+      "description": "Helping B2B SaaS and Financial Institutions reach their full potential through clarity of purpose and exceptional design. Fortune Favors the Daring.",
+      "isPartOf": { "@id": "https://meddle.studio/#website" },
       "image": {
         "@type": "ImageObject",
-        "url": "{{ site.image | absolute_url }}",
+        "url": "https://meddle.studio/assets/images/meddle-thumb.png",
         "width": 2519,
         "height": 1620
       },
       "datePublished": "2025-07-15T17:18:04+0000",
-      "dateModified": "2025-10-29T17:21:05+0000",
-      "author": {
-        "@id": "{{ '/' | absolute_url }}#organization"
-      },
-      "publisher": {
-        "@id": "{{ '/' | absolute_url }}#organization"
-      },
-      "copyrightHolder": {
-        "@id": "{{ '/' | absolute_url }}#organization"
-      },
-      "copyrightYear": "2025"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "{{ page.url | absolute_url }}#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Homepage",
-          "item": "{{ '/' | absolute_url }}"
-        }
-      ]
+      "dateModified": "2026-01-28T10:00:00+0000",
+      "author": { "@id": "https://meddle.studio/#founder" },
+      "copyrightHolder": { "@id": "https://meddle.studio/#organization" },
+      "copyrightYear": "2026"
     }
   ]
 }

@@ -51,7 +51,7 @@ permalink: /contact/
   </section>
 </header>{% endcomment %}
 <div class="container-xl mt-1 pt-3 pb-5">
-    <a class="d-flex flex-row w-auto justify-items-center align-items-center" href="/"><svg id="logo-xl" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1990 436" preserveAspectRatio="xMidYMin meet" fill="currentColor" class="logo-sm w-100 h-100 m-0 p-0 leading-none" role="img"> <title>MEDDLE</title> <path d="M147.5,0c34.73,70.09,45.36,150.4,50.08,228.02h4.43c3.98-77.97,16.19-156.88,48.99-228.02h148v340h-130l-.99-205.01h-5.01c-5.87,56.67-17.33,112.94-33.88,167.41l-1.57.67c-7.01-.99-54.95,1.48-57.06-1.05-1.44-1.73-6.15-19.98-7.2-23.8-12.9-46.64-20.93-95.18-26.28-143.22h-6.01v205.01H1.5c-.11,0-1.5-1.39-1.5-1.5V0h147.5Z"/> <path d="M1068,0h184.49c120.24,6.46,172.98,90.06,157.37,205.36-23.71,175.14-212.57,127.71-338.41,134.69-1.02.22-3.45-.72-3.45-1.55V0ZM1204,237h33.5c46.38,0,46.24-93.71,25.91-119.91-6.59-8.49-20.3-14.09-30.91-14.09h-28.5v134Z"/> <path d="M713,340V0h183.49c93.79,4.89,154.83,57.52,159.56,153.45,5.29,107.41-41.12,176.07-151.56,185.54-63.74,2.18-127.68.47-191.49,1.01ZM849,237h33.5c44.2,0,43.48-85.69,29.69-112.69-6.74-13.21-20.74-21.31-35.69-21.31h-27.5v134Z"/> <path d="M701,0v108h-154v35h144v50h-144v38h152.5c.11,0,1.5,1.39,1.5,1.5v106c0,.11-1.39,1.5-1.5,1.5h-287c-.11,0-1.5-1.39-1.5-1.5V0h290Z"/> <path d="M1990,0v108h-153v35h142.5c.11,0,1.5,1.39,1.5,1.5v48.5h-144v38h153v109h-289V0h289Z"/> <polygon points="1561 0 1561 231 1689 231 1689 340 1425 340 1425 0 1561 0"/> </svg></a>
+    <a class="d-flex flex-row w-auto justify-items-center align-items-center" href="/" aria-label="Meddle Home"><svg id="logo-xl" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1990 436" preserveAspectRatio="xMidYMin meet" fill="currentColor" class="logo-sm w-100 h-100 m-0 p-0 leading-none" role="img"> <title>MEDDLE</title> <path d="M147.5,0c34.73,70.09,45.36,150.4,50.08,228.02h4.43c3.98-77.97,16.19-156.88,48.99-228.02h148v340h-130l-.99-205.01h-5.01c-5.87,56.67-17.33,112.94-33.88,167.41l-1.57.67c-7.01-.99-54.95,1.48-57.06-1.05-1.44-1.73-6.15-19.98-7.2-23.8-12.9-46.64-20.93-95.18-26.28-143.22h-6.01v205.01H1.5c-.11,0-1.5-1.39-1.5-1.5V0h147.5Z"/> <path d="M1068,0h184.49c120.24,6.46,172.98,90.06,157.37,205.36-23.71,175.14-212.57,127.71-338.41,134.69-1.02.22-3.45-.72-3.45-1.55V0ZM1204,237h33.5c46.38,0,46.24-93.71,25.91-119.91-6.59-8.49-20.3-14.09-30.91-14.09h-28.5v134Z"/> <path d="M713,340V0h183.49c93.79,4.89,154.83,57.52,159.56,153.45,5.29,107.41-41.12,176.07-151.56,185.54-63.74,2.18-127.68.47-191.49,1.01ZM849,237h33.5c44.2,0,43.48-85.69,29.69-112.69-6.74-13.21-20.74-21.31-35.69-21.31h-27.5v134Z"/> <path d="M701,0v108h-154v35h144v50h-144v38h152.5c.11,0,1.5,1.39,1.5,1.5v106c0,.11-1.39,1.5-1.5,1.5h-287c-.11,0-1.5-1.39-1.5-1.5V0h290Z"/> <path d="M1990,0v108h-153v35h142.5c.11,0,1.5,1.39,1.5,1.5v48.5h-144v38h153v109h-289V0h289Z"/> <polygon points="1561 0 1561 231 1689 231 1689 340 1425 340 1425 0 1561 0"/> </svg></a>
     <div class="row g-5">
         <aside class="col-lg-5">
                 <div class="sticky-lg-top pt-lg-4">
@@ -66,7 +66,7 @@ permalink: /contact/
                                 hello@meddle.studio
                             </a>
                             <div class="col text-right">
-                                <button data-url="hello@meddle.studio" onclick="event.preventDefault();navigator.clipboard.writeText(this.dataset.url);var that = this;that.innerHTML='Copied';setTimeout(function(){that.innerHTML='Copy';}, 1000);" class="-grey -font-secondary text-uppercase -medium -textButton">
+                                <button aria-live="polite" data-url="hello@meddle.studio" onclick="event.preventDefault();navigator.clipboard.writeText(this.dataset.url);var that = this;that.innerHTML='Copied';setTimeout(function(){that.innerHTML='Copy';}, 1000);" class="-grey -font-secondary text-uppercase -medium -textButton">
                                     Copy
                                 </button>
                             </div>
@@ -74,7 +74,7 @@ permalink: /contact/
                         </span>
                     </header>
 
-                    <div class="flex-column gap-5 d-flex">
+                    <div class="flex-column gap-5 d-flex" role="complementary" aria-label="Studio Standards">
                         <div class="border-start border-dark-subtle ps-4">
                             <h2 class="h5 text-secondary ls-1 mb-2 -bold"><small>Timing</small></h2>
                             <p class="-drkText mb-0">
@@ -106,18 +106,18 @@ permalink: /contact/
                 <div class="row">
                     <div class="col-md-6">
                         <label for="full_name" class="mt-lg-2">What's your name?*</label>
-                        <input type="text" name="full_name" id="full_name" class="form-control meddle-input" placeholder="Namey McNamerton" required>
+                        <input type="text" name="full_name" id="full_name" class="form-control meddle-input" placeholder="Namey McNamerton" required aria-required="true">
                     </div>
                     <div class="col-md-6">
                         <label for="email" class="mt-lg-2">And your email address?*</label>
-                        <input type="email" name="email" id="email" class="form-control meddle-input" placeholder="emailio@addresstevez.com" required>
+                        <input type="email" name="email" id="email" class="form-control meddle-input" placeholder="emailio@addresstevez.com" required aria-required="true">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
                         <label for="name">Your company name too please.*</label>
-                        <input type="text" name="name" id="name" class="form-control meddle-input" placeholder="The Next Big Thing, Inc." required>
+                        <input type="text" name="name" id="name" class="form-control meddle-input" placeholder="The Next Big Thing, Inc." required aria-required="true">
                     </div>
                     <div class="col-md-6">
                         <label for="website">Your Company URL (if you have&nbsp;one)</label>
@@ -138,7 +138,7 @@ permalink: /contact/
                     <div class="col-md-6">
                         <label>What's Your Timeline?*</label>
                         <div class="meddle-select-wrapper" id="timeline-select">
-                            <button type="button" class="meddle-select-trigger">Select timing</button>
+                            <button type="button" class="meddle-select-trigger" aria-haspopup="listbox" aria-labelledby="timeline-label">Select timing</button>
                             <ul class="meddle-options">
                                 <li class="meddle-option" data-value="ASAP">ASAP</li>
                                 <li class="meddle-option" data-value="In a month">In a month</li>
@@ -151,7 +151,7 @@ permalink: /contact/
                     <div class="col-md-6">
                         <label>What's Your Budget?*</label>
                         <div class="meddle-select-wrapper" id="budget-select">
-                            <button type="button" class="meddle-select-trigger">Select range</button>
+                            <button type="button" class="meddle-select-trigger" aria-haspopup="listbox" aria-labelledby="budget-label">Select range</button>
                             <ul class="meddle-options">
                                 <li class="meddle-option" data-value="Less than $50K">Less than $30K</li>
                                 <li class="meddle-option" data-value="$50K – $150K">$30K – $150K</li>
@@ -164,10 +164,10 @@ permalink: /contact/
                 </div>
 
                 <label for="message">How can we help you out?*</label>
-                <textarea name="message" id="message" rows="2" class="form-control meddle-input" placeholder="Don't hold back. Tell us about your project/needs." required></textarea>
+                <textarea name="message" id="message" rows="2" class="form-control meddle-input" placeholder="Don't hold back. Tell us about your project/needs." required aria-required="true"></textarea>
 
                 <label for="how_did_you_hear_about_us">How did you hear about us?*</label>
-                <input type="text" name="how_did_you_hear_about_us" id="how_did_you_hear_about_us" class="form-control meddle-input" placeholder="Saw our work somewhere? Someone recommended us?" required>
+                <input type="text" name="how_did_you_hear_about_us" id="how_did_you_hear_about_us" class="form-control meddle-input" placeholder="Saw our work somewhere? Someone recommended us?" required aria-required="true">
 
                 <button type="submit" id="submit-btn" class="btn btn-meddle w-100 w-md-auto -font-secondary -medium">Submit</button>
             </form>
