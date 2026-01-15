@@ -255,14 +255,14 @@ permalink: /contact/
                 { "name": "0-1/full_name", "value": full_name },
                 { "name": "firstname", "value": nameParts[0] },
                 { "name": "lastname", "value": nameParts.slice(1).join(' ') || ' ' },
-                { "name": "0-1/email", "value": formData.get('email') },
-                { "name": "0-2/name", "value": formData.get('name') },
-                { "name": "0-1/website", "value": formData.get('website') || "" },
-                { "name": "0-1/message", "value": formData.get('message') || "" },
+                { "name": "0-1/email", "value": formData.get('email').trim() },
+                { "name": "0-2/name", "value": formData.get('company_name').trim() || "" },
+                { "name": "0-1/website", "value": formData.get('website').trim() || "" },
+                { "name": "0-1/message", "value": formData.get('message').trim() || "" },
                 { "name": "0-1/project_type", "value": projectTypes },
                 { "name": "timeline", "value": formData.get('timeline') || "" },
                 { "name": "budget_expectation", "value": formData.get('budget_expectation') || "" },
-                { "name": "how_did_you_hear_about_us", "value": formData.get('how_did_you_hear_about_us') || "" }
+                { "name": "how_did_you_hear_about_us", "value": formData.get('how_did_you_hear_about_us').trim() || "" }
             ],
             "context": {
                 "pageUri": window.location.href,
