@@ -616,7 +616,7 @@ section.svh-100 {
       transform: none !important;
       transition: none !important;
   }
-  .aos-mobile-only {
+  .page-home .aos-mobile-only {
     border-bottom: 1px solid $black;
   }
   .nav-link {font-size: 12px;}
@@ -626,6 +626,11 @@ section.svh-100 {
   .nav-link {font-size: 16px;}
 }
 .page-contact {
+  #backBtn {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+  }
   background-color: $lt-grey;
   color: $black;
   .sticky-lg-top {margin-top: 2rem;}
