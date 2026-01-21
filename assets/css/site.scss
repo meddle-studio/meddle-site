@@ -667,12 +667,13 @@ section.svh-100 {
   transition: border-bottom-color 0.4s ease;
 }
 .meddle-input:focus { outline: none; box-shadow: none; border-bottom-color: $white !important; }
-.meddle-input::placeholder { color: rgba($white,0.25); }
+.meddle-input::placeholder { font-weight: 300; color: rgba($white,0.25); }
 label { font-family: $font-secondary; color: $grey; font-size: 12.6px; font-weight: 500; text-transform: uppercase; letter-spacing: normal; margin-top: 2rem; display: block; }
 .meddle-select-wrapper { position: relative; border-bottom: 1px solid $black; }
 .meddle-select-trigger {
   width: 100%; 
   font-size: 1.2rem;
+    font-weight: 300;
   padding: 1rem 0; 
   color: rgba($white, .25); 
   background: transparent;
@@ -709,7 +710,7 @@ label { font-family: $font-secondary; color: $grey; font-size: 12.6px; font-weig
     list-style: none;
 }
 .meddle-select-wrapper.open .meddle-options { display: block; }
-.meddle-option { padding: 1rem; cursor: pointer; color: #888; transition: 0.2s; }
+.meddle-option { padding: 1rem; cursor: pointer; color: #888; transition: 0.2s; font-weight:300; }
 .meddle-option:hover { background: rgba(40,40,40,.8); color: $white; }
 
 .project-chip { 
