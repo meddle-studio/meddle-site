@@ -7,7 +7,7 @@ $blue:    #4160ff;
 $link:    #4160ff;
 $purple:  #af69f4;
 $red:     red;
-$lt-grey: #f0f0f0;
+$lt-grey: #d9d9d9;
 $grey:    #757575;
 $highlight:rgba($purple,.4);
 $font: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -20,7 +20,7 @@ $font-tertiary: 'Libre Baskerville';
 	--font-tertiary: "Libre Baskerville";
 	--white: #e8e8e8;
 	--white-transparent: rgba(255, 254, 244, 0);
-	--lt-grey: #d0d0d0;
+	--lt-grey: #d9d9d9;
 	--grey: #757575;
 	--grey-transparent: hsla(0, 0%, 56%, 0);
 	--black: #1a1918;
@@ -243,23 +243,19 @@ hr {opacity: 1;}
 	color: $grey !important;
 }
 .theme-light {
-	/*--theme-primary: $whiteef4;*/
-  --theme-primary: #e8e8e8;
+  --theme-primary: $white;
 	--theme-primary-transparent: rgba(255, 254, 244, 0);
-	/*--theme-secondary: #000;*/
-  --theme-secondary: #1a1918;
+  --theme-secondary: $black;
 	--theme-secondary-transparent: transparent;
-	--theme-contrast: red;
+	--theme-contrast: $purple;
 	--theme-contrast-transparent: rgba(255, 0, 0, 0)
 }
 .theme-dark {
-	/*--theme-primary: #000;*/
-  --theme-primary: #1a1918;
+  --theme-primary: $black;
 	--theme-primary-transparent: transparent;
-	/*--theme-secondary: $whiteef4;*/
-  --theme-secondary: #e8e8e8;
+  --theme-secondary: $white;
 	--theme-secondary-transparent: rgba(255, 254, 244, 0);
-	--theme-contrast: red;
+	--theme-contrast: $purple;
 	--theme-contrast-transparent: rgba(255, 0, 0, 0)
 }
 .layout {
