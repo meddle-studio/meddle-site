@@ -7,7 +7,8 @@ $blue:    #4160ff;
 $link:    #4160ff;
 $purple:  #af69f4;
 $red:     red;
-$grey:    #909090;
+$lt-grey: #f0f0f0;
+$grey:    #757575;
 $highlight:rgba($purple,.4);
 $font: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $font-secondary: 'IBM Plex Mono';
@@ -19,7 +20,8 @@ $font-tertiary: 'Libre Baskerville';
 	--font-tertiary: "Libre Baskerville";
 	--white: #e8e8e8;
 	--white-transparent: rgba(255, 254, 244, 0);
-	--grey: #909090;
+	--lt-grey: #d0d0d0;
+	--grey: #757575;
 	--grey-transparent: hsla(0, 0%, 56%, 0);
 	--black: #1a1918;
 	--black-transparent: transparent;
@@ -68,15 +70,17 @@ $font-tertiary: 'Libre Baskerville';
 .-purple     {color: var(--purple) !important;}
 .-white      {color:var(--white) !important;}
 .-text       {color: rgba($black,.75) !important;}
-.-drkText    {color: rgba(255,255,255,.8) !important;}
+.-drkText    {color: rgba($white,.8) !important;}
 .-ltText     {color: rgba($grey, 1) !important;}
 .-muted      {color: rgba($grey, 0.5);}
+.-lt-grey       {color: var(--lt-grey) !important;}
 .-grey       {color: var(--grey) !important;}
 
 .-bg-black   {background-color: var(--black) !important;}
 .-bg-white   {background-color: var(--white) !important;color:var(--black);}
 .-bg-green   {background-color: var(--green) !important;}
 .-bg-purple  {background-color: var(--purple)!important;}
+.-bg-lt-grey    {background-color: var(--lt-grey) !important;color:var(--black);}
 .-bg-grey    {background-color: var(--grey)  !important;}
 .-font       {font-family: $font !important;}
 .-font-secondary, .-mono {font-family: $font-secondary !important;}
@@ -626,7 +630,8 @@ section.svh-100 {
   .nav-link {font-size: 16px;}
 }
 .page-contact {
-  background-color: $black;
+  background-color: $lt-grey;
+  color: $black;
   .sticky-lg-top {margin-top: 2rem;}
   #logo-xl {
     z-index: 9999;
@@ -641,6 +646,7 @@ section.svh-100 {
     transition-duration: .15s;
     &:hover {fill: $white;}
   }
+  .theme-light #logo-xl:hover {fill: $black;}
   .-drkText {color: rgba($white, .8) !important;}
   #form {position: relative; z-index:1;}
   @media screen and (min-width: 992px) {
@@ -651,7 +657,7 @@ section.svh-100 {
 .meddle-input {
   background-color: transparent !important;
   border: none !important;
-  border-bottom: 1px solid $black !important;
+  border-bottom: 1px solid $white !important;
   border-radius: 0 !important;
   color: $white !important;
   padding: 1rem 0 !important;
@@ -762,6 +768,54 @@ input[type="checkbox"]:checked + .project-chip { border-color: $white; color: $w
   transition-duration: .15s;
   &:hover {color: $white !important;}
 }
+.theme-light, .-bg-lt-grey, .-bg-white {
+  .meddle-input {
+    border-bottom: 1px solid $black !important;
+    color: $black !important;
+  }
+  .meddle-input:focus { border-bottom-color: $black !important;}
+  .meddle-input::placeholder { color: rgba($black,0.5); }
+  label { color: rgba($black,.75);}
+  .meddle-select-wrapper { position: relative; border-bottom: 1px solid $black; }
+  .meddle-select-trigger {
+    color: rgba($black, .5); 
+    &.value {
+      color: $black;
+    }
+  }
+  .meddle-select-trigger::after {
+    border-right: 1px solid #444; 
+    border-bottom: 1px solid #444;
+  }
+  .meddle-select-wrapper.open .meddle-select-trigger::after {border-color: $black;}
+  .meddle-options {
+      background: $white;
+      border: 1px solid $white; 
+      box-shadow: 0 10px 15px rgba($black, .1);
+  }
+  .meddle-option {color: rgba($black, 0.67);}
+  .meddle-option:hover { background: rgba($lt-grey,.8); color: $black; }
+
+  .project-chip { 
+    border: 1px solid $black; 
+    color: #666; 
+  }
+  input[type="checkbox"]:checked + .project-chip { border-color: $black; color: $white; background: $black; }
+  .btn-meddle {
+      background-color: transparent;
+      color: $black;
+      border: 1.5px solid $black;
+  }
+  .btn-meddle:hover {
+      background-color: rgba($black, .8);
+      border-color: rgba($black, 0);
+  }
+  .btn-meddle:disabled { background-color: #333; color: #666; border-color:#333; }
+  .-textButton {
+    background: transparent; 
+    &:hover {color: $black !important;}
+  }
+}
 /* Form Styling END */
 
 /* START Sprint Page */
@@ -821,6 +875,10 @@ ul.no-good li::before {
   font-size: 1.75em;
 }
 .page-sprint {
+  #logo-xl {
+    * {fill: $lt-grey}
+    &:hover * {fill:white;}
+  }
   header {
     h1, .h1 {
       letter-spacing: -0.03em;

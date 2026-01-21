@@ -6,7 +6,7 @@
 <footer id="footer" class="-bg-black pt-4 pb-5 text-uppercase">
 	<div class="container">
 		<ul class="social-links hoverable-content list-horizontal p-0">
-      <li class="-font-secondary list-inline">
+      <li class="-font-secondary -white list-inline">
         {% comment %}<a href="{{ site.instagram }}" target="_blank">
           <i class="d-inline-block icon-external-link">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M24 20.414v1.103h-2.207V3.587L1.38 24 0 22.345 20.138 2.207H2.207V0H24v20.414Z"></path></svg>
@@ -17,7 +17,7 @@
       </li>
     </ul>
     <div class="footer-bottom">
-      <p class="footer-legal -font-secondary">&copy; Meddle 2026</p>
+      <p class="footer-legal -font-secondary">&copy; Meddle {{"now" | date: "%Y"}}</p>
       <div class="footer-info">
         <ul class="legalLinks">
         	{%- for item in footer-menu -%}
