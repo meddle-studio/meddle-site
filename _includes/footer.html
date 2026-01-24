@@ -4,29 +4,31 @@
   {%- endif %}
 {%- endfor %}
 <footer id="footer" class="-bg-black pt-4 pb-5 text-uppercase">
-	<div class="container">
-		<ul class="social-links hoverable-content list-horizontal p-0">
-      <li class="-font-secondary -white list-inline">
-        {% comment %}<a href="{{ site.instagram }}" target="_blank">
-          <i class="d-inline-block icon-external-link">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M24 20.414v1.103h-2.207V3.587L1.38 24 0 22.345 20.138 2.207H2.207V0H24v20.414Z"></path></svg>
-          </i>
-              Instagram
-        </a>{% endcomment %}
-        E: <a href="mailto:hello@meddle.studio" class="decorate" aria-label="Email hello@meddle.studio">hello@meddle.studio</a>
+	<div class="container d-flex justify-content-between px-md-0">
+		<ul class="footer-start contact-links hoverable-content list-horizontal p-0">
+      <li class="-font-secondary -white list-inline mb-3 my-md-2">
+        <a href="/contact/" class="decorate">
+          Contact
+        </a>
+      </li>
+      <li class="-font-secondary -white list-inline mb-3 my-md-2">
+          E: <a href="mailto:hello@meddle.studio" class="decorate" aria-label="Email hello@meddle.studio">hello@meddle.studio</a>
       </li>
     </ul>
-    <div class="footer-bottom">
-      <p class="footer-legal -font-secondary">&copy; Meddle {{"now" | date: "%Y"}}</p>
-      <div class="footer-info">
-        <ul class="legalLinks">
-        	{%- for item in footer-menu -%}
-          <li>
-            <a href="{{ item.url }}" class="footer-legalLink hoverable -font-secondary">{{ item.title }}</a>
-          </li>
-          {%- endfor -%}
-        </ul>
-     </div>
+    <ul class="footer-middle social-links hoverable-content list-horizontal p-0">
+      <li class="-font-secondary -white list-inline mb-3 my-md-2">
+        <a href="{{ site.linkedin }}" target="_blank" class="decorate">
+              LinkedIn
+        </a>
+      </li>
+      <li class="-font-secondary -white list-inline mb-3 my-md-2">
+        <a href="{{ site.instagram }}" target="_blank" class="decorate">
+              Instagram
+        </a>
+      </li>
+    </ul>
+    <div class="footer-end">
+      <p class="footer-legal -font-secondary mb-3 my-md-2">&copy; <span class="d-none d-md-inline">Meddle</span> {{"now" | date: "%Y"}}</p>
 		</div>
 	</div>
 </footer>

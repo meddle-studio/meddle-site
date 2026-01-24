@@ -60,8 +60,10 @@
 
   {% if page.url == "/" %}
   {% include schema.html %}
-  <link rel="preload" as="video" href="/assets/images/mid-desktop-sm.mp4" type="video/mp4" media="(orientation: landscape)">
-  <link rel="preload" as="video" href="/assets/images/mid-mobile-sm.mp4"  type="video/mp4" media="(orientation: portrait)">
+  {% comment %}
+  <link rel="preload" as="fetch" href="/assets/images/mid-desktop-sm.mp4" type="video/mp4" media="(orientation: landscape)">
+  <link rel="preload" as="fetch" href="/assets/images/mid-mobile-sm.mp4"  type="video/mp4" media="(orientation: portrait)">
+  {% endcomment %}
   {% endif %}
   {%- if page.url == "/sprint/" -%}
   {% include schema-sprint.html %}

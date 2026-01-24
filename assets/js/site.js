@@ -127,3 +127,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const heroVideo = document.querySelector('header video.object-fit-cover');
+
+    if (heroVideo) {
+        const startVideo = () => {
+            heroVideo.muted = true;
+            heroVideo.play().then(() => {
+                heroVideo.style.opacity = '1';
+            }).catch(() => {
+                console.warn("Hero video blocked. Waiting for scroll/touch.");
+            });
+        };
+
+        setTimeout(startVideo, 500);
+
+        const playOnGesture = () => {
+            startVideo();
+            document.removeEventListener('touchstart', playOnGesture);
+            document.removeEventListener('wheel', playOnGesture);
+        };
+        
+        document.addEventListener('touchstart', playOnGesture);
+        document.addEventListener('wheel', playOnGesture);
+    }
+});
