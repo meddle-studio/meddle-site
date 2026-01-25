@@ -94,8 +94,14 @@ em {
   font-weight: 400;
   font-style: italic;
 }
-.-bold, strong, .text-bold {
+.-xxBold {
   font-weight: 900 !important;
+}
+.-extraBold {
+  font-weight: 800 !important;
+}
+.-bold, strong, .text-bold {
+  font-weight: 700 !important;
 }
 .-semiBold {
   font-weight: 600 !important;
@@ -433,6 +439,44 @@ svg.icon rect[stroke] {
 .mix-blend-difference {
   mix-blend-mode: difference;
 }
+.custom-tooltip {
+    position: fixed;
+    color: $black;
+    font-weight: 500;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 11px 16px;
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+    border-radius: 54px;
+    background-color: rgba(40,40,40,.8);
+    background-color: rgba($white, .75);
+    --tw-text-opacity: 1;
+    --tw-backdrop-blur: blur(5px);
+    backdrop-filter: blur(5px) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    -webkit-transition-duration: .15s;
+    transition-duration: .15s;
+    -webkit-backdrop-filter: blur(5px) saturate(220%);
+    backdrop-filter: blur(5px) saturate(220%);
+    line-height: 1;
+    margin-left: 4px;
+    font-family: $font-secondary;
+    text-transform: uppercase;
+}
+
+.custom-tooltip.visible {
+    opacity: 1;
+}
 #about {
   .vh-100 {min-height: 632px;}
   h2 {
@@ -624,6 +668,63 @@ section.svh-100 {
 @media screen and (min-width: 768px) and (max-width: 991.98px) {
   #about h2 {font-size: 43px;}
   .nav-link {font-size: 16px;}
+}
+@media screen and (min-width: 768px) {
+  .page-home #services {
+    height: 280px;
+    .list-bordered li {
+      border:none;
+      &:before {top:0.5em;}
+    }
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .page-home #ways-to-engage li {
+    list-style: none;
+    p {font-size: 1rem;color:rgba($black,.75) !important;}
+  }
+}
+@media screen and (min-width: 992px) {
+  .page-home #ways-to-engage {
+    a {
+      display: block;
+      text-decoration: none;
+    }
+    
+    li {
+      transition: all 1s cubic-bezier(.19, 1, .22, 1);
+      padding-top: 1.5rem !important;
+      padding-bottom: 1.5rem !important;
+    }
+    
+    li p {
+      font-weight: 600 !important;
+      max-height: 3em;
+      overflow: hidden;
+      transition: max-height 1s cubic-bezier(.19, 1, .22, 1);
+    }
+    
+    /* Hide extra text by default */
+    li p span.d-lg-none {
+      display: inline !important;
+      opacity: 0;
+      transition: opacity 0.6s cubic-bezier(.19, 1, .22, 1);
+    }
+    
+    /* Expanded state on hover */
+    a:hover li {
+      padding-top: 2.5rem !important;
+      padding-bottom: 2.5rem !important;
+    }
+    
+    a:hover li p {
+      max-height: 15em;
+    }
+    
+    a:hover li p span.d-lg-none {
+      opacity: 1;
+    }
+  }
 }
 .page-contact {
   #backBtn {

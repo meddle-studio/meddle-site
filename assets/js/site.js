@@ -117,7 +117,72 @@ $(document).ready(function() {
     // });
 
     $window.trigger('scroll');
+
+    const tooltip = document.getElementById('customTooltip');
+
+    if (tooltip) {
+        const tooltipElements = document.querySelectorAll('[data-tooltip]');
+        let isActive = false;
+
+        function showTooltip(e) {
+            const text = e.currentTarget.dataset.tooltip;
+            if (!text) return;
+            
+            tooltip.textContent = text;
+            tooltip.classList.add('visible');
+            updateTooltipPosition(e);
+        }
+
+        function updateTooltipPosition(e) {
+            tooltip.style.left = (e.clientX + 12) + 'px';
+            tooltip.style.top = (e.clientY + 12) + 'px';
+        }
+
+        function hideTooltip() {
+            tooltip.classList.remove('visible');
+        }
+
+        function attachListeners() {
+            tooltipElements.forEach(el => {
+                el.addEventListener('mouseenter', showTooltip);
+                el.addEventListener('mousemove', updateTooltipPosition);
+                el.addEventListener('mouseleave', hideTooltip);
+            });
+            isActive = true;
+        }
+
+        function removeListeners() {
+            tooltipElements.forEach(el => {
+                el.removeEventListener('mouseenter', showTooltip);
+                el.removeEventListener('mousemove', updateTooltipPosition);
+                el.removeEventListener('mouseleave', hideTooltip);
+            });
+            hideTooltip();
+            isActive = false;
+        }
+
+        function checkBreakpoint() {
+            const shouldBeActive = window.innerWidth >= 992;
+            
+            if (shouldBeActive && !isActive) {
+                attachListeners();
+            } else if (!isActive && isActive) {
+                removeListeners();
+            }
+        }
+
+        // Initialize on load
+        checkBreakpoint();
+
+        // Debounced resize handler (limits to ~10 checks per second max)
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(checkBreakpoint, 100);
+        });
+    }
 });
+
 document.addEventListener('DOMContentLoaded', () => {
   const backBtn = document.getElementById('backBtn');
 
