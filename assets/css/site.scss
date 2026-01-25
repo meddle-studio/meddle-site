@@ -681,7 +681,7 @@ section.svh-100 {
 @media screen and (max-width: 991.98px) {
   .page-home #ways-to-engage li {
     list-style: none;
-    p {font-size: 1rem;color:rgba($black,.75) !important;}
+    p {font-size: 1.2rem;color:rgba($black,.75) !important;font-weight:300;}
   }
 }
 @media screen and (min-width: 992px) {
@@ -692,7 +692,7 @@ section.svh-100 {
     }
     
     li {
-      transition: all 1s cubic-bezier(.19, 1, .22, 1);
+      transition: all .75s ease-in-out;
       padding-top: 1.5rem !important;
       padding-bottom: 1.5rem !important;
     }
@@ -701,7 +701,7 @@ section.svh-100 {
       font-weight: 600 !important;
       max-height: 3em;
       overflow: hidden;
-      transition: max-height 1s cubic-bezier(.19, 1, .22, 1);
+      transition: max-height .75s ease-in-out;
     }
     
     /* Hide extra text by default */
@@ -713,8 +713,8 @@ section.svh-100 {
     
     /* Expanded state on hover */
     a:hover li {
-      padding-top: 2.5rem !important;
-      padding-bottom: 2.5rem !important;
+      padding-top: 1.5rem !important;
+      padding-bottom: 1.5rem !important;
     }
     
     a:hover li p {

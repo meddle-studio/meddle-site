@@ -14,6 +14,8 @@ gtm: "GTM-5S4496S9"
 linkedin: "https://www.linkedin.com/company/meddle-studio"
 instagram: "https://www.instagram.com/meddledesign.co/"
 
+sprintValue: "30"
+
 # Build settings
 markdown: kramdown
 plugins:
