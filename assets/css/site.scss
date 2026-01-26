@@ -552,6 +552,7 @@ header .position-sticky.w-100 {
     position: fixed !important;
     top: 0 !important;
     bottom: auto !important;
+    z-index: 99999;
 }
 
 .navbar-initial-show {
@@ -725,6 +726,9 @@ section.svh-100 {
       opacity: 1;
     }
   }
+}
+.page-home {
+  #how-we-work {z-index: 0;}
 }
 .page-contact {
   #backBtn {
