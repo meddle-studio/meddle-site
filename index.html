@@ -58,18 +58,18 @@ description: By delivering clarity of purpose alongside exceptional design, we h
     </div>
 </section>
 
-<section id="how-we-work" class="position-relative -bg-lt-grey py-5">
+<section id="how-we-work" class="position-relative -bg-lt-grey py-5" aria-labelledby="how-we-work-heading">
     <div class="container">
       <div class="row">
-        <h3 class="-black col-md-9 col-lg-7 col-xl-6 col-xxl-5 pt-md-5 pb-3 pb-lg-5 -light aos-md" data-aos="fade-up" data-aos-duration="500">Through a process rooted in <em>careful discovery and bold imagination</em>, we partner with you to <em>co-create</em> differentiated, high-impact brands and digital experiences that drive&nbsp;growth.</h3>
+        <h3 id="how-we-work-heading" class="-black col-md-9 col-lg-7 col-xl-6 col-xxl-5 pt-md-5 pb-3 pb-lg-5 -light aos-md" data-aos="fade-up" data-aos-duration="500">Through a process rooted in <em>careful discovery and bold imagination</em>, we partner with you to <em>co-create</em> differentiated, high-impact brands and digital experiences that drive&nbsp;growth.</h3>
         <h3 class="h1 col-lg pt-2 pt-md-3 pt-lg-5 pb-3 pb-lg-5 text-right -grey aos-md" data-aos="fade-up" data-aos-duration="500"><em>Fortune favors the&nbsp;daring.</em></h3>
         </div>
         <hr class="-black" aria-hidden="true">
         
         <div class="row pb-md-5">
           <div id="services" class="col-12 col-md-4 col-lg-3 col-xxl-2 sticky-md-top">
-            <h3 class="h4 -bold -grey mb-3 pt-3 pt-lg-5 aos-md aos-init aos-animate" data-aos="fade-right" data-aos-duration="1000">What we do</h3>
-            <ul class="arrow-list list-bordered">
+            <h3 class="h4 -bold -grey mb-3 pt-3 pt-lg-5 aos-md aos-init aos-animate" data-aos="fade-right" data-aos-duration="1000">What We Do</h3>
+            <ul class="arrow-list list-bordered" aria-label="Core Services">
               <li class="h4 -black -light py-3 py-md-2 mb-0 aos-init" data-aos="fade-right">Brand Strategy</li>
               <li class="h4 -black -light py-3 py-md-2 mb-0 aos-init" data-aos="fade-right">Verbal Identity</li>
               <li class="h4 -black -light py-3 py-md-2 mb-0 aos-init" data-aos="fade-right">Visual Identity</li>
@@ -78,27 +78,36 @@ description: By delivering clarity of purpose alongside exceptional design, we h
             </ul>
           </div>
           <div id="ways-to-engage" class="col-12 col-md-8 offset-xxl-1 mt-3 mb-3 my-md-0">
-            <h3 class="h4 -bold -grey mb-3 aos-md pt-3 pt-lg-5 aos-init aos-animate" data-aos="fade-right" data-aos-duration="1000">Ways to engage</h3>
-            <ol class="list-unstyled list-bordered">
-              <a href="/contact/" data-tooltip="Book an intro call"><li class="d-lg-flex flex-row py-3 mb-0 aos-init" data-aos="fade-right">
-                <small class="-grey -font-secondary align-self-top">01</small>
-                <h4 class="h2 -black -semiBold align-self-center px-lg-4">Project-Based</h4>
-                <p class="-grey col-lg-5 align-self-center my-lg-auto ml-auto">Brand strategy, full brand identity, web design, and/or development<span class="d-inline d-lg-none">—whatever your project demands. Built for transformations and strategic initiatives that require deep partnership and custom&nbsp;solutions.</span></p>
-		            <span class="nav-link d-inline-block d-lg-none mx-0">Book an intro call →</span>
-              </li></a><a href="/sprints/" data-tooltip="Explore Sprints"><li class="d-lg-flex flex-row py-3 mb-0 aos-init" data-aos="fade-right">
-                <small class="-grey -font-secondary align-self-top">02</small>
-                <h4 class="h2 -black -semiBold align-self-center px-lg-4">Brand Sprints</h4>
-                <p class="-grey col-lg-5 align-self-center my-lg-auto ml-auto">Complete visual identity in just two weeks, for just ${{site.sprintValue}}K<span class="d-inline d-lg-none">. Best for early-stage startups or visual-only refreshes who need premium branding without the traditional agency timeline and mystery&nbsp;pricing.</span></p>
-		            <span class="nav-link d-inline-block d-lg-none mx-0">Explore Sprints →</span>
-              </li></a>
-               <a href="/contact/" data-tooltip="Get in touch"><li class="d-lg-flex flex-row py-3 mb-0 aos-init" data-aos="fade-right">
-                <small class="-grey -font-secondary align-self-top">03</small>
-                <h4 class="h2 -black -semiBold align-self-center px-lg-4">Fractional Leadership</h4>
-                <p class="-grey col-lg-5 align-self-center my-lg-auto ml-auto">Ongoing brand strategy and creative leadership, fractional commitment<span class="d-inline d-lg-none">. Get a CCO-level creative partner with over a decade of experience leading creative teams, without the overhead of a full-time&nbsp;hire.</span></p>
-              	<span class="nav-link d-inline-block d-lg-none mx-0">Get in touch →</span>
-              </li></a>
+            <h3 class="h4 -bold -grey mb-3 aos-md pt-3 pt-lg-5 aos-init aos-animate" data-aos="fade-right" data-aos-duration="1000">Ways to Engage</h3>
+            <ol class="list-unstyled list-bordered" role="list">
+              <a href="/contact/" data-tooltip="Book an intro call" class="text-decoration-none" aria-label="Project-Based engagements: Book an intro call">
+                <li role="listitem" class="d-lg-flex flex-row py-3 mb-0 aos-init" data-aos="fade-right">
+                  <small class="-grey -font-secondary align-self-top" aria-hidden="true">01</small>
+                  <h4 class="h2 -black -semiBold align-self-center px-lg-4">Project-Based</h4>
+                  <p class="-grey col-lg-5 align-self-center my-lg-auto ml-auto">Brand strategy, full brand identity, web design and/or development<span class="d-inline d-lg-none">—whatever your project demands. Built for transformations and strategic initiatives that require deep partnership and custom&nbsp;solutions.</span></p>
+                  <span class="nav-link d-inline-block d-lg-none mx-0" aria-hidden="true">Book an intro call →</span>
+                </li>
+              </a>
+              
+              <a href="/sprints/" data-tooltip="Explore Sprints" class="text-decoration-none" aria-label="Brand Sprints: Explore Sprints">
+                <li role="listitem" class="d-lg-flex flex-row py-3 mb-0 aos-init" data-aos="fade-right">
+                  <small class="-grey -font-secondary align-self-top" aria-hidden="true">02</small>
+                  <h4 class="h2 -black -semiBold align-self-center px-lg-4">Brand Sprints</h4>
+                  <p class="-grey col-lg-5 align-self-center my-lg-auto ml-auto">Complete visual identity in just two weeks, for just ${{site.sprintValue}}K<span class="d-inline d-lg-none">. Best for early-stage startups or visual-only refreshes who need premium branding without the traditional agency timeline and mystery&nbsp;pricing.</span></p>
+                  <span class="nav-link d-inline-block d-lg-none mx-0" aria-hidden="true">Explore Sprints →</span>
+                </li>
+              </a>
+
+               <a href="/contact/" data-tooltip="Get in touch" class="text-decoration-none" aria-label="Fractional Leadership: Get in touch">
+                <li role="listitem" class="d-lg-flex flex-row py-3 mb-0 aos-init" data-aos="fade-right">
+                  <small class="-grey -font-secondary align-self-top" aria-hidden="true">03</small>
+                  <h4 class="h2 -black -semiBold align-self-center px-lg-4">Fractional Leadership</h4>
+                  <p class="-grey col-lg-5 align-self-center my-lg-auto ml-auto">Ongoing brand strategy and creative leadership, fractional commitment<span class="d-inline d-lg-none">. Get a CCO-level creative partner with over a decade of experience leading creative teams, without the overhead of a full-time&nbsp;hire.</span></p>
+                  <span class="nav-link d-inline-block d-lg-none mx-0" aria-hidden="true">Get in touch →</span>
+                </li>
+              </a>
             </ol>
-            <div id="customTooltip" class="custom-tooltip"></div>
+            <div id="customTooltip" class="custom-tooltip" aria-hidden="true"></div>
           </div>
         </div>
       </div>
