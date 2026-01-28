@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "js:build": "esbuild assets/js/src/site.js --bundle --minify --outfile=assets/js/dist/site.min.js --format=iife && esbuild assets/js/src/contact-form.js --bundle --minify --outfile=assets/js/dist/contact-form.min.js --format=iife",
+    "js:watch": "esbuild assets/js/src/site.js --bundle --minify --outfile=assets/js/dist/site.min.js --format=iife --watch & esbuild assets/js/src/contact-form.js --bundle --minify --outfile=assets/js/dist/contact-form.min.js --format=iife --watch",
+    "build": "npm run js:build && bundle exec jekyll build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/meddle-studio/meddle-site/issues"
   },
-  "homepage": "https://github.com/meddle-studio/meddle-site#readme"
+  "homepage": "https://github.com/meddle-studio/meddle-site#readme",
+  "devDependencies": {
+    "esbuild": "^0.27.2"
+  }
 }
