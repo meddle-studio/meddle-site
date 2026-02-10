@@ -502,6 +502,14 @@ footer {
 .footer-end {
   color: rgba(255,255,255,.375);
 }
+.footer-link {
+    background-image: url('/assets/images/arrow-right.svg');
+    background-position: -20.5px 4px;
+    background-repeat: no-repeat;
+    background-size: auto;
+    border-left: 20.5px solid transparent;
+  &.external {background-image:url('/assets/images/arrow-top-right.svg');}
+}
 .social-links {
   .icon-external-link {
     height: 9px;
