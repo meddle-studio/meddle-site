@@ -35,17 +35,21 @@ exclude:
 #  - yarn.lock
   - vendor
 #future: false
-#collections:
-#  pages:
-#    output: false
-#  menus:
-#    output: false
+collections:
+  work:
+    output: true
+    permalink: /projects/:name/
 defaults:
   -
     scope:
       path: ""
     values:
       layout: default
+  -
+    scope:
+      type: "work"
+    values:
+      theme: light
 
 
 

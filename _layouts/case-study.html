@@ -1,0 +1,333 @@
+---
+layout: default
+classes: page-case-study -bg-white
+---
+
+<!-- ─── FULL-SCREEN HERO ─── -->
+<header class="cs-hero position-relative -bg-black">
+
+  <!-- Video (landscape + portrait sources) -->
+  {% if page.hero_video.landscape or page.hero_video.portrait %}
+  <video autoplay muted loop playsinline webkit-playsinline preload="auto" crossorigin="anonymous"
+         class="position-absolute inset-0 w-100 h-100 object-fit-cover object-position-center"
+         {% if page.hero_video.poster %}poster="{{ page.hero_video.poster }}"{% endif %}
+         title="{{ page.title }}">
+    {% if page.hero_video.landscape %}
+    <source src="{{ page.hero_video.landscape }}" type="video/mp4" media="(orientation: landscape)">
+    {% endif %}
+    {% if page.hero_video.portrait %}
+    <source src="{{ page.hero_video.portrait }}" type="video/mp4" media="(orientation: portrait)">
+    {% elsif page.hero_video.landscape %}
+    <source src="{{ page.hero_video.landscape }}" type="video/mp4">
+    {% endif %}
+  </video>
+  {% else %}
+  <!-- Placeholder until video assets are added -->
+  <div class="position-absolute inset-0 w-100 h-100 cs-video-placeholder d-flex align-items-center justify-content-center">
+    <span class="cs-img-label">[ Hero Animation ]</span>
+  </div>
+  {% endif %}
+
+  <!-- Logo — separate fixed element so mix-blend-mode blends against page content -->
+  <a id="cs-logo" href="/" aria-label="Meddle Home" class="position-absolute top-0 start-0 pt-3 ps-3 ps-md-4 z-1 mix-blend-difference -white">
+    <svg id="logo-xl" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1990 436" fill="currentColor" class="logo-sm" role="img">
+      <title>MEDDLE</title>
+      <path d="M147.5,0c34.73,70.09,45.36,150.4,50.08,228.02h4.43c3.98-77.97,16.19-156.88,48.99-228.02h148v340h-130l-.99-205.01h-5.01c-5.87,56.67-17.33,112.94-33.88,167.41l-1.57.67c-7.01-.99-54.95,1.48-57.06-1.05-1.44-1.73-6.15-19.98-7.2-23.8-12.9-46.64-20.93-95.18-26.28-143.22h-6.01v205.01H1.5c-.11,0-1.5-1.39-1.5-1.5V0h147.5Z"/>
+      <path d="M1068,0h184.49c120.24,6.46,172.98,90.06,157.37,205.36-23.71,175.14-212.57,127.71-338.41,134.69-1.02.22-3.45-.72-3.45-1.55V0ZM1204,237h33.5c46.38,0,46.24-93.71,25.91-119.91-6.59-8.49-20.3-14.09-30.91-14.09h-28.5v134Z"/>
+      <path d="M713,340V0h183.49c93.79,4.89,154.83,57.52,159.56,153.45,5.29,107.41-41.12,176.07-151.56,185.54-63.74,2.18-127.68.47-191.49,1.01ZM849,237h33.5c44.2,0,43.48-85.69,29.69-112.69-6.74-13.21-20.74-21.31-35.69-21.31h-27.5v134Z"/>
+      <path d="M701,0v108h-154v35h144v50h-144v38h152.5c.11,0,1.5,1.39,1.5,1.5v106c0,.11-1.39,1.5-1.5,1.5h-287c-.11,0-1.5-1.39-1.5-1.5V0h290Z"/>
+      <path d="M1990,0v108h-153v35h142.5c.11,0,1.5,1.39,1.5,1.5v48.5h-144v38h153v109h-289V0h289Z"/>
+      <polygon points="1561 0 1561 231 1689 231 1689 340 1425 340 1425 0 1561 0"/>
+    </svg>
+  </a>
+
+  <!-- Nav links — overlaid at top right -->
+  <div id="cs-nav" class="position-absolute top-0 end-0 pt-3 pe-3 pe-md-4 z-1 cs-nav-hidden">
+    <div class="d-flex flex-row" aria-label="Site Navigation">
+      <a href="/#work" class="nav-link -font-secondary text-uppercase">← Work</a>
+      <a href="/contact/" class="nav-link -font-secondary text-uppercase">Contact</a>
+    </div>
+  </div>
+
+  <!-- Tagline + services — overlaid at bottom -->
+  <div class="position-absolute bottom-0 start-0 w-100 pb-4 pb-lg-5 z-1 cs-nav-hidden">
+    <div class="container-xxl">
+      <div class="row g-0 align-items-end justify-content-end">
+        {% if page.services %}
+        <div class="col-12 col-lg-3 offset-lg-1 d-flex align-items-end mt-2 mt-lg-0">
+          <ul class="list-unstyled cs-services mb-0 w-100">
+            {% for service in page.services %}<li>{{ service }}</li>{% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+</header>
+<section id="the-client" class="cs-section pt-3 pt-lg-5">
+  <div class="container-xxl">
+    <p class="-black py-4 py-md-5 -semiBold" data-aos="fade-in" data-aos-duration="500">{{ page.client }}</p>
+    <div class="col-12">
+      <h1 class="-black -medium pt-md-3 mb-4 mb-lg-0" data-aos="fade-in" data-aos-duration="500">{{ page.tagline }}</h1>
+    </div>
+  </div>
+</section>
+
+<!-- ─── THE OVERVIEW ─── -->
+{% if page.sections.overview %}
+{% assign s = page.sections.overview %}
+<section id="overview" class="cs-section">
+  <div class="container-xxl">
+    <div class="row g-0">
+      <div class="col-12 col-lg-2">
+        <p class="mb-5 mb-lg-4 -grey" data-aos="fade-in" data-aos-duration="500">Overview</p>
+      </div>
+      <div class="col-12 col-lg-10 col-xl-8">
+        {% if s.heading %}<h2 class="-black -serif font-italic mb-4" data-aos="fade-in" data-aos-duration="500">{{ s.heading }}</h2>{% endif %}
+        {% if s.body %}<div class="cs-body -black" data-aos="fade-in" data-aos-duration="500">{{ s.body | markdownify }}</div>{% endif %}
+      </div>
+      {% if s.image %}<div class="pt-1 pt-lg-5 mt-4 mt-lg-5" data-aos="fade-in" data-aos-duration="500">{% include cs-image.html image=s.image slug=page.slug %}</div>{% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ─── THE CHALLENGE ─── -->
+{% if page.sections.challenge %}
+{% assign s = page.sections.challenge %}
+<section id="the-challenge" class="cs-section">
+  <div class="container-xxl">
+    <div class="row g-0">
+      <div class="col-12 col-lg-2">
+        <p class="mb-5 mb-lg-4 -grey" data-aos="fade-in" data-aos-duration="500">Challenge</p>
+      </div>
+      <div class="col-12 col-lg-10 col-xl-8">
+        {% if s.heading %}<h2 class="-black -serif font-italic mb-4" data-aos="fade-in" data-aos-duration="500">{{ s.heading }}</h2>{% endif %}
+        {% if s.body %}<div class="cs-body -black" data-aos="fade-in" data-aos-duration="500">{{ s.body | markdownify }}</div>{% endif %}
+      </div>
+      {% if s.image %}<div class="mt-4 mt-lg-5" data-aos="fade-in" data-aos-duration="500">{% include cs-image.html image=s.image slug=page.slug %}</div>{% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ─── THE STRATEGY ─── -->
+{% if page.sections.strategy %}
+{% assign s = page.sections.strategy %}
+<section id="the-strategy" class="cs-section">
+  <div class="container-xxl">
+    <div class="row g-0">
+      <div class="col-12 col-lg-2">
+        <p class="mb-5 mb-lg-4 -grey" data-aos="fade-in" data-aos-duration="500">Define</p>
+      </div>
+      <div class="col-12 col-lg-10 col-xl-8">
+        {% if s.heading %}<h2 class="-black -serif font-italic mb-4" data-aos="fade-in" data-aos-duration="500">{{ s.heading }}</h2>{% endif %}
+        {% if s.body %}<div class="cs-body -black" data-aos="fade-in" data-aos-duration="500">{{ s.body | markdownify }}</div>{% endif %}
+      </div>
+      {% if s.pullquote %}
+      <div class="row g-0 align-items-center mt-md-5">
+        <div class="col-12 col-md-6 cs-pullquote text-center order-md-2 mb-4 mb-md-0 pb-5 pb-md-0" data-aos="fade-in" data-aos-duration="500">
+          <p class="-black h2 -serif font-italic mb-4 px-md-4">“{{ s.pullquote.text }}”</p>
+          {% if s.pullquote.cite %}<cite>— {{ s.pullquote.cite }}</cite>{% endif %}
+        </div>
+        <div class="col-12 col-md-6 cs-image order-md-1" data-aos="fade-in" data-aos-duration="500">
+          {% if s.image %}{% include cs-image.html image=s.image slug=page.slug %}{% endif %}
+        </div>
+      </div>
+      {% else %}
+      {% if s.image %}<div class="mt-4 mt-md-5" data-aos="fade-in" data-aos-duration="500">{% include cs-image.html image=s.image slug=page.slug %}</div>{% endif %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ─── THE IDENTITY ─── -->
+{% if page.sections.identity %}
+{% assign s = page.sections.identity %}
+<section id="the-identity" class="cs-section">
+  <div class="container-xxl">
+    <div class="row g-0">
+      <div class="col-12 col-lg-2">
+        <p class="mb-5 mb-lg-4 -grey" data-aos="fade-in" data-aos-duration="500">Identity</p>
+      </div>
+      <div class="col-12 col-lg-10 col-xl-8">
+        {% if s.intro %}<div class="cs-body -black" data-aos="fade-in" data-aos-duration="500">{{ s.intro | markdownify }}</div>{% endif %}
+      </div>
+    </div>
+
+    {% for sub in s.subsections %}
+    <div class="cs-subsection">
+      {% if sub.label or sub.subheading or sub.body %}
+      <div class="col-12 col-lg-4 offset-lg-2" data-aos="fade-in" data-aos-duration="500">
+        {% if sub.label %}<p class="cs-label mb-2" data-aos="fade-in" data-aos-duration="500">{{ sub.label }}</p>{% endif %}
+        {% if sub.subheading %}<h3 class="-black -light mb-4" data-aos="fade-in" data-aos-duration="500">{{ sub.subheading }}</h3>{% endif %}
+        {% if sub.body %}<div class="-text" data-aos="fade-in" data-aos-duration="500">{{ sub.body | markdownify }}</div>{% endif %}
+      </div>
+      {% endif %}
+      {% if sub.images %}
+      {% for img in sub.images %}
+        {% if img.wide %}
+        <div class="mt-4" data-aos="fade-in" data-aos-duration="500">{% include cs-image.html image=img slug=page.slug wide=true %}</div>
+        {% else %}
+        <div class="mt-4" data-aos="fade-in" data-aos-duration="500">{% include cs-image.html image=img slug=page.slug %}</div>
+        {% endif %}
+      {% endfor %}
+      {% endif %}
+
+      {% if sub.image_group %}
+      <div class="mt-4">
+        {% include cs-image-group.html group=sub.image_group slug=page.slug %}
+      </div>
+      {% endif %}
+
+      {% if sub.photo_grid %}
+      {% assign grid = sub.photo_grid %}
+      <div class="row g-2 g-md-3 mt-4">
+        {% for caption in grid.captions %}
+        {% assign idx = forloop.index0 %}
+        <div class="col-6 col-lg-3">
+          {% assign photo_src = grid.srcs[idx] %}
+          <div class="ratio ratio-1x1">
+            {% if photo_src %}
+            <a href="{{ photo_src }}" data-lightbox="{{ page.slug }}" data-title="{{ caption }}">
+              <img src="{{ photo_src }}" alt="{{ caption }}" class="w-100 h-100 object-fit-cover" data-aos="fade-in" data-aos-duration="500">
+            </a>
+            {% else %}
+            <div class="cs-img"><span class="cs-img-label">{{ caption }}</span></div>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
+
+<!-- ─── THE WEBSITE ─── -->
+{% if page.sections.website %}
+{% assign s = page.sections.website %}
+<section id="the-website" class="cs-section">
+  <div class="container-xxl">
+    <div class="row g-0">
+      <div class="col-12 col-lg-2">
+        <p class="mb-5 mb-lg-4 -grey" data-aos="fade-in" data-aos-duration="500">Website</p>
+      </div>
+      <div class="col-12 col-lg-10 col-xl-8">
+        {% if s.heading %}<h2 class="-black -serif font-italic mb-4" data-aos="fade-in" data-aos-duration="500">{{ s.heading }}</h2>{% endif %}
+        {% if s.body %}<div class="cs-body -black" data-aos="fade-in" data-aos-duration="500">{{ s.body | markdownify }}</div>{% endif %}
+      </div>
+  {% if s.images %}
+  <div class="mt-4 mt-lg-5">
+    {% assign first_img = s.images[0] %}
+    {% include cs-image.html image=first_img slug=page.slug %}
+    {% if s.images.size > 1 %}
+    <div class="container-xxl">
+      <div class="row g-3 mt-0">
+        {% for img in s.images offset:1 %}
+        <div class="col-md-6">{% include cs-image.html image=img slug=page.slug %}</div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+</section>
+{% endif %}
+
+<!-- ─── CLIENT QUOTE(S) ─── -->
+{% if page.quotes or page.quote %}
+<section id="quotes" class="cs-section cs-quote">
+  <div class="container-xxl">
+    {% if page.quotes %}
+      {% for q in page.quotes %}
+      <div class="row{% if forloop.first == false %} cs-quote-divider{% endif %}">
+        <div class="col-6 col-lg-2">
+          <span class="quotation text-right">&ldquo;</span>
+        </div>
+        <div class="col-lg-8 order-3 order-lg-2" data-aos="fade-in" data-aos-duration="500">
+          <blockquote class="mb-4 mb-lg-5">
+            <p class="-black font-italic">{{ q.text }}</p>
+          </blockquote>
+          {% if q.attribution %}<cite>{{ q.attribution }}</cite>{% endif %}
+        </div>
+        <div class="col-6 col-lg-2 order-2 order-lg-3 text-right">
+          <span class="quotation">&rdquo;</span>
+        </div>
+      </div>
+      {% endfor %}
+    {% elsif page.quote %}
+      <div class="row g-0">
+        <div class="col-6 col-lg-2 mt-3 mt-xl-0">
+          <span class="quotation text-right">&ldquo;</span>
+        </div>
+        <div class="col-lg-8 order-3 order-lg-2" data-aos="fade-in" data-aos-duration="500">
+          <blockquote class="mb-4 mb-lg-5">
+            <p class="-black font-italic">{{ page.quote.text }}</p>
+          </blockquote>
+          {% if page.quote.attribution %}<cite>{{ page.quote.attribution }}</cite>{% endif %}
+        </div>
+        <div class="col-6 col-lg-2 order-2 order-lg-3 text-right mt-3 mt-xl-0">
+          <span class="quotation">&rdquo;</span>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+<!-- ─── CREDITS ─── -->
+{% if page.credits %}
+<section id="credits" class="cs-section">
+  <div class="container-xxl">
+    <div class="row g-0 border-none" data-aos="fade-in" data-aos-duration="500">
+      <p class="cs-label -grey d-none d-lg-block col-12 {% if page.recognition %}col-lg-3{% else %}col-lg-6{% endif %} offset-6 mb-2">{% if page.credits %}Credits{% endif %}</p>
+      {% if page.recognition %}<p class="cs-label -grey d-none d-lg-block col-12 col-lg-3 mb-2">Recognition</p>{% endif %}
+    </div>
+    <div class="row g-0">
+      {% if page.thanks %}<p class="cs-body col-12 col-lg-5 pb-5" data-aos="fade-in" data-aos-duration="500">A huge thanks to Levi, Denise, Matt, and the whole MFO team for their partnership and collaboration.</p>{% endif %}
+      <div class="border-lg-top-0 pt-3 pt-lg-0 col-12 col-lg-3 {% if page.thanks %}offset-lg-1{% else %}offset-lg-6{% endif %} mb-0" data-aos="fade-in" data-aos-duration="500">
+        {% for credit in page.credits %}
+        <p class="cs-label -black mb-2">{{ credit.role }}</p>
+        <ul class="list-unstyled -text mb-4">
+          {% for entry in credit.entries %}<li class="cs-label">{{ entry }}</li>{% endfor %}
+        </ul>
+        {% endfor %}
+      </div>
+      {% if page.recognition %}
+      <div class="pt-3 pt-lg-0 col-12 col-lg-3 mb-4">
+        {% for award in page.recognition %}
+        <p class="cs-label -grey mb-3 d-block d-lg-none">Recognition</p>
+        <p class="cs-label -grey mb-2">Awards</p>
+        <p class="cs-label -black mb-2">{{ award.title }}</p>
+        <ul class="list-unstyled -text mb-4">
+          {% for entry in award.entries %}<li class="cs-label">{{ entry }}</li>{% endfor %}
+        </ul>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+          {% comment %}
+
+    <div class="row g-0 mt-5 pt-4 cs-credits-cta">
+      <div class="col-12 col-lg-8">
+        <h2 class="-black -light mb-4">Ready to build a brand that reflects the work you've already done?</h2>
+        <a href="/contact/" class="nav-link d-inline-flex">
+          <span class="-font-secondary text-uppercase">Get in touch →</span>
+        </a>
+      </div>
+    </div>
+      {% endcomment %}
+
+      <div class="mt-5 pt-5 text-center">
+        <a href="/#work" class="nav-link d-inline-flex">
+          <span class="-font-secondary text-uppercase">See more projects →</span>
+        </a>
+      </div>
+  </div>
+</section>
+{% endif %}
