@@ -1,0 +1,28 @@
+{% assign img = include.image %}
+{% assign slug = include.slug %}
+{% assign wide = include.wide %}
+{% if img %}
+<figure class="cs-figure mb-0" data-aos="fade-in" data-aos-duration="500">
+  {% if img.video %}
+  <video autoplay muted loop playsinline webkit-playsinline preload="auto"
+         class="w-100 d-block"
+         {% if img.poster %}poster="{{ img.poster }}"{% endif %}
+         title="{{ img.alt | default: '' }}">
+    <source src="{{ img.video }}" type="video/mp4">
+  </video>
+  {% elsif img.src %}
+  <a href="{{ img.src }}" data-lightbox="{{ slug }}" data-title="{{ img.alt | default: '' }}">
+    <img src="{{ img.src }}" alt="{{ img.alt | default: '' }}" class="w-100 d-block" loading="lazy">
+  </a>
+  {% else %}
+  <div class="ratio ratio-{{ img.ratio | default: '16x9' }}"><div class="cs-img"><span class="cs-img-label">{{ img.placeholder }}</span></div></div>
+  {% endif %}
+  {% if img.caption %}
+    {% if wide %}
+    <figcaption class="cs-caption container-fluid px-md-4 mt-2">{{ img.caption }}</figcaption>
+    {% else %}
+    <figcaption class="cs-caption mt-2">{{ img.caption }}</figcaption>
+    {% endif %}
+  {% endif %}
+</figure>
+{% endif %}

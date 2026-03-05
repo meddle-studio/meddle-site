@@ -1,0 +1,60 @@
+{% assign group = include.group %}
+{% assign slug = include.slug %}
+{% comment %}
+  Renders a two-column image group:
+  - type: "portrait-landscape-stack"
+    left: one tall portrait image
+    right: array of two landscape images stacked vertically
+    reverse: true  (optional) — flips to stacked left, portrait right
+{% endcomment %}
+
+{% if group.type == "portrait-landscape-stack" %}
+{% if group.reverse %}
+  {% assign portrait_order = "order-md-2" %}
+  {% assign stack_order = "order-md-1" %}
+{% else %}
+  {% assign portrait_order = "order-md-1" %}
+  {% assign stack_order = "order-md-2" %}
+{% endif %}
+<div class="row g-2 g-md-3">
+  <div class="col-12 col-md-6 {{ portrait_order }}">
+    {% assign left = group.left %}
+    <figure class="cs-figure mb-0 h-100" data-aos="fade-in" data-aos-duration="500">
+      {% if left.video %}
+      <video autoplay muted loop playsinline webkit-playsinline preload="auto"
+             class="w-100 h-100 object-fit-cover d-block"
+             {% if left.poster %}poster="{{ left.poster }}"{% endif %}
+             title="{{ left.alt | default: '' }}">
+        <source src="{{ left.video }}" type="video/mp4">
+      </video>
+      {% elsif left.src %}
+      <a href="{{ left.src }}" data-lightbox="{{ slug }}" data-title="{{ left.alt | default: '' }}" class="d-block h-100">
+        <img src="{{ left.src }}" alt="{{ left.alt | default: '' }}" class="w-100 h-100 object-fit-cover d-block" loading="lazy" data-aos="fade-in" data-aos-duration="500">
+      </a>
+      {% else %}
+      <div class="cs-img h-100"><span class="cs-img-label">{{ left.placeholder }}</span></div>
+      {% endif %}
+    </figure>
+  </div>
+  <div class="col-12 col-md-6 d-flex flex-column gap-2 gap-md-3 {{ stack_order }}">
+    {% for img in group.right %}
+    <figure class="cs-figure mb-0 flex-fill" data-aos="fade-in" data-aos-duration="500">
+      {% if img.video %}
+      <video autoplay muted loop playsinline webkit-playsinline preload="auto"
+             class="w-100 h-100 object-fit-cover d-block"
+             {% if img.poster %}poster="{{ img.poster }}"{% endif %}
+             title="{{ img.alt | default: '' }}">
+        <source src="{{ img.video }}" type="video/mp4">
+      </video>
+      {% elsif img.src %}
+      <a href="{{ img.src }}" data-lightbox="{{ slug }}" data-title="{{ img.alt | default: '' }}" class="d-block h-100">
+        <img src="{{ img.src }}" alt="{{ img.alt | default: '' }}" class="w-100 h-100 object-fit-cover d-block" loading="lazy" data-aos="fade-in" data-aos-duration="500">
+      </a>
+      {% else %}
+      <div class="ratio ratio-{{ img.ratio | default: '16x9' }}"><div class="cs-img"><span class="cs-img-label">{{ img.placeholder }}</span></div></div>
+      {% endif %}
+    </figure>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

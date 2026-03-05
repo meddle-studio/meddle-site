@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
 $(document).ready(function() {
     const $navbar = $('#primary-navigation-home');
     const $navWrapper = $('section.svh-100');
+
+    if (!$navbar.length || !$navWrapper.length) return;
+
     const navbarHeight = $navbar.outerHeight();
 
     // The scroll position where the TOP of the absolutely-positioned navbar
@@ -80,9 +83,6 @@ $(document).ready(function() {
         $sections.each(function() {
             const $currentSection = $(this);
 
-            // We can remove the check for the first section ID here,
-            // as the homeThreshold check already handles the very top area.
-
             const sectionTop = $currentSection.offset().top - offsetThreshold;
             const sectionBottom = sectionTop + $currentSection.outerHeight();
             const sectionId = '#' + $currentSection.attr('id');
@@ -94,37 +94,6 @@ $(document).ready(function() {
             }
         });
     });
-
-    // Anchor Link History Cleansing (Click Handler)
-    // $links.on('click', function(e) {
-    //     e.preventDefault();
-    //     const targetId = $(this).attr('href');
-
-    //     // FIX: Check if targetId is '#' before creating a jQuery object,
-    //     // as it will always scroll to the top (scrollTop: 0) anyway.
-    //     let $targetElement = null;
-    //     if (targetId !== '#') {
-    //         $targetElement = $(targetId);
-    //     }
-
-    //     // Scroll to an element found by ID
-    //     if ($targetElement && $targetElement.length) {
-    //         $('html, body').animate({
-    //             scrollTop: $targetElement.offset().top
-    //         }, 0, function() {
-    //             history.replaceState(null, null, targetId);
-    //         });
-    //     }
-
-    //     // Handle the '#' link (Home/Top)
-    //     else if (targetId === '#') {
-    //          $('html, body').animate({
-    //             scrollTop: 0
-    //         }, 0, function() {
-    //             history.replaceState(null, null, targetId);
-    //         });
-    //     }
-    // });
 
     $window.trigger('scroll');
 
@@ -202,6 +171,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Case study nav: hide on scroll-down, show on scroll-up
+document.addEventListener('DOMContentLoaded', () => {
+    const csNav = document.getElementById('cs-nav');
+    const csLogo = document.getElementById('cs-logo');
+    if (!csNav && !csLogo) return;
+
+    const els = [csNav, csLogo].filter(Boolean);
+    const hero = document.querySelector('header.cs-hero');
+    let lastScrollTop = window.scrollY || document.documentElement.scrollTop;
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const heroHeight = hero ? hero.offsetHeight : 0;
+
+        if (scrollTop >= heroHeight) {
+            els.forEach(el => el.classList.add('cs-nav-sticky'));
+            if (scrollTop > lastScrollTop) {
+                els.forEach(el => el.classList.add('cs-nav-hidden'));
+            } else {
+                els.forEach(el => el.classList.remove('cs-nav-hidden'));
+            }
+        } else {
+            els.forEach(el => el.classList.remove('cs-nav-sticky', 'cs-nav-hidden'));
+        }
+
+        lastScrollTop = scrollTop;
+    }, { passive: true });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const heroVideo = document.querySelector('header video.object-fit-cover');
 

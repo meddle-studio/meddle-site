@@ -1,11 +1,14 @@
 $(document).ready(function() {
     const $navbar = $('#primary-navigation-home');
     const $navWrapper = $('section.svh-100');
+
+    if (!$navbar.length || !$navWrapper.length) return;
+
     const navbarHeight = $navbar.outerHeight();
-    
-    // The scroll position where the TOP of the absolutely-positioned navbar 
+
+    // The scroll position where the TOP of the absolutely-positioned navbar
     // aligns with the TOP of the viewport.
-    const stickyThreshold = $navWrapper.offset().top + $navWrapper.outerHeight() - navbarHeight; 
+    const stickyThreshold = $navWrapper.offset().top + $navWrapper.outerHeight() - navbarHeight;
 
     let initialScrollPassed = false;
     let lastScrollTop = 0;
@@ -192,6 +195,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+// Case study nav: hide on scroll-down, show on scroll-up
+document.addEventListener('DOMContentLoaded', () => {
+    const csNav = document.getElementById('cs-nav');
+    if (!csNav) return;
+
+    const hero = document.querySelector('header.cs-hero');
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const heroHeight = hero ? hero.offsetHeight : 0;
+
+        if (scrollTop >= heroHeight) {
+            csNav.classList.add('cs-nav-sticky');
+            if (scrollTop > lastScrollTop) {
+                csNav.classList.add('cs-nav-hidden');
+            } else {
+                csNav.classList.remove('cs-nav-hidden');
+            }
+        } else {
+            csNav.classList.remove('cs-nav-sticky', 'cs-nav-hidden');
+        }
+
+        lastScrollTop = scrollTop;
+    }, { passive: true });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const heroVideo = document.querySelector('header video.object-fit-cover');
 

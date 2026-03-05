@@ -6,6 +6,13 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "redirects": [
+      {
+        "source": "/projects",
+        "destination": "/#work",
+        "type": 301
+      }
+    ],
     "headers": [
       {
         "source": "**",
