@@ -20,6 +20,13 @@ $font-tertiary: 'Libre Baskerville';
 	--font-tertiary: "Libre Baskerville";
 	--white: #e8e8e8;
 	--white-transparent: rgba(255, 254, 244, 0);
+	// Theme defaults (dark) — ensures --theme-primary is always defined on html
+	--theme-primary: #{$black};
+	--theme-primary-transparent: transparent;
+	--theme-secondary: #{$white};
+	--theme-secondary-transparent: rgba(255, 254, 244, 0);
+	--theme-contrast: #{$purple};
+	--theme-contrast-transparent: rgba(255, 0, 0, 0);
 	--lt-grey: #d9d9d9;
 	--grey: #757575;
 	--grey-transparent: hsla(0, 0%, 56%, 0);
@@ -246,7 +253,10 @@ em {
     grid-column: 8/-1;
   }
 }
-hr {opacity: 1;}
+hr {
+  opacity: 0.42;
+  color: var(--theme-secondary);
+}
 .text-accent {
 	color: var(--green)
 }
@@ -254,24 +264,25 @@ hr {opacity: 1;}
 	color: $grey !important;
 }
 .theme-light {
-  --theme-primary: $white;
+  --theme-primary: #{$white};
 	--theme-primary-transparent: rgba(255, 254, 244, 0);
-  --theme-secondary: $black;
+  --theme-secondary: #{$black};
 	--theme-secondary-transparent: transparent;
-	--theme-contrast: $purple;
-	--theme-contrast-transparent: rgba(255, 0, 0, 0)
+	--theme-contrast: #{$purple};
+	--theme-contrast-transparent: rgba(255, 0, 0, 0);
 }
 .theme-dark {
-  --theme-primary: $black;
+  --theme-primary: #{$black};
 	--theme-primary-transparent: transparent;
-  --theme-secondary: $white;
+  --theme-secondary: #{$white};
 	--theme-secondary-transparent: rgba(255, 254, 244, 0);
-	--theme-contrast: $purple;
-	--theme-contrast-transparent: rgba(255, 0, 0, 0)
+	--theme-contrast: #{$purple};
+	--theme-contrast-transparent: rgba(255, 0, 0, 0);
 }
 .layout {
   background-color: var(--theme-primary);
   color: var(--theme-secondary);
+  transition: background-color 0.8s var(--ease-out-expo), color 0.8s var(--ease-out-expo);
   display: flex;
   flex-direction: column;
   @media(min-width: 992px) {
@@ -459,10 +470,6 @@ svg.icon rect[stroke] {
     border-radius: 54px;
     background-color: rgba(40,40,40,.8);
     background-color: rgba($white, .75);
-    --tw-text-opacity: 1;
-    --tw-backdrop-blur: blur(5px);
-    backdrop-filter: blur(5px) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
     -webkit-transition-property: all;
     transition-property: all;
     -webkit-transition-timing-function: cubic-bezier(.4,0,.2,1);
@@ -579,12 +586,8 @@ header .position-sticky.w-100 {
 .nav-link {
     border-radius: 54px;
     background-color: rgba(40,40,40,.8);
-    --tw-text-opacity: 1;
     color: $white;
     opacity: 0;
-    --tw-backdrop-blur: blur(20px);
-    backdrop-filter: blur(20px) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
     -webkit-transition-property: all;
     transition-property: all;
     -webkit-transition-timing-function: cubic-bezier(.4,0,.2,1);
@@ -605,9 +608,7 @@ header .position-sticky.w-100 {
 .nav-item:first-of-type,
 .nav-item:last-of-type {margin-left: 0;}
 .nav-link.active {
-    --tw-bg-opacity: 1;
     background-color: $white;
-    --tw-text-opacity: 1;
     color: $black;
 }
 .nav-link {
@@ -624,12 +625,10 @@ header .position-sticky.w-100 {
 }
 .nav-link:hover,
 .nav-link:focus {
-    --tw-bg-opacity: 1;
     background-color: rgba(144,144,144, .8);
     backdrop-filter: saturate(190%) blur(60px);
     -webkit-backdrop-filter: saturate(190%) blur(60px);
     color: $white !important;
-    --tw-text-opacity: 1;
 }
 .nav-link:active {
   transform:scale(.9);
@@ -684,13 +683,13 @@ section.svh-100 {
   .nav-link {font-size: 16px;}
 }
 @media screen and (min-width: 768px) {
-  .page-home #services {
-    height: 280px;
-    .list-bordered li {
-      border:none;
-      &:before {top:0.5em;}
-    }
-  }
+  // .page-home #services {
+  //   height: 280px;
+  //   .list-bordered li {
+  //     border:none;
+  //     &:before {top:0.5em;}
+  //   }
+  // }
 }
 @media screen and (max-width: 991.98px) {
   .page-home #ways-to-engage li {
@@ -699,6 +698,12 @@ section.svh-100 {
   }
 }
 @media screen and (min-width: 992px) {
+  .client, a.client {
+    border-top: 1px solid var(--theme-secondary);
+    & > .row {
+      padding-bottom: 11.25em;
+    }
+  }
   #about .container-xxl {
       width: 80%;
       padding: 0;
@@ -752,8 +757,31 @@ section.svh-100 {
       max-width: 1470px;
   }
 }
+.page-home,
+.page-sprint {
+  .layout.theme-light {
+    --theme-primary: #{$lt-grey};
+    --theme-secondary: #{$black};
+  }
+}
 .page-home {
-  #services {z-index: 0;}
+  // #services {z-index: 0;}
+  // Work card: portrait on mobile, landscape on md+
+  .ratio-work-card {
+    --bs-aspect-ratio: calc(447 / 358 * 100%);
+    @media (min-width: 768px) {
+      --bs-aspect-ratio: calc(514 / 913 * 100%);
+    }
+    // Ensure poster image fills the ratio box
+    .video-poster-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+.client, a.client {
+  display: block;
 }
 .page-contact {
   #backBtn {
@@ -854,11 +882,7 @@ input[type="checkbox"]:checked + .project-chip { border-color: $white; color: $w
 .btn-meddle {
     border-radius: 54px;
     background-color: rgba(40,40,40,.8);
-    --tw-text-opacity: 1;
     color: $white;
-    --tw-backdrop-blur: blur(20px);
-    backdrop-filter: blur(20px) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
     -webkit-transition-property: all;
     transition-property: all;
     -webkit-transition-timing-function: cubic-bezier(.4,0,.2,1);
@@ -879,12 +903,10 @@ input[type="checkbox"]:checked + .project-chip { border-color: $white; color: $w
     margin-top: 3rem;
 }
 .btn-meddle:hover {
-  --tw-bg-opacity: 1;
     background-color: rgba(144,144,144, .8);
     backdrop-filter: saturate(190%) blur(60px);
     -webkit-backdrop-filter: saturate(190%) blur(60px);
     color: $white !important;
-    --tw-text-opacity: 1;
 }
 .btn-meddle:disabled { background-color: #333; color: #666; }
 .-textButton {
@@ -958,7 +980,7 @@ input[type="checkbox"]:checked + .project-chip { border-color: $white; color: $w
 }
 .list-bordered li,
 .list-bordered ol {
-  border-bottom: 1px solid $black;
+  border-bottom: 1px solid rgba($black, .42);
 }
 svg.logo-sm {
   height: 30px !important;

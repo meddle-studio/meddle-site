@@ -11,9 +11,7 @@
     <source src="{{ img.video }}" type="video/mp4">
   </video>
   {% elsif img.src %}
-  <a href="{{ img.src }}" data-lightbox="{{ slug }}" data-title="{{ img.alt | default: '' }}">
-    <img src="{{ img.src }}" alt="{{ img.alt | default: '' }}" class="w-100 d-block" loading="lazy">
-  </a>
+  <img src="{{ img.src }}" alt="{{ img.alt | default: '' }}" class="w-100 d-block" loading="lazy">
   {% else %}
   <div class="ratio ratio-{{ img.ratio | default: '16x9' }}"><div class="cs-img"><span class="cs-img-label">{{ img.placeholder }}</span></div></div>
   {% endif %}
