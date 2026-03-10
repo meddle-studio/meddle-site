@@ -201,6 +201,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 });
 
+// Scroll-driven theme transitions
+// Add data-scroll-theme="light" or data-scroll-theme="dark" to any element
+// to trigger a .layout theme switch when it enters the middle of the viewport.
+document.addEventListener('DOMContentLoaded', () => {
+    const layout = document.querySelector('.layout');
+    if (!layout) return;
+
+    const triggers = document.querySelectorAll('[data-scroll-theme]');
+    if (!triggers.length) return;
+
+    const initialTheme = [...layout.classList].find(c => c.startsWith('theme-')) || 'theme-dark';
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const targetTheme = 'theme-' + entry.target.dataset.scrollTheme;
+            if (entry.isIntersecting) {
+                layout.classList.remove('theme-dark', 'theme-light');
+                layout.classList.add(targetTheme);
+            } else if (entry.boundingClientRect.top > window.innerHeight * 0.5) {
+                // Trigger is still below the viewport midpoint — restore initial theme
+                layout.classList.remove('theme-dark', 'theme-light');
+                layout.classList.add(initialTheme);
+            }
+            // Trigger has scrolled past above — keep current theme
+        });
+    }, { rootMargin: '0px 0px -50% 0px', threshold: 0 });
+
+    triggers.forEach(el => observer.observe(el));
+
+    // Sync on load: find the last trigger already above the midpoint and apply its theme
+    let activeTheme = initialTheme;
+    triggers.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.5) {
+            activeTheme = 'theme-' + el.dataset.scrollTheme;
+        }
+    });
+    layout.classList.remove('theme-dark', 'theme-light');
+    layout.classList.add(activeTheme);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const heroVideo = document.querySelector('header video.object-fit-cover');
 

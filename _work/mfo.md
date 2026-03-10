@@ -4,9 +4,16 @@ title: "MFO Nonprofit Accounting rebrand by Meddle"
 description: "How Meddle helped Mission First Operations (MFO) build a brand that matched the caliber of what they'd already built. Visual identity and website design."
 date: 2026-03-05
 aos: true
-lightbox: true
+lightbox: false
+order: 1
 client: "MFO Nonprofit Accounting"
 tagline: "MFO had the reputation. Now they have the brand to match."
+
+card_video:
+  landscape: /assets/images/work/mfo/MFO-Teaser-Landscape-sm.mp4
+  portrait:  /assets/images/work/mfo/MFO-Teaser-Portrait-sm.mp4
+  poster:    /assets/images/work/mfo/mfo-landscape-sm.jpg
+  poster_portrait: /assets/images/work/mfo/mfo-portrait-sm.jpg
 
 services:
   - Visual Identity
@@ -14,8 +21,9 @@ services:
 
 hero_video:
   landscape: /assets/images/work/mfo/mfo-landscape-sm.mp4
-  portrait: /assets/images/work/mfo/mfo-portrait-sm.mp4
+  portrait:  /assets/images/work/mfo/mfo-portrait-sm.mp4
   poster:    /assets/images/work/mfo/mfo-landscape-sm.jpg
+  poster_portrait: /assets/images/work/mfo/mfo-portrait-sm.jpg
   placeholder: "MFO — Brand Identity Animation"
 
 sections:

@@ -9,7 +9,7 @@ classes: page-case-study -bg-white
   <!-- Video (landscape + portrait sources) -->
   {% if page.hero_video.landscape or page.hero_video.portrait %}
   <video autoplay muted loop playsinline webkit-playsinline preload="auto" crossorigin="anonymous"
-         class="position-absolute inset-0 w-100 h-100 object-fit-cover object-position-center"
+         class="position-absolute top-0 start-0 bottom-0 end-0 w-100 h-100 object-fit-cover"
          {% if page.hero_video.poster %}poster="{{ page.hero_video.poster }}"{% endif %}
          title="{{ page.title }}">
     {% if page.hero_video.landscape %}
@@ -23,7 +23,7 @@ classes: page-case-study -bg-white
   </video>
   {% else %}
   <!-- Placeholder until video assets are added -->
-  <div class="position-absolute inset-0 w-100 h-100 cs-video-placeholder d-flex align-items-center justify-content-center">
+  <div class="position-absolute top-0 start-0 bottom-0 end-0 w-100 h-100 cs-video-placeholder d-flex align-items-center justify-content-center">
     <span class="cs-img-label">[ Hero Animation ]</span>
   </div>
   {% endif %}
@@ -42,7 +42,7 @@ classes: page-case-study -bg-white
   </a>
 
   <!-- Nav links — overlaid at top right -->
-  <div id="cs-nav" class="position-absolute top-0 end-0 pt-3 pe-3 pe-md-4 z-1 cs-nav-hidden">
+  <div id="cs-nav" class="position-absolute top-0 end-0 pt-3 pe-3 pe-md-4 z-5 cs-nav-hidden">
     <div class="d-flex flex-row" aria-label="Site Navigation">
       <a href="/#work" class="nav-link -font-secondary text-uppercase">← Work</a>
       <a href="/contact/" class="nav-link -font-secondary text-uppercase">Contact</a>
@@ -191,9 +191,7 @@ classes: page-case-study -bg-white
           {% assign photo_src = grid.srcs[idx] %}
           <div class="ratio ratio-1x1">
             {% if photo_src %}
-            <a href="{{ photo_src }}" data-lightbox="{{ page.slug }}" data-title="{{ caption }}">
-              <img src="{{ photo_src }}" alt="{{ caption }}" class="w-100 h-100 object-fit-cover" data-aos="fade-in" data-aos-duration="500">
-            </a>
+            <img src="{{ photo_src }}" alt="{{ caption }}" class="w-100 h-100 object-fit-cover" data-aos="fade-in" data-aos-duration="500">
             {% else %}
             <div class="cs-img"><span class="cs-img-label">{{ caption }}</span></div>
             {% endif %}

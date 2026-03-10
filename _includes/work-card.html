@@ -1,0 +1,44 @@
+{% assign item = include.item %}
+{% if item.coming_soon %}
+<div class="client pt-4">
+{% else %}
+<a href="{{ item.url }}" data-tooltip="Explore" aria-label="{{ item.client }}: Explore case study" class="client pt-4">
+{% endif %}
+  <div class="row g-0">
+    <div class="col-12 col-lg-3 order-2 order-lg-1">
+      <div class="d-flex flex-column align-items-start h-100 w-100 mb-4 mb-lg-0 mb-md-5">
+        <h3 class="mt-4 mt-lg-0 h2 -semiBold mb-lg-auto">{{ item.client }}</h3>
+        <div class="">
+          {% if item.coming_soon %}
+          <div class="-grey -mono text-uppercase -medium">Coming Soon</div>
+          {% else %}
+          <div class="lead -grey -semiBold">{{ item.tagline }}</div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="col-12 offset-lg-1 col-lg-8 order-1">
+      <div class="video-container ratio ratio-work-card">
+        {% if item.coming_soon %}
+        <picture class="video-poster-image pe-none">
+          <img src="{{ item.card_image }}" alt="" loading="lazy" decoding="async">
+        </picture>
+        {% else %}
+        {% assign cv = item.card_video | default: item.hero_video %}
+        <picture class="video-poster-image pe-none">
+          {% if cv.poster %}<source srcset="{{ cv.poster }}" media="(min-width: 768px)">{% endif %}
+          <img src="{{ cv.portrait_poster | default: cv.poster }}" alt="" loading="lazy" decoding="async">
+        </picture>
+        <video class="object-fit-cover" preload="metadata" crossorigin="anonymous" playsinline autoplay muted loop>
+          <source src="{{ cv.landscape }}" media="(min-width: 768px)" type="video/mp4">
+          {% if cv.portrait %}<source src="{{ cv.portrait }}" media="(max-width: 767px)" type="video/mp4">{% endif %}
+        </video>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% if item.coming_soon %}
+</div>
+{% else %}
+</a>
+{% endif %}
