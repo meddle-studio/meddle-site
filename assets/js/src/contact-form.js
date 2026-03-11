@@ -1,10 +1,12 @@
-// 1. CUSTOM SELECT LOGIC (Remains the same for UI)
+// 1. CUSTOM SELECT LOGIC
 document.querySelectorAll('.meddle-select-wrapper').forEach(wrapper => {
     const trigger = wrapper.querySelector('.meddle-select-trigger');
     const hiddenInput = wrapper.querySelector('input[type="hidden"]');
 
     trigger.addEventListener('click', () => {
-        document.querySelectorAll('.meddle-select-wrapper').forEach(w => { if(w !== wrapper) w.classList.remove('open'); });
+        document.querySelectorAll('.meddle-select-wrapper').forEach(w => { 
+            if(w !== wrapper) w.classList.remove('open'); 
+        });
         wrapper.classList.toggle('open');
     });
 
@@ -25,7 +27,21 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// 2. FIXED HUBSPOT API SUBMISSION
+// 2. HELPER TO GET HUBSPOT TRACKING COOKIE
+const getHubSpotCookie = () => {
+    const name = "hubspotutk";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i].trim();
+        if (c.indexOf(name + "=") === 0) {
+            return c.substring(name.length + 1, c.length);
+        }
+    }
+    return null;
+};
+
+// 3. FIXED HUBSPOT API SUBMISSION
 const form = document.getElementById('meddle-hubspot-form');
 const submitBtn = document.getElementById('submit-btn');
 
@@ -40,30 +56,34 @@ if (form && submitBtn) {
         const endpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
 
         const formData = new FormData(form);
+        const hutk = getHubSpotCookie();
 
         // Parse name for CRM first/last name fields
-        const full_name = formData.get('full_name') || "";
-        const nameParts = full_name.trim().split(' ');
+        const full_name = (formData.get('full_name') || "").trim();
+        const nameParts = full_name.split(' ');
+        const firstName = nameParts[0] || "";
+        const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : ' ';
 
         // Extract multi-select values (checkboxes)
         const projectTypes = Array.from(formData.getAll('project_type')).join(';');
 
-        // This payload uses the exact internal property names found in your Form.mhtml
+        // Payload with cookie context and trimmed data
         const data = {
             "fields": [
                 { "name": "0-1/full_name", "value": full_name },
-                { "name": "firstname", "value": nameParts[0] },
-                { "name": "lastname", "value": nameParts.slice(1).join(' ') || ' ' },
+                { "name": "firstname", "value": firstName },
+                { "name": "lastname", "value": lastName },
                 { "name": "0-1/email", "value": formData.get('email').trim() },
                 { "name": "0-2/name", "value": formData.get('name').trim() || "" },
                 { "name": "0-1/website", "value": formData.get('website').trim() || "" },
-                { "name": "0-1/message", "value": formData.get('message').trim() || "" },
+                { "name": "0-1/message", "value": formData.get('message').trim() || "Interested in meddling." },
                 { "name": "0-1/project_type", "value": projectTypes },
                 { "name": "timeline", "value": formData.get('timeline') || "" },
                 { "name": "budget_expectation", "value": formData.get('budget_expectation') || "" },
                 { "name": "how_did_you_hear_about_us", "value": formData.get('how_did_you_hear_about_us').trim() || "" }
             ],
             "context": {
+                "hutk": hutk,
                 "pageUri": window.location.href,
                 "pageName": document.title
             }
