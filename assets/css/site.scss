@@ -763,6 +763,7 @@ section.svh-100 {
     --theme-primary: #{$lt-grey};
     --theme-secondary: #{$black};
   }
+
 }
 .page-home {
   // #services {z-index: 0;}
@@ -1035,6 +1036,7 @@ ul.no-good li::before {
     &:hover * {fill:white;}
   }
   header {
+    height: 100svh;
     h1, .h1 {
       letter-spacing: -0.03em;
       line-height: 1;
