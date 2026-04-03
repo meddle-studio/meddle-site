@@ -140,7 +140,7 @@ sections:
 
 quote:
   text: "Working with Matt on our rebrand was a great fit. I was impressed by how quickly everything moved. He grasped our vision early and gave us the creative direction we needed to reflect our vision and values better than&nbsp;ever."
-  attribution: "Denise Chaykun<br>CEO, MFO Nonprofit Accounting"
+  attribution: "Denise Chaykun<br>Founder, MFO Nonprofit Accounting"
 
 thanks: "A huge thanks to Levi, Denise, Matt, and the whole MFO team for their partnership and collaboration."
 

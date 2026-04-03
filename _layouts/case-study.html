@@ -11,6 +11,7 @@ classes: page-case-study -bg-white
   <video autoplay muted loop playsinline webkit-playsinline preload="auto" crossorigin="anonymous"
          class="position-absolute top-0 start-0 bottom-0 end-0 w-100 h-100 object-fit-cover"
          {% if page.hero_video.poster %}poster="{{ page.hero_video.poster }}"{% endif %}
+         aria-label="{{ page.title }}"
          title="{{ page.title }}">
     {% if page.hero_video.landscape %}
     <source src="{{ page.hero_video.landscape }}" type="video/mp4" media="(orientation: landscape)">
@@ -42,12 +43,12 @@ classes: page-case-study -bg-white
   </a>
 
   <!-- Nav links — overlaid at top right -->
-  <div id="cs-nav" class="position-absolute top-0 end-0 pt-3 pe-3 pe-md-4 z-5 cs-nav-hidden">
-    <div class="d-flex flex-row" aria-label="Site Navigation">
+  <nav id="cs-nav" class="position-absolute top-0 end-0 pt-3 pe-3 pe-md-4 z-5 cs-nav-hidden">
+    <div class="d-flex flex-row">
       <a href="/#work" class="nav-link -font-secondary text-uppercase">← Work</a>
       <a href="/contact/" class="nav-link -font-secondary text-uppercase">Contact</a>
     </div>
-  </div>
+  </nav>
 
   <!-- Tagline + services — overlaid at bottom -->
   <div class="position-absolute bottom-0 start-0 w-100 pb-4 pb-lg-5 z-1 cs-nav-hidden">
@@ -245,32 +246,32 @@ classes: page-case-study -bg-white
       {% for q in page.quotes %}
       <div class="row{% if forloop.first == false %} cs-quote-divider{% endif %}">
         <div class="col-6 col-lg-2">
-          <span class="quotation text-right">&ldquo;</span>
+          <span class="quotation text-right" aria-hidden="true">&ldquo;</span>
         </div>
         <div class="col-lg-8 order-3 order-lg-2" data-aos="fade-in" data-aos-duration="500">
           <blockquote class="mb-4 mb-lg-5">
             <p class="-black font-italic">{{ q.text }}</p>
+            {% if q.attribution %}<footer><cite>{{ q.attribution }}</cite></footer>{% endif %}
           </blockquote>
-          {% if q.attribution %}<cite>{{ q.attribution }}</cite>{% endif %}
         </div>
         <div class="col-6 col-lg-2 order-2 order-lg-3 text-right">
-          <span class="quotation">&rdquo;</span>
+          <span class="quotation" aria-hidden="true">&rdquo;</span>
         </div>
       </div>
       {% endfor %}
     {% elsif page.quote %}
       <div class="row g-0">
         <div class="col-6 col-lg-2 mt-3 mt-xl-0">
-          <span class="quotation text-right">&ldquo;</span>
+          <span class="quotation text-right" aria-hidden="true">&ldquo;</span>
         </div>
         <div class="col-lg-8 order-3 order-lg-2" data-aos="fade-in" data-aos-duration="500">
           <blockquote class="mb-4 mb-lg-5">
             <p class="-black font-italic">{{ page.quote.text }}</p>
+            {% if page.quote.attribution %}<footer><cite>{{ page.quote.attribution }}</cite></footer>{% endif %}
           </blockquote>
-          {% if page.quote.attribution %}<cite>{{ page.quote.attribution }}</cite>{% endif %}
         </div>
         <div class="col-6 col-lg-2 order-2 order-lg-3 text-right mt-3 mt-xl-0">
-          <span class="quotation">&rdquo;</span>
+          <span class="quotation" aria-hidden="true">&rdquo;</span>
         </div>
       </div>
     {% endif %}

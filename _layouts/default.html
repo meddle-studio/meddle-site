@@ -69,6 +69,8 @@
   {% include schema-sprint.html %}
   {%- elsif page.url == "/contact/" -%}
   {% include schema-contact.html %}
+  {%- elsif page.layout == "case-study" -%}
+  {% include schema-case-study.html %}
   {%- endif -%}
 
   <!-- Favicons -->

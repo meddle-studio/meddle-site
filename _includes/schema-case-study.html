@@ -1,0 +1,61 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CreativeWork",
+      "@id": "{{ page.url | absolute_url }}#creative-work",
+      "name": "{{ page.title }}",
+      "description": "{{ page.description }}",
+      "url": "{{ page.url | absolute_url }}",
+      "image": {
+        "@type": "ImageObject",
+        "url": "{{ page.image | default: page.hero_video.poster | absolute_url }}"
+      },
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      "dateModified": "{{ site.time | date_to_xmlschema }}",
+      "author": {
+        "@type": "Person",
+        "@id": "https://matthewbacon.com/",
+        "name": "Matt Bacon"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://meddle.studio/#organization"
+      },
+      "about": [
+        {% for service in page.services %}"{{ service }}"{% unless forloop.last %}, {% endunless %}{% endfor %}
+      ],
+      "inLanguage": "en-US",
+      "isPartOf": {
+        "@type": "CreativeWorkSeries",
+        "name": "Meddle Case Studies",
+        "url": "{{ site.url }}/work/"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "{{ page.url | absolute_url }}#client",
+      "name": "{{ page.client }}",
+      "description": "Client featured in this Meddle case study"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://matthewbacon.com/",
+      "name": "Matt Bacon",
+      "jobTitle": "Founder & Creative Director",
+      "url": "https://meddle.studio/",
+      "worksFor": {
+        "@type": "Organization",
+        "@id": "https://meddle.studio/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://meddle.studio/#organization",
+      "name": "Meddle",
+      "url": "https://meddle.studio/"
+    }
+  ]
+}
+</script>
