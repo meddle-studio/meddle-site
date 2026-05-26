@@ -107,7 +107,19 @@ classes: page-case-study -bg-white
         {% if s.heading %}<h2 class="-black -serif font-italic mb-4" data-aos="fade-in" data-aos-duration="500">{{ s.heading }}</h2>{% endif %}
         {% if s.body %}<div class="cs-body -black" data-aos="fade-in" data-aos-duration="500">{{ s.body | markdownify }}</div>{% endif %}
       </div>
-      {% if s.image %}<div class="mt-4 mt-lg-5" data-aos="fade-in" data-aos-duration="500">{% include cs-image.html image=s.image slug=page.slug %}</div>{% endif %}
+      {% if s.pullquote %}
+      <div class="row g-0 align-items-center mt-md-5">
+        <div class="col-12 col-md-6 cs-pullquote text-center order-md-2 mb-4 mb-md-0 pb-5 pb-md-0" data-aos="fade-in" data-aos-duration="500">
+          <p class="-black h2 -serif font-italic mb-4 px-md-4">“{{ s.pullquote.text }}”</p>
+          {% if s.pullquote.cite %}<cite>— {{ s.pullquote.cite }}</cite>{% endif %}
+        </div>
+        <div class="col-12 col-md-6 cs-image order-md-1" data-aos="fade-in" data-aos-duration="500">
+          {% if s.image %}{% include cs-image.html image=s.image slug=page.slug %}{% endif %}
+        </div>
+      </div>
+      {% else %}
+      {% if s.image %}<div class="mt-4 mt-md-5" data-aos="fade-in" data-aos-duration="500">{% include cs-image.html image=s.image slug=page.slug %}</div>{% endif %}
+      {% endif %}
     </div>
   </div>
 </section>
@@ -238,6 +250,37 @@ classes: page-case-study -bg-white
 </section>
 {% endif %}
 
+<!-- ─── THE RESULT ─── -->
+{% if page.sections.result %}
+{% assign s = page.sections.result %}
+<section id="the-result" class="cs-section">
+  <div class="container-xxl">
+    <div class="row g-0">
+      <div class="col-12 col-lg-2">
+        <p class="mb-5 mb-lg-4 -grey" data-aos="fade-in" data-aos-duration="500">Results</p>
+      </div>
+      <div class="col-12 col-lg-10 col-xl-8">
+        {% if s.heading %}<h2 class="-black -serif font-italic mb-4" data-aos="fade-in" data-aos-duration="500">{{ s.heading }}</h2>{% endif %}
+        {% if s.body %}<div class="cs-body -black" data-aos="fade-in" data-aos-duration="500">{{ s.body | markdownify }}</div>{% endif %}
+      </div>
+  {% if s.images %}
+  <div class="mt-4 mt-lg-5">
+    {% assign first_img = s.images[0] %}
+    {% include cs-image.html image=first_img slug=page.slug %}
+    {% if s.images.size > 1 %}
+    <div class="container-xxl">
+      <div class="row g-3 mt-0">
+        {% for img in s.images offset:1 %}
+        <div class="col-md-6">{% include cs-image.html image=img slug=page.slug %}</div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+</section>
+{% endif %}
+
 <!-- ─── CLIENT QUOTE(S) ─── -->
 {% if page.quotes or page.quote %}
 <section id="quotes" class="cs-section cs-quote">
@@ -288,7 +331,7 @@ classes: page-case-study -bg-white
       {% if page.recognition %}<p class="cs-label -grey d-none d-lg-block col-12 col-lg-3 mb-2">Recognition</p>{% endif %}
     </div>
     <div class="row g-0">
-      {% if page.thanks %}<p class="cs-body col-12 col-lg-5 pb-5" data-aos="fade-in" data-aos-duration="500">A huge thanks to Levi, Denise, Matt, and the whole MFO team for their partnership and collaboration.</p>{% endif %}
+      {% if page.thanks %}<p class="cs-body col-12 col-lg-5 pb-5" data-aos="fade-in" data-aos-duration="500">{{ page.thanks }}</p>{% endif %}
       <div class="border-lg-top-0 pt-3 pt-lg-0 col-12 col-lg-3 {% if page.thanks %}offset-lg-1{% else %}offset-lg-6{% endif %} mb-0" data-aos="fade-in" data-aos-duration="500">
         {% for credit in page.credits %}
         <p class="cs-label -black mb-2">{{ credit.role }}</p>
