@@ -11,9 +11,9 @@ tagline: "An ostomy isn’t the end. It’s a beginning."
 #card_image: /assets/images/work/armor-bands/armor-bands-coming-soon.webp
 card_video:
   landscape: /assets/images/work/armor-bands/armorbands-teaser-sm.mp4
-  #portrait:  /assets/images/work/mfo/MFO-Teaser-Portrait-sm.mp4
+  portrait:  /assets/images/work/armor-bands/armor-bands-customers-sm-portrait.mp4
   poster:    /assets/images/work/armor-bands/armor-bands-coming-soon.webp
-  #poster_portrait: /assets/images/work/mfo/mfo-portrait-sm.jpg
+  poster_portrait: /assets/images/work/armor-bands/armor-bands-sm-portrait.png
 
 services:
   - Brand strategy
@@ -27,9 +27,9 @@ services:
 
 hero_video:
   landscape: /assets/images/work/armor-bands/armorbands-teaser-sm.mp4
-  # portrait:  /assets/images/work/mfo/mfo-portrait-sm.mp4
+  portrait:  /assets/images/work/armor-bands/armor-bands-customers-sm-portrait.mp4
   poster:    /assets/images/work/armor-bands/armor-bands-coming-soon.webp
-  # poster_portrait: /assets/images/work/mfo/mfo-portrait-sm.jpg
+  poster_portrait: /assets/images/work/armor-bands/armor-bands-sm-portrait.png
   placeholder: "Armor Bands — Brand Identity Animation"
 
 sections:
@@ -61,7 +61,7 @@ sections:
 
   strategy:
     body: |
-        Two audiences. One story. Armor Bands needed to speak credibly to surgeons and clinicians who could become referral partners, and directly to the patients who would find the product through them or on their own. Those rooms have different concerns, but the brand had to feel unmistakably the same in both.
+        <!-- Two audiences. One story. --> Armor Bands needed to speak credibly to surgeons and clinicians who could become referral partners, *and* directly to the patients who would find the product through them or on their own. Those rooms have different concerns, but the brand had to feel unmistakably the same in both.
 
         The positioning we landed on: the performance lifestyle brand of ostomy care. Premium quality, broad appeal, mission at the center. Not a medical device dressed in athletic clothing. A lifestyle brand that happens to be built around a real clinical need.
         
@@ -118,16 +118,25 @@ sections:
 
       - label: "Voice"
         body: |
-          The “GO LIVE. AGAIN.” tagline does more work than most taglines ever do. It’s aspirational, active, emotionally charged, and it reframes the entire category from managing a condition to reclaiming a life. We extended that voice across the deck and the site: first-person throughout, because AC is the brand and AC is the one pitching it. Six brand values anchor the system, including the one that captures the whole philosophy in five words: good enough isn’t good enough.
-        # images:
-        #   - placeholder: "Color palette"
-        #     ratio: "16x9"
-        #     src: "/assets/images/work/armor-bands/06-color-palette.webp"
-        #     alt: "Color palette"
+          The “GO LIVE. AGAIN.” tagline does more work than most taglines ever do. It’s aspirational, active, emotionally charged, and it reframes the entire category from managing a condition to reclaiming a life. We extended that voice across the deck and the site: first-person throughout, because AC is the brand and AC is the one pitching it. Six brand values anchor the system, including the one that captures the whole philosophy in five words: *“good enough isn’t good enough.”*
+        image_group:
+          type:  portrait-landscape-stack
+          reverse: false
+          left:
+            placeholder: "Voice"
+            ratio: "5x6"
+            src: "/assets/images/work/armor-bands/10-go-live-again.webp"
+            alt: "Go Live. Again."
+          right:
+            - placeholder: "Values"
+              ratio: "5x6"
+              src: "/assets/images/work/armor-bands/11-values.webp"
+              alt: "Six Values"
+            
 
-      - label: "Photography"
-        body: |
-          We replaced PowerPoint bullets and stock with a deliberate visual library: hero product shots with someone actually modeling the band, chest-down framing to keep the focus on the product rather than overusing the founder’s face, and lifestyle moments that show the freedom the brand sells. The library is built to grow as the customer community does. Every new ostomy warrior is a future campaign.
+    #   - label: "Photography"
+    #     body: |
+    #       We replaced PowerPoint bullets and stock with a deliberate visual library: hero product shots with someone actually modeling the band, chest-down framing to keep the focus on the product rather than overusing the founder’s face, and lifestyle moments that show the freedom the brand sells. The library is built to grow as the customer community does. Every new ostomy warrior is a future campaign.
         # photo_grid:   
         #     count: 4
         #     captions:
@@ -137,20 +146,20 @@ sections:
         #     - "Client World"
         #     When ready: add srcs array parallel to captions
         #     srcs:
-        #         - /assets/images/work/mfo/photo-1.jpg
-        #         - /assets/images/work/mfo/photo-2.jpg
-        #         - /assets/images/work/mfo/photo-3.jpg
-        #         - /assets/images/work/mfo/photo-4.jpg
+        #         - /assets/images/work/armor-bands/photo-1.jpg
+        #         - /assets/images/work/armor-bands/photo-2.jpg
+        #         - /assets/images/work/armor-bands/photo-3.jpg
+        #         - /assets/images/work/armor-bands/photo-4.jpg
 
 
       - label: "Pitch Deck"
         body: |
           Built for two rooms. A consolidated narrative that opens with the founder story and the market opportunity, then routes into audience-specific call-to-action slides. One for clinicians considering a partnership, one for business partners and prospective investors. A visual growth slide carries the customer through design, production, community, and a co-branded delivery moment that lets future partners see themselves in the journey. Both digital and printed versions were prepared.
-        # images:
-        #   - placeholder: "Type Specimen"
-        #     ratio: "16x9"
-        #     src: "/assets/images/work/mfo/03-type.webp"
-        #     alt: "Type Specimen"
+        images:
+          - placeholder: "Pitch Deck"
+            ratio: "16x9"
+            src: "/assets/images/work/armor-bands/09-pitch-deck.webp"
+            alt: "Pitch Deck"
 
   website:
     body: |
@@ -163,8 +172,14 @@ sections:
           ratio: "16x9"
           src: "/assets/images/work/armor-bands/07-devices-collage.webp"
           alt: "Collage of web screens on a variety of devices."
-    #   - video: /assets/images/work/mfo/mfo-website-sm.mp4
-    #     poster: /assets/images/work/mfo/mfo-website-poster.jpg
+        - placeholder: "Website scroll"
+          ratio: "5x6"
+          video: /assets/images/work/armor-bands/12-web-scroll.mp4
+          poster: /assets/images/work/armor-bands/12-web-scroll-poster.webp
+        - placeholder: "Website mobile"
+          ratio: "5x6"
+          src: "/assets/images/work/armor-bands/08-mobile-photo.webp"
+          alt: "Website mobile"
           
   result:
     body: |
