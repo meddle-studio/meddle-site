@@ -6,13 +6,16 @@ name: Deploy to Firebase Hosting on merge
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: read
     steps:
       - name: Check out repo's default branch
         uses: actions/checkout@v3
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 20.8.x
+          node-version: 22.x
           cache: npm
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -32,4 +35,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MEDDLE_B24F1 }}'
           channelId: live
           projectId: meddle-b24f1
-          firebaseToolsVersion: v13.23.1
+          firebaseToolsVersion: v13.29.1
