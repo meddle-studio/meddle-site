@@ -107,7 +107,7 @@ GEM
       hashery (~> 2.0)
       ruby-rc4
       ttfunk
-    public_suffix (7.0.0)
+    public_suffix (7.0.5)
     racc (1.8.1)
     rainbow (3.1.1)
     rb-fsevent (0.11.2)
@@ -203,7 +203,7 @@ CHECKSUMS
   nokogiri (1.19.0-x86_64-linux-musl) sha256=1c4ca6b381622420073ce6043443af1d321e8ed93cc18b08e2666e5bd02ffae4
   pathutil (0.16.2) sha256=e43b74365631cab4f6d5e4228f812927efc9cb2c71e62976edcb252ee948d589
   pdf-reader (2.15.1) sha256=18c6a986a84a3117fa49f4279fc2de51f5d2399b71833df5d2bccd595c7068ce
-  public_suffix (7.0.0) sha256=f7090b5beb0e56f9f10d79eed4d5fbe551b3b425da65877e075dad47a6a1b095
+  public_suffix (7.0.5) sha256=1a8bb08f1bbea19228d3bed6e5ed908d1cb4f7c2726d18bd9cadf60bc676f623
   racc (1.8.1) sha256=4a7f6929691dbec8b5209a0b373bc2614882b55fc5d2e447a21aaa691303d62f
   rainbow (3.1.1) sha256=039491aa3a89f42efa1d6dec2fc4e62ede96eb6acd95e52f1ad581182b79bc6a
   rb-fsevent (0.11.2) sha256=43900b972e7301d6570f64b850a5aa67833ee7d87b458ee92805d56b7318aefe
