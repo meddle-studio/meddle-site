@@ -48,3 +48,5 @@ node_modules
 
 # Compiled JS output
 assets/js/dist/
+
+memory/

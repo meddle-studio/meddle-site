@@ -20,6 +20,10 @@ sprintValue: "30"
 markdown: kramdown
 plugins:
   - jekyll-redirect-from
+include:
+  - _headers
+  - _redirects
+
 exclude:
 #  - .forestryio
 # - _css
@@ -30,7 +34,6 @@ exclude:
   - Gemfile*
   - gulpfile.js
   - README.md
-  - firebase.json
 #  - README-forestry.md
 #  - yarn.lock
   - vendor

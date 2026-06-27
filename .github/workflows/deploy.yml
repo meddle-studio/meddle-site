@@ -1,0 +1,37 @@
+name: Deploy
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  deployments: write
+  pull-requests: write
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - uses: actions/cache@v4
+        with:
+          path: .jekyll-cache
+          key: jekyll-${{ hashFiles('_config.yml', 'Gemfile.lock') }}
+          restore-keys: jekyll-
+
+      - name: Build
+        run: bundle exec jekyll build --future
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: meddle-studio
+          directory: _site
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
