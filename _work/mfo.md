@@ -15,6 +15,10 @@ card_video:
   poster:    /assets/images/work/mfo/mfo-landscape-sm.jpg
   poster_portrait: /assets/images/work/mfo/mfo-portrait-sm.jpg
 
+client_url: "https://missionfirstops.com/"
+client_founder:
+  name: "Denise Chaykun"
+  job_title: "Founder"
 client_description: "Cloud accounting firm dedicated exclusively to nonprofits, serving DC think tanks, biotech research organizations, and policy nonprofits."
 industry: "Financial Services / Nonprofit Accounting"
 result_summary: "MFO grew on relationships and referrals alone, but its brand lagged the quality of its work for eight-figure-budget nonprofits. Meddle closed that gap with a new visual identity and website."
