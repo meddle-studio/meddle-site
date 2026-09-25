@@ -2,29 +2,34 @@
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "serviceType": "Brand Identity & Strategy",
-  "name": "Brand Sprint: 2-Week Fixed-Price Branding",
-  "description": "Exceptional brand identity and strategy delivered in a fast, two-week sprint for a flat fee of $30,000. Includes two brand options and detailed deliverables.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Meddle",
-    "url": "https://meddle.studio/sprint/" 
+  "@id": "https://meddle.studio/sprints/#service",
+  "serviceType": ["Brand Strategy", "Visual Identity Design", "Brand Positioning"],
+  "name": "Brand Sprint: 2-Week Fixed-Price Branding for B2B SaaS & Fintech",
+  "description": "Exceptional brand identity and strategy for B2B SaaS, fintech, and financial services companies, delivered in a fast, two-week sprint for a flat fee of $30,000. Includes two brand options and detailed deliverables.",
+  "url": "https://meddle.studio/sprints/",
+  "provider": { "@id": "https://meddle.studio/#organization" },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": ["B2B SaaS Companies", "Fintech Companies", "Financial Institutions", "Industry Challengers"]
   },
-  "areaServed": {
-    "@type": "ServiceArea",
-    "description": "Global/Remote"
-  },
+  "areaServed": [
+    { "@type": "Country", "name": "United States" },
+    { "@type": "Place", "name": "Global" }
+  ],
   "offers": [
     {
       "@type": "Offer",
+      "name": "Brand Sprint",
       "priceCurrency": "USD",
       "price": "30000",
       "description": "Flat fee, no hidden costs. Includes 2 brand options, detailed deliverables, and one seasoned expert.",
-      "availability": "https://schema.org/InStock"
+      "availability": "https://schema.org/InStock",
+      "eligibleCustomerType": "https://purl.org/goodrelations/v1#Business"
     },
     {
       "@type": "Offer",
       "name": "Web Design Sprint Add-on",
+      "eligibleCustomerType": "https://purl.org/goodrelations/v1#Business",
       "priceCurrency": "USD",
       "price": "30000",
       "description": "Conversion-focused web design aligned with new brand, delivered in an additional 2 weeks."
@@ -32,6 +37,7 @@
     {
       "@type": "Offer",
       "name": "Brand + Web Sprint Package",
+      "eligibleCustomerType": "https://purl.org/goodrelations/v1#Business",
       "priceCurrency": "USD",
       "price": "60000",
       "description": "Complete brand and web design delivered in a total of 4 weeks."
@@ -50,17 +56,17 @@
     {
       "@type": "HowToStep",
       "name": "Initial Questionnaire",
-      "text": "A questionnaire is sent to the client steakholders on Thursday, giving stakeholders until Friday and the weekend to complete it."
+      "text": "A questionnaire is sent to the client stakeholders on Thursday, giving stakeholders until Friday and the weekend to complete it."
     },
     {
       "@type": "HowToStep",
       "name": "Monday Kickoff Meeting",
-      "text": "On Monday, a one-hour meeting takes place. During this meeting, Meddle presents an edited, concise verison of the stakeholder submissions and goes over the inspiration to ensure alignment. The stakeholders also shares their own initial inspiration and ideas."
+      "text": "On Monday, a one-hour meeting takes place. During this meeting, Meddle presents an edited, concise version of the stakeholder submissions and goes over the inspiration to ensure alignment. The stakeholders also share their own initial inspiration and ideas."
     },
     {
       "@type": "HowToStep",
       "name": "Following Monday Presentation",
-      "text": "The team returns the following Monday with two full brand design directions presented. After the presentation, the stakeholders are encouraged to share feedback and to select a direction forward. Meddle does not cap changes, assuring clients that the goal is 100% satisfaction and they will work the next week to get it right if the inital directions don't work."
+      "text": "The team returns the following Monday with two full brand design directions presented. After the presentation, the stakeholders are encouraged to share feedback and to select a direction forward. Meddle does not cap changes, assuring clients that the goal is 100% satisfaction and they will work the next week to get it right if the initial directions don't work."
     },
     {
       "@type": "HowToStep",

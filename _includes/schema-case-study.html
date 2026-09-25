@@ -3,10 +3,12 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "CreativeWork",
-      "@id": "{{ page.url | absolute_url }}#creative-work",
-      "name": "{{ page.title }}",
-      "description": "{{ page.description }}",
+      "@type": "Article",
+      "@id": "{{ page.url | absolute_url }}#project",
+      "headline": {{ page.title | jsonify }},
+      "name": {{ page.title | jsonify }},
+      "description": {{ page.description | jsonify }},
+      "abstract": {{ page.result_summary | default: page.description | jsonify }},
       "url": "{{ page.url | absolute_url }}",
       "image": {
         "@type": "ImageObject",
@@ -14,6 +16,7 @@
       },
       "datePublished": "{{ page.date | date_to_xmlschema }}",
       "dateModified": "{{ site.time | date_to_xmlschema }}",
+      "creator": { "@id": "https://meddle.studio/#organization" },
       "author": {
         "@type": "Person",
         "@id": "https://matthewbacon.com/",
@@ -23,21 +26,46 @@
         "@type": "Organization",
         "@id": "https://meddle.studio/#organization"
       },
-      "about": [
-        {% for service in page.services %}"{{ service }}"{% unless forloop.last %}, {% endunless %}{% endfor %}
+      "about": {{ page.about | default: page.services | jsonify }},
+      "keywords": {{ page.keywords | default: page.services | jsonify }},
+      "genre": {{ page.industry | jsonify }},
+      "mentions": { "@id": "{{ page.url | absolute_url }}#client" },
+      {%- if page.quotes or page.quote -%}
+      "hasPart": [
+        {%- for q in page.quotes -%}
+        {%- assign who = q.attribution | split: "<br>" -%}
+        {
+          "@type": "Quotation",
+          "text": {{ q.text | strip_html | replace: "&nbsp;", " " | jsonify }},
+          "creator": { "@type": "Person", "name": {{ who[0] | jsonify }}, "jobTitle": {{ who[1] | jsonify }} }
+        }{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+        {%- if page.quote -%}
+        {%- assign who = page.quote.attribution | split: "<br>" -%}
+        {
+          "@type": "Quotation",
+          "text": {{ page.quote.text | strip_html | replace: "&nbsp;", " " | jsonify }},
+          "creator": { "@type": "Person", "name": {{ who[0] | jsonify }}, "jobTitle": {{ who[1] | jsonify }} }
+        }
+        {%- endif -%}
       ],
+      {%- endif -%}
       "inLanguage": "en-US",
       "isPartOf": {
         "@type": "CreativeWorkSeries",
         "name": "Meddle Case Studies",
-        "url": "{{ site.url }}/work/"
+        "url": "{{ site.url }}/#work"
       }
     },
     {
       "@type": "Organization",
       "@id": "{{ page.url | absolute_url }}#client",
-      "name": "{{ page.client }}",
-      "description": "Client featured in this Meddle case study"
+      "name": {{ page.client | jsonify }},
+      "description": {{ page.client_description | default: "Client featured in this Meddle case study" | jsonify }}
+      {%- if page.industry -%},
+      "knowsAbout": {{ page.about | jsonify }},
+      "additionalType": {{ page.industry | jsonify }}
+      {%- endif -%}
     },
     {
       "@type": "Person",
@@ -45,10 +73,7 @@
       "name": "Matt Bacon",
       "jobTitle": "Founder & Creative Director",
       "url": "https://meddle.studio/",
-      "worksFor": {
-        "@type": "Organization",
-        "@id": "https://meddle.studio/#organization"
-      }
+      "worksFor": { "@id": "https://meddle.studio/#organization" }
     },
     {
       "@type": "Organization",

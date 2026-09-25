@@ -15,6 +15,23 @@ card_video:
   poster:    /assets/images/work/mfo/mfo-landscape-sm.jpg
   poster_portrait: /assets/images/work/mfo/mfo-portrait-sm.jpg
 
+client_description: "Cloud accounting firm dedicated exclusively to nonprofits, serving DC think tanks, biotech research organizations, and policy nonprofits."
+industry: "Financial Services / Nonprofit Accounting"
+result_summary: "MFO grew on relationships and referrals alone, but its brand lagged the quality of its work for eight-figure-budget nonprofits. Meddle closed that gap with a new visual identity and website."
+about:
+  - Brand identity
+  - Financial services branding
+  - Nonprofit accounting
+  - Accounting firm rebrand
+  - Professional services branding
+  - Website design
+keywords:
+  - nonprofit accounting branding
+  - accounting firm rebrand
+  - financial services brand identity
+  - nonprofit finance website design
+  - professional services brand identity
+
 services:
   - Visual Identity
   - Website Design

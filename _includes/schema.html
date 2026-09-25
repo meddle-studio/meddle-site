@@ -3,7 +3,7 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": ["Organization", "ProfessionalService"],
       "@id": "https://meddle.studio/#organization",
       "name": "Meddle",
       "url": "https://meddle.studio/",
@@ -17,6 +17,24 @@
         "postalCode": "33702",
         "addressCountry": "US"
       },
+      "areaServed": [
+        { "@type": "City", "name": "St. Petersburg" },
+        { "@type": "Place", "name": "Tampa Bay" },
+        { "@type": "State", "name": "Florida" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "knowsAbout": [
+        "Financial Services Branding",
+        "Fintech Brand Strategy",
+        "Community Bank Branding",
+        "Credit Union Brand Design",
+        "Regulated Industry Design",
+        "B2B SaaS Branding",
+        "Brand Strategy Consulting",
+        "Visual Identity Systems",
+        "Verbal Identity",
+        "Web Design and Development"
+      ],
       "sameAs": [
         "https://www.instagram.com/meddledesign.co/",
         "https://www.linkedin.com/in/matt-bacon-meddle/" 
@@ -34,26 +52,50 @@
     },
     {
       "@type": "Service",
-      "serviceType": "Brand Strategy and Design",
+      "@id": "https://meddle.studio/#service",
+      "name": "Brand Strategy & Design for Financial Services & B2B SaaS",
+      "serviceType": ["Brand Strategy", "Brand Identity Design", "Web Design", "Web Development"],
       "provider": { "@id": "https://meddle.studio/#organization" },
-      "areaServed": "Global",
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Place", "name": "Global" }
+      ],
       "audience": {
         "@type": "Audience",
-        "audienceType": "B2B SaaS Technology Startups, Financial Institutions, and Enterprise Clients"
+        "audienceType": ["Community Banks", "Credit Unions", "Fintech Startups", "B2B SaaS Companies", "Financial Institutions"]
       },
       "offers": {
         "@type": "Offer",
         "priceCurrency": "USD",
-        "minPrice": "30000",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "USD",
+          "minPrice": "30000"
+        },
         "description": "Comprehensive brand and design engagements starting at $30k."
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Creative Services",
+        "name": "Meddle Services",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Strategy" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Visual Identity & Logo Design" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Design & Development" } }
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Financial Services Brand Strategy" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fintech Branding & Positioning" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Community Bank & Credit Union Identity Systems" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "B2B SaaS Visual Identity" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Regulated Industry Web Design" } },
+          {
+            "@type": "Offer",
+            "name": "Brand Sprint",
+            "url": "https://meddle.studio/sprints/",
+            "itemOffered": { "@type": "Service", "name": "Complete visual identity in two weeks" },
+            "priceCurrency": "USD",
+            "price": "30000"
+          },
+          {
+            "@type": "Offer",
+            "name": "Fractional Creative Leadership",
+            "itemOffered": { "@type": "Service", "name": "Ongoing brand strategy and creative direction" }
+          }
         ]
       }
     },

@@ -1,32 +1,98 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Meddle, LLC",
-  "image": "https://meddle.studio/assets/logo.png",
-  "@id": "https://meddle.studio",
-  "url": "https://meddle.studio",
-  "telephone": "+15165248707",
-  "address": {
-    "@type": "PostalAddress",
-    "addressRegion": "FL",
-    "addressCountry": "US"
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    "opens": "09:00",
-    "closes": "17:00"
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/meddle-studio"
-  ],
-  "description": "A brand and digital design studio specializing in high-impact strategy and visual identity for B2B tech and financial institutions.",
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "USD",
-    "minPrice": "30000",
-    "description": "Minimum project engagement fee"
-  }
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "@id": "https://meddle.studio/contact/#webpage",
+      "url": "https://meddle.studio/contact/",
+      "name": "Contact Meddle: A brand and design studio for industry challengers",
+      "isPartOf": { "@id": "https://meddle.studio/#website" },
+      "about": { "@id": "https://meddle.studio/#organization" },
+      "mainEntity": { "@id": "https://meddle.studio/#organization" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": ["Organization", "ProfessionalService"],
+      "@id": "https://meddle.studio/#organization",
+      "name": "Meddle, LLC",
+      "url": "https://meddle.studio/",
+      "logo": "https://meddle.studio/assets/images/meddle-thumb.png",
+      "image": "https://meddle.studio/assets/images/meddle-thumb.png",
+      "description": "A brand and digital design studio specializing in high-impact strategy and visual identity for B2B SaaS, fintech, and financial institutions.",
+      "email": "hello@meddle.studio",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "7901 4th St N, STE 300",
+        "addressLocality": "St. Petersburg",
+        "addressRegion": "FL",
+        "postalCode": "33702",
+        "addressCountry": "US"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "hello@meddle.studio",
+        "availableLanguage": "en"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "St. Petersburg" },
+        { "@type": "Place", "name": "Tampa Bay" },
+        { "@type": "State", "name": "Florida" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": ["B2B SaaS Companies", "Fintech Companies", "Community Banks", "Credit Unions", "Financial Institutions"]
+      },
+      "knowsAbout": [
+        "Financial Services Branding",
+        "Fintech Brand Strategy",
+        "Community Bank Branding",
+        "Credit Union Brand Design",
+        "Regulated Industry Design",
+        "B2B SaaS Branding",
+        "Brand Strategy Consulting",
+        "Visual Identity Systems",
+        "Verbal Identity",
+        "Web Design and Development"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/meddle-studio",
+        "https://www.instagram.com/meddledesign.co/"
+      ],
+      "founder": { "@id": "https://matthewbacon.com/" },
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "name": "Project-Based Brand Strategy & Design",
+          "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "30000" },
+          "description": "Minimum project engagement fee"
+        },
+        {
+          "@type": "Offer",
+          "name": "Brand Sprint",
+          "url": "https://meddle.studio/sprints/",
+          "priceCurrency": "USD",
+          "price": "30000",
+          "description": "Complete brand identity delivered in 2 weeks"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://matthewbacon.com/",
+      "name": "Matt Bacon",
+      "jobTitle": "Founder & Creative Director",
+      "url": "https://meddle.studio/",
+      "worksFor": { "@id": "https://meddle.studio/#organization" }
+    }
+  ]
 }
 </script>

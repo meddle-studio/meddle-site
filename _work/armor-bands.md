@@ -15,6 +15,24 @@ card_video:
   poster:    /assets/images/work/armor-bands/armor-bands-coming-soon.webp
   poster_portrait: /assets/images/work/armor-bands/armor-bands-sm-portrait.png
 
+client_description: "Direct-to-consumer ostomy band company, founded by an ostomy patient and run as a family business, positioned as the performance lifestyle brand of ostomy care."
+industry: "Healthcare / Medical Devices / DTC"
+result_summary: "After the rebrand, Armor Bands' first surgeon meeting at Ohio State ran 90 minutes against a 60-minute agenda, and the surgeon offered prime lobby placement for brand materials."
+about:
+  - Brand strategy
+  - Visual identity
+  - Healthcare branding
+  - Medical device positioning
+  - Direct-to-consumer
+  - Ostomy care
+keywords:
+  - DTC branding
+  - healthcare brand strategy
+  - medical device brand positioning
+  - performance lifestyle brand
+  - ostomy care
+  - Shopify website design
+
 services:
   - Brand strategy
   - Visual identity
