@@ -1077,6 +1077,87 @@ ul.no-good li::before {
       }
     }
   }
+
+  /* ── v2: timeline, deliverables + price, agentic guide, gallery ── */
+  .sprint-section { padding-top: 5rem !important; @media (min-width: 992px) { padding-top: 7.5rem !important; } }
+  .sprint-kicker {
+    font-size: 12.6px; letter-spacing: 0; color: $grey; margin-bottom: 1.5rem;
+    padding-top: 1rem; border-top: 1px solid rgba($black, .1);
+  }
+  .sprint-agentic .sprint-kicker { border-top-color: rgba($white, .15); color: rgba($white, .6); }
+  .sprint-lede { font-size: 1.35rem; font-weight: 300; line-height: 1.4; color: rgba($black, .75); @media (min-width: 1200px) { font-size: 1.6rem; } }
+  .sprint-agentic .sprint-lede { color: rgba($white, .8); }
+  h2 em { font-weight: 400; }
+
+  // Timeline: ruled columns, one inked decision day (the section's one interference)
+  .sprint-weeks {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0 0;
+    font-family: $font-secondary; font-size: 12px; text-transform: uppercase; color: $grey;
+    span { border-bottom: 1px solid rgba($black, .42); padding-bottom: .5rem; }
+    @media (max-width: 991.98px) { display: none; }
+  }
+  .sprint-timeline {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
+    li {
+      padding: 1.25rem 1.25rem 2.5rem; border-left: 1px solid rgba($black, .42);
+      &:first-child { border-left-color: transparent; padding-left: 0; }
+    }
+    .when { display: block; font-family: $font-secondary; font-size: 12px; text-transform: uppercase; color: $grey; margin-bottom: 1rem; }
+    h3 { font-size: 1.4rem !important; font-weight: 600; margin-bottom: .5rem; }
+    p { font-size: 1rem !important; font-weight: 400; line-height: 1.4; color: rgba($black, .75); margin: 0; }
+    li.is-key { background: $black; color: $white; border-left-color: $black; padding-left: 1.25rem;
+      .when { color: rgba($white, .6); } p { color: rgba($white, .8); } }
+    @media (max-width: 991.98px) {
+      grid-template-columns: 1fr;
+      li, li:first-child { border-left: 0; border-top: 1px solid rgba($black, .42); padding: 1.25rem 0 1.5rem; display: grid; grid-template-columns: 9rem 1fr; column-gap: 1rem; }
+      li .when { margin: .3rem 0 0; grid-row: span 2; }
+      li.is-key { padding: 1.25rem 1rem 1.5rem; }
+    }
+  }
+
+  // Deliverables list + price panel
+  .sprint-deliverables {
+    list-style: none; margin: 0; padding: 0;
+    li { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid rgba($black, .42); }
+    .num { font-family: $font-secondary; font-size: 12.6px; color: $grey; padding-top: .45rem; }
+    h3 { font-size: 1.5rem !important; font-weight: 600; margin: 0 0 .25rem; }
+    p { font-size: 1.05rem !important; font-weight: 400; color: rgba($black, .75); margin: 0; }
+  }
+  .sprint-new {
+    display: inline-block; vertical-align: middle; margin-left: .5rem;
+    font-family: $font-secondary; font-size: 11px; font-weight: 400; text-transform: uppercase; letter-spacing: 0;
+    padding: 5px 10px; border-radius: 54px; background: $black; color: $white;
+  }
+  .sprint-price {
+    background: $black; color: $white; padding: 2rem;
+    @media (min-width: 992px) { position: sticky; top: 2rem; padding: 2.5rem; }
+    .sprint-price__label { font-size: 12.6px; letter-spacing: 0; color: rgba($white, .6); margin: 0; }
+    .sprint-price__amount { font-size: clamp(5rem, 9vw, 8.5rem) !important; font-weight: 900; line-height: .9; letter-spacing: -0.045em; margin: 1.25rem 0 .75rem; }
+    .sprint-price__line { font-size: 1.3rem !important; font-weight: 500; margin: 0 0 1.5rem; }
+    .list-bordered li { font-size: 1.1rem !important; font-weight: 300; border-bottom-color: rgba($white, .2); }
+    ul.arrow-list li::before { filter: invert(1); }
+    .sprint-price__cta { display: inline-block; margin: 2rem 0 0; border: 1.5px solid $white; }
+  }
+
+  // Agentic guide
+  .sprint-agentic {
+    color: $white;
+    .sprint-agentic__col h3 { border-top: 1px solid rgba($white, .2); padding-top: 1.25rem; font-size: 1.4rem !important; font-weight: 600; }
+    .sprint-agentic__col p { font-size: 1.05rem !important; font-weight: 400; color: rgba($white, .8); }
+  }
+
+  // Gallery: square corners, mono captions, unattributed
+  .sprint-gallery {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem;
+    figure { margin: 0; }
+    figure.is-wide { grid-column: 1 / -1; }
+    // Set --focus on an img to frame its subject inside the crop (defaults to center)
+    img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: var(--focus, 50% 50%); }
+    figcaption { font-family: $font-secondary; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: $grey; margin-top: .6rem; }
+    @media (min-width: 992px) { grid-template-columns: repeat(4, minmax(0, 1fr)); figure.is-wide { grid-column: 1 / -1; } }
+    @media (max-width: 575.98px) { grid-template-columns: 1fr; }
+  }
 }
 /* END Sprint Page */
 
