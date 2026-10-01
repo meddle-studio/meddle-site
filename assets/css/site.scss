@@ -1175,6 +1175,12 @@ ul.no-good li::before {
   }
   // The founder's name sits in the price slot, so it runs two lines and a step smaller
   .sprint-price .fractional-name { font-size: clamp(4rem, 7vw, 7rem) !important; }
+  // Title and LinkedIn share a row; the link (styled like the footer's social links) sits at the right edge
+  .sprint-price .fractional-title-row {
+    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .5rem 1rem; margin-bottom: 1.5rem;
+    .sprint-price__line { margin: 0; }
+  }
+  .sprint-price .fractional-linkedin { font-size: 12.6px; margin: 0; a { color: inherit; text-decoration: none; } }
   .client { margin-top: 2rem; }
   #lets-go .-grey { text-transform: none; }
 }
