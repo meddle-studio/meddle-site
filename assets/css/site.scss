@@ -759,14 +759,16 @@ section.svh-100 {
   }
 }
 .page-home,
-.page-sprint {
+.page-sprint,
+.page-fractional {
   .layout.theme-light {
     --theme-primary: #{$lt-grey};
     --theme-secondary: #{$black};
   }
 
 }
-.page-home {
+.page-home,
+.page-fractional {
   // #services {z-index: 0;}
   // Work card: portrait on mobile, landscape on md+
   .ratio-work-card {
@@ -1031,7 +1033,9 @@ ul.no-good li::before {
   font-weight: 400;
   font-size: 1.75em;
 }
-.page-sprint {
+// Offer pages (Sprints, Fractional Leadership) share the hero, sections, timeline, and panel
+.page-sprint,
+.page-fractional {
   #logo-xl {
     * {fill: $lt-grey}
     &:hover * {fill:white;}
@@ -1098,7 +1102,7 @@ ul.no-good li::before {
   }
   .sprint-timeline {
     list-style: none; margin: 0; padding: 0;
-    display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
+    display: grid; grid-template-columns: repeat(var(--steps, 6), minmax(0, 1fr));
     li {
       padding: 1.25rem 1.25rem 2.5rem; border-left: 1px solid rgba($black, .42);
       &:first-child { border-left-color: transparent; padding-left: 0; }
@@ -1160,6 +1164,21 @@ ul.no-good li::before {
   }
 }
 /* END Sprint Page */
+
+/* START Fractional Leadership Page */
+.page-fractional {
+  // Areas: ruled columns, one line per item
+  .fractional-areas {
+    h3 { border-top: 1px solid rgba($black, .42); padding-top: 1.25rem; font-size: 1.4rem !important; font-weight: 600; margin-bottom: .5rem; }
+    .list-bordered { list-style: none; margin: 0; }
+    .list-bordered li { font-size: 1.05rem !important; font-weight: 400; line-height: 1.4; color: rgba($black, .75); padding: .85rem 0; border-bottom-color: rgba($black, .1); }
+  }
+  // The founder's name sits in the price slot, so it runs two lines and a step smaller
+  .sprint-price .fractional-name { font-size: clamp(4rem, 7vw, 7rem) !important; }
+  .client { margin-top: 2rem; }
+  #lets-go .-grey { text-transform: none; }
+}
+/* END Fractional Leadership Page */
 
 /* START Case Study Layout */
 .page-case-study {
