@@ -17,6 +17,8 @@ sprintValue: "30"
 
 # Build settings
 markdown: kramdown
+sass:
+  style: compressed
 plugins:
   - jekyll-redirect-from
 include:
