@@ -35,3 +35,5 @@ gem "webrick", "~> 1.7"
 gem "logger", "~> 1.7"
 
 gem "rexml", "~> 3.4"
+
+gem "minify_html", "~> 0.18"
