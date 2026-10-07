@@ -82,7 +82,7 @@ classes: page-case-study -bg-white
   <div class="container-xxl">
     <div class="row g-0">
       <div class="col-12 col-lg-2">
-        <p class="mb-5 mb-lg-4 -grey" data-aos="fade-in" data-aos-duration="500">Overview</p>
+        <p class="mb-5 mb-lg-4 -grey" data-md="h2" data-aos="fade-in" data-aos-duration="500">Overview</p>
       </div>
       <div class="col-12 col-lg-10 col-xl-8">
         {% if s.heading %}<h2 class="-black -serif font-italic mb-4" data-aos="fade-in" data-aos-duration="500">{{ s.heading }}</h2>{% endif %}
@@ -101,7 +101,7 @@ classes: page-case-study -bg-white
   <div class="container-xxl">
     <div class="row g-0">
       <div class="col-12 col-lg-2">
-        <p class="mb-5 mb-lg-4 -grey" data-aos="fade-in" data-aos-duration="500">Challenge</p>
+        <p class="mb-5 mb-lg-4 -grey" data-md="h2" data-aos="fade-in" data-aos-duration="500">Challenge</p>
       </div>
       <div class="col-12 col-lg-10 col-xl-8">
         {% if s.heading %}<h2 class="-black -serif font-italic mb-4" data-aos="fade-in" data-aos-duration="500">{{ s.heading }}</h2>{% endif %}
@@ -132,7 +132,7 @@ classes: page-case-study -bg-white
   <div class="container-xxl">
     <div class="row g-0">
       <div class="col-12 col-lg-2">
-        <p class="mb-5 mb-lg-4 -grey" data-aos="fade-in" data-aos-duration="500">Define</p>
+        <p class="mb-5 mb-lg-4 -grey" data-md="h2" data-aos="fade-in" data-aos-duration="500">Define</p>
       </div>
       <div class="col-12 col-lg-10 col-xl-8">
         {% if s.heading %}<h2 class="-black -serif font-italic mb-4" data-aos="fade-in" data-aos-duration="500">{{ s.heading }}</h2>{% endif %}
@@ -163,7 +163,7 @@ classes: page-case-study -bg-white
   <div class="container-xxl">
     <div class="row g-0">
       <div class="col-12 col-lg-2">
-        <p class="mb-5 mb-lg-4 -grey" data-aos="fade-in" data-aos-duration="500">Identity</p>
+        <p class="mb-5 mb-lg-4 -grey" data-md="h2" data-aos="fade-in" data-aos-duration="500">Identity</p>
       </div>
       <div class="col-12 col-lg-10 col-xl-8">
         {% if s.intro %}<div class="cs-body -black" data-aos="fade-in" data-aos-duration="500">{{ s.intro | markdownify }}</div>{% endif %}
@@ -174,7 +174,7 @@ classes: page-case-study -bg-white
     <div class="cs-subsection">
       {% if sub.label or sub.subheading or sub.body %}
       <div class="col-12 col-lg-4 offset-lg-2" data-aos="fade-in" data-aos-duration="500">
-        {% if sub.label %}<p class="cs-label mb-2" data-aos="fade-in" data-aos-duration="500">{{ sub.label }}</p>{% endif %}
+        {% if sub.label %}<p class="cs-label mb-2" data-md="h3" data-aos="fade-in" data-aos-duration="500">{{ sub.label }}</p>{% endif %}
         {% if sub.subheading %}<h3 class="-black -light mb-4" data-aos="fade-in" data-aos-duration="500">{{ sub.subheading }}</h3>{% endif %}
         {% if sub.body %}<div class="-text" data-aos="fade-in" data-aos-duration="500">{{ sub.body | markdownify }}</div>{% endif %}
       </div>
@@ -226,7 +226,7 @@ classes: page-case-study -bg-white
   <div class="container-xxl">
     <div class="row g-0">
       <div class="col-12 col-lg-2">
-        <p class="mb-5 mb-lg-4 -grey" data-aos="fade-in" data-aos-duration="500">Website</p>
+        <p class="mb-5 mb-lg-4 -grey" data-md="h2" data-aos="fade-in" data-aos-duration="500">Website</p>
       </div>
       <div class="col-12 col-lg-10 col-xl-8">
         {% if s.heading %}<h2 class="-black -serif font-italic mb-4" data-aos="fade-in" data-aos-duration="500">{{ s.heading }}</h2>{% endif %}
@@ -259,7 +259,7 @@ classes: page-case-study -bg-white
   <div class="container-xxl">
     <div class="row g-0">
       <div class="col-12 col-lg-2">
-        <p class="mb-5 mb-lg-4 -grey" data-aos="fade-in" data-aos-duration="500">Results</p>
+        <p class="mb-5 mb-lg-4 -grey" data-md="h2" data-aos="fade-in" data-aos-duration="500">Results</p>
       </div>
       <div class="col-12 col-lg-10 col-xl-8">
         {% if s.heading %}<h2 class="-black -serif font-italic mb-4" data-aos="fade-in" data-aos-duration="500">{{ s.heading }}</h2>{% endif %}
@@ -331,7 +331,7 @@ classes: page-case-study -bg-white
 <section id="credits" class="cs-section">
   <div class="container-xxl">
     <div class="row g-0 border-none" data-aos="fade-in" data-aos-duration="500">
-      <p class="cs-label -grey d-none d-lg-block col-12 {% if page.recognition %}col-lg-3{% else %}col-lg-6{% endif %} offset-6 mb-2">{% if page.credits %}Credits{% endif %}</p>
+      <p class="cs-label -grey d-none d-lg-block col-12 {% if page.recognition %}col-lg-3{% else %}col-lg-6{% endif %} offset-6 mb-2" data-md="h2">{% if page.credits %}Credits{% endif %}</p>
       {% if page.recognition %}<p class="cs-label -grey d-none d-lg-block col-12 col-lg-3 mb-2">Recognition</p>{% endif %}
     </div>
     <div class="row g-0">

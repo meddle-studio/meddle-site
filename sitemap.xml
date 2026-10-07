@@ -1,21 +1,25 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- assign pages = site.html_pages | where_exp: "p", "p.sitemap != false" | where_exp: "p", "p.name != '404.html'" | sort: "url" %}
+{%- for p in pages %}
   <url>
-    <loc>https://meddle.studio/</loc>
-    <lastmod>2025-05-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <loc>{{ site.url }}{{ p.url }}</loc>
+    {%- if p.date %}
+    <lastmod>{{ p.date | date: "%Y-%m-%d" }}</lastmod>
+    {%- endif %}
   </url>
+{%- endfor %}
+{%- assign work_items = site.work | sort: "order" %}
+{%- for item in work_items %}
+  {%- unless item.sitemap == false %}
   <url>
-    <loc>https://meddle.studio/contact/</loc>
-    <lastmod>2025-02-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>{{ site.url }}{{ item.url }}</loc>
+    <lastmod>{{ item.date | date: "%Y-%m-%d" }}</lastmod>
   </url>
-  <url>
-    <loc>https://meddle.studio/sprints/</loc>
-    <lastmod>2025-02-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  {%- endunless %}
+{%- endfor %}
 </urlset>

@@ -1,0 +1,68 @@
+---
+layout: null
+permalink: /llms.txt
+---
+# {{ site.brand }}
+
+> {{ site.brand }} is a founder-led brand and design studio in Orlando, Florida, for industry challengers who are ready to interfere with the status quo. Founder and creative director Matt Bacon, in the creative industry since 2011, leads every engagement across brand strategy, identity, and websites, with the most depth in financial institutions and B2B SaaS. A Brand Sprint delivers a complete visual identity in two weeks for a flat ${{ site.sprintValue }}K. Published work includes MFO Nonprofit Accounting and Armor Bands. Fortune favors the daring.
+
+Meddle merges business strategy with exceptional design to create differentiated brands and digital experiences that drive growth. Before founding it, Matt Bacon was a Creative Director and Head of Branding in fintech. The studio is lean and senior-only, backed by trusted freelance specialists, and works with a few select partners at a time.
+
+Who it's for: industry challengers, meaning ambitious, maturing companies ready to take on the leaders in their category. Meddle goes deepest with financial institutions (community banks, credit unions, and fintech), Series B+ B2B SaaS, and challengers in serious categories such as professional services, healthcare, and mission-driven organizations.
+
+Unlike traditional agencies, Meddle puts senior talent on every engagement, prices it transparently, and moves in weeks, not quarters.
+
+Services: brand strategy, verbal identity, visual identity, web design, and development.
+
+Pricing: engagements start at ${{ site.sprintValue }},000. Comprehensive projects typically land between $90K and $250K. Meddle doesn't often take on quick fixes or incremental improvements.
+
+## Ways to engage
+
+- [Brand Sprints]({{ site.url }}/sprints/): A complete visual identity in two weeks for a flat fee of ${{ site.sprintValue }}K. Two full brand directions, uncapped changes, and a fixed ten-day schedule. Deliverables: logo suite, type and color, graphic system, up to five key mockups, homepage design, full brand guidelines (Figma and PDF), and an agentic brand guide written so AI tools can read and apply the brand. Best for early-stage startups and visual-only refreshes. An optional Web Design Sprint (another two weeks, ${{ site.sprintValue }}K) carries the new brand through the rest of the site.
+- [Fractional Leadership]({{ site.url }}/fractional/): Ongoing brand strategy and creative leadership from Meddle's founder, a CCO-level creative partner without the overhead of a full-time hire. Covers positioning and messaging, go-to-market planning, art direction, review of in-house and vendor work, design system governance, executive and board presentations, and pitch deck review. For scaling companies, teams with in-house designers, companies at a critical growth moment (a raise, acquisition, or major launch), and past Meddle clients.
+- Project-based work: Brand strategy, full brand identity, web design, and/or development. Best for transformations and strategic initiatives that need deep partnership and custom solutions. Start on the [contact page]({{ site.url }}/contact/).
+
+## Work
+{% assign work_items = site.work | sort: "order" %}{% for item in work_items %}
+- [{{ item.client }}]({{ site.url }}{{ item.url }}): {% if item.client_description %}{{ item.client_description }} {% endif %}{{ item.result_summary | default: item.description }} Services: {{ item.services | join: ", " | strip }}.{% endfor %}
+
+## FAQ
+
+**How much does Meddle cost?** Engagements start at ${{ site.sprintValue }},000. A Brand Sprint is a flat ${{ site.sprintValue }}K, and comprehensive projects typically land between $90K and $250K. Fractional Leadership pricing isn't published.
+
+**How long does a new brand identity take?** Two weeks with a Brand Sprint: ten working days from kickoff to delivery, after a short questionnaire the Thursday before. A Web Design Sprint adds two more weeks for the rest of the site. Project-based timelines depend on scope.
+
+**What's included in a Brand Sprint?** Two full brand directions, then the chosen one delivered as a logo suite, type and color, a graphic system, up to five key mockups, a homepage design, full brand guidelines in Figma and PDF, and an agentic brand guide. Changes aren't capped.
+
+**Does a Brand Sprint include voice and messaging?** No. A Sprint delivers the visual system, grounded in positioning. Meddle provides voice and messaging in engagements beyond the Sprint.
+
+**How is Meddle different from a traditional agency?** Meddle is a founder-led studio. It puts senior talent on every engagement, prices it transparently, and moves in weeks, not quarters.
+
+**Who will I work with?** Matt Bacon, Meddle's founder and creative director, from the first call to launch, with trusted freelance specialists where the work needs them. There's no hand-off to juniors.
+
+**What industries does Meddle work in?** Industry challengers, with the most depth in financial institutions (community banks, credit unions, and fintech) and B2B SaaS. Published work spans nonprofit accounting (MFO) and healthcare (Armor Bands).
+
+**Where is Meddle based?** Orlando, Florida.
+
+**Does Meddle take small projects?** Meddle doesn't often take on quick fixes or incremental improvements. Engagements start at ${{ site.sprintValue }},000.
+
+**How do I start?** Book an intro call on the [contact page]({{ site.url }}/contact/). From there: a 30-minute intro call to establish fit, a 90-minute discovery workshop, a formal proposal with scope, timeline, and pricing, then contract and deposit to kick off.
+
+## Contact
+
+- [Contact and intro call]({{ site.url }}/contact/): Book a 30-minute intro call. The form asks for scope (brand, website, art direction, campaign), timeline, and budget.
+- Email: [{{ site.supportEmail }}](mailto:{{ site.supportEmail }})
+
+## Markdown versions
+
+Every public page has a plain Markdown twin for agents: replace the trailing slash with `.md` ({{ site.url }}/sprints/ → {{ site.url }}/sprints.md). Each page also links its twin with `<link rel="alternate" type="text/markdown">`.
+{% assign md_pages = site.html_pages | where_exp: "p", "p.markdown_url" | sort: "url" %}{% for p in md_pages %}
+- {{ site.url }}{{ p.markdown_url }}{% endfor %}{% for item in work_items %}{% if item.markdown_url %}
+- {{ site.url }}{{ item.markdown_url }}{% endif %}{% endfor %}
+
+## Optional
+
+- [Home]({{ site.url }}/): Studio overview, selected work, services, and ways to engage.
+- [LinkedIn]({{ site.linkedin }}): Meddle company page
+- [Matt Bacon on LinkedIn]({{ site.founder_linkedin }}): Founder and creative director
+- [Instagram]({{ site.instagram }})

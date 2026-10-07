@@ -28,6 +28,7 @@
   <meta name="author" content="{{ site.brand }}">
   <meta name="generator" content="Meddle">
   <title>{% if page.title %}{{ page.title }}{% unless page.title contains 'Meddle' %} | {{ site.brand }} {% endunless %}{% else %}{{ site.title }}{% endif %}</title>
+  {% if page.markdown_url %}<link rel="alternate" type="text/markdown" href="{{ page.markdown_url | absolute_url }}">{% endif %}
   <meta property="og:type" content="article" />
   <meta property="og:locale" content="en_us" />
   <meta property="og:url" content="{{ page.url | remove: 'index.html' | absolute_url }}" />
