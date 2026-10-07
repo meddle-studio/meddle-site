@@ -4,7 +4,7 @@ classes: page-case-study -bg-white
 ---
 
 <!-- ─── FULL-SCREEN HERO ─── -->
-<header class="cs-hero position-relative -bg-black">
+<header class="cs-hero position-relative -bg-black" data-md="skip">
 
   <!-- Video (landscape + portrait sources) -->
   {% if page.hero_video.landscape or page.hero_video.portrait %}
@@ -66,7 +66,7 @@ classes: page-case-study -bg-white
   </div>
 
 </header>
-<section id="the-client" class="cs-section pt-3 pt-lg-5">
+<section id="the-client" class="cs-section pt-3 pt-lg-5" data-md="skip">
   <div class="container-xxl">
     <p class="-black py-4 py-md-5 -semiBold" data-aos="fade-in" data-aos-duration="500">{{ page.client }}</p>
     <div class="col-12">
@@ -369,7 +369,7 @@ classes: page-case-study -bg-white
     </div>
       {% endcomment %}
 
-      <div class="mt-5 pt-5 text-center">
+      <div class="mt-5 pt-5 text-center" data-md="skip">
         <a href="/#work" class="nav-link d-inline-flex">
           <span class="-font-secondary text-uppercase">See more projects →</span>
         </a>

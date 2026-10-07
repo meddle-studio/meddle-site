@@ -3,18 +3,25 @@
 # converted from the page's rendered <main>, so it stays in sync with the HTML.
 #
 # Pages with `sitemap: false` or `markdown: false` (and the 404) get no twin.
-# Mark a non-heading label as a heading in the twin with data-md="h2" (or h3…).
+# Mark a non-heading label as a heading in the twin with data-md="h2" (or h3…),
+# and leave an element out of the twin with data-md="skip".
 # The generator sets `page.markdown_url` so layouts and llms.txt can link it.
+#
+# Internal links point at other twins, except links to a page with a form
+# (the contact page), which stay on the HTML page where the action lives.
+# Case studies (documents with `client`) open with a facts block from their
+# front matter and close with links to the other case studies.
 require "nokogiri"
 require "yaml"
 
 module MeddleMarkdown
   DROP = "script, style, noscript, template, svg, video, audio, iframe, form, nav, " \
-         "button, figure, img, picture, hr, [aria-hidden='true'], [hidden]"
+         "button, figure, img, picture, hr, [aria-hidden='true'], [hidden], [data-md='skip']"
   BLOCK = %w[address article aside blockquote dd div dl dt figcaption figure footer
              header h1 h2 h3 h4 h5 h6 li main ol p section table tbody td th thead tr ul].freeze
   BLOCK_CSS = BLOCK.join(", ")
   SPACE = /[\s ]+/
+  NOT_CREDITED = ["Typefaces"].freeze # credit roles that aren't people
 
   def self.eligible?(doc)
     return false unless doc.output_ext == ".html"
@@ -28,7 +35,17 @@ module MeddleMarkdown
     path == "/" ? "/index.md" : path.chomp("/") + ".md"
   end
 
-  def self.convert(doc, site_url)
+  def self.twinned(site)
+    (site.pages + site.documents).select { |doc| doc.data["markdown_url"] && doc.output }
+  end
+
+  # Absolute HTML URL → absolute twin URL, for every page without a form.
+  def self.link_map(docs, site_url)
+    docs.reject { |doc| doc.output.include?("<form") }
+        .to_h { |doc| [site_url + doc.url, site_url + doc.data["markdown_url"]] }
+  end
+
+  def self.convert(doc, site_url, docs, links)
     html = Nokogiri::HTML5(doc.output)
     root = html.at_css("main") || html.at_css("body")
     root.css(DROP).each(&:remove)
@@ -37,8 +54,41 @@ module MeddleMarkdown
              "description" => doc.data["description"].to_s.strip,
              "url" => site_url + doc.url }.reject { |_, v| v.empty? }
 
-    body = blocks(root, :base => site_url).join("\n\n")
-    meta.to_yaml + "---\n\n" + body + "\n"
+    parts = []
+    parts.concat(case_study_head(doc)) if doc.data["client"]
+    parts.concat(blocks(root, :base => site_url, :links => links))
+    parts.concat(more_work(doc, docs, site_url)) if doc.data["client"]
+    parts << "---"
+    parts << "[All pages, FAQ, and contact details](#{site_url}/llms.txt)"
+    meta.to_yaml + "---\n\n" + parts.join("\n\n") + "\n"
+  end
+
+  def self.case_study_head(doc)
+    d = doc.data
+    client = d["client_url"] ? "[#{d['client']}](#{d['client_url']})" : d["client"]
+    people = Hash.new { |h, k| h[k] = [] }
+    Array(d["credits"]).reject { |c| NOT_CREDITED.include?(c["role"]) }.each do |c|
+      Array(c["entries"]).each { |name| people[strip_html(name)] << c["role"] }
+    end
+    facts = [
+      ["Client", client],
+      ["Industry", d["industry"]],
+      ["Published", d["date"]&.strftime("%B %Y")],
+      ["Services", Array(d["services"]).join(", ")],
+      ["Credits", people.map { |name, roles| "#{name} (#{roles.join(', ')})" }.join(", ")],
+      ["Result", d["result_summary"]],
+    ].reject { |_, v| v.to_s.strip.empty? }
+
+    ["# #{squish(strip_html(d['tagline'] || d['title']))}",
+     facts.map { |k, v| "**#{k}:** #{v}" }.join("  \n"),
+     "---"]
+  end
+
+  def self.more_work(doc, docs, site_url)
+    others = docs.select { |o| o.data["client"] && o != doc }.sort_by { |o| o.data["order"].to_i }
+    return [] if others.empty?
+    ["## More work",
+     others.map { |o| "- [#{o.data['client']}](#{site_url}#{o.data['markdown_url']})" }.join("\n")]
   end
 
   # Block context: flushes inline runs as paragraphs between block children.
@@ -134,9 +184,17 @@ module MeddleMarkdown
     "#{lead}#{mark}#{core}#{mark}#{trail}"
   end
 
+  # Absolute URL for href, swapped for its twin when the target has one
+  # (the #fragment is dropped, since twins have no anchors).
   def self.link(href, ctx)
     return nil if href.nil? || href.empty? || href.start_with?("#", "javascript:")
-    href.start_with?("/") ? ctx[:base] + href : href
+    url = href.start_with?("/") ? ctx[:base] + href : href
+    page, _fragment = url.split("#", 2)
+    ctx[:links].fetch(page, url)
+  end
+
+  def self.strip_html(text)
+    Nokogiri::HTML5.fragment(text.to_s).text
   end
 
   def self.squish(text)
@@ -159,12 +217,11 @@ end
 
 Jekyll::Hooks.register :site, :post_write do |site|
   site_url = site.config["url"].to_s.chomp("/")
-  (site.pages + site.documents).each do |doc|
-    url = doc.data["markdown_url"]
-    next unless url && doc.output
-
-    path = File.join(site.dest, url)
+  docs = MeddleMarkdown.twinned(site)
+  links = MeddleMarkdown.link_map(docs, site_url)
+  docs.each do |doc|
+    path = File.join(site.dest, doc.data["markdown_url"])
     FileUtils.mkdir_p(File.dirname(path))
-    File.write(path, MeddleMarkdown.convert(doc, site_url))
+    File.write(path, MeddleMarkdown.convert(doc, site_url, docs, links))
   end
 end
