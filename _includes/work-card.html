@@ -27,7 +27,7 @@
         {% assign cv = item.card_video | default: item.hero_video %}
         <picture class="video-poster-image pe-none">
           {% if cv.poster %}<source srcset="{{ cv.poster }}" media="(min-width: 768px)">{% endif %}
-          <img src="{{ cv.portrait_poster | default: cv.poster }}" alt="" loading="lazy" decoding="async">
+          <img src="{{ cv.poster_portrait | default: cv.poster }}" alt="" loading="lazy" decoding="async">
         </picture>
         <video class="object-fit-cover" preload="metadata" crossorigin="anonymous" playsinline autoplay muted loop>
           <source src="{{ cv.landscape }}" media="(min-width: 768px)" type="video/mp4">
