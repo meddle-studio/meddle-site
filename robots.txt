@@ -1,4 +1,7 @@
 User-agent: *
 Disallow: /admin/
 
+User-agent: meta-externalagent
+Disallow: /
+
 Sitemap: https://meddle.studio/sitemap.xml
