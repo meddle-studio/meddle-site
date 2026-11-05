@@ -208,7 +208,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const layout = document.querySelector('.layout');
     if (!layout) return;
 
-    // Keep browser UI (Safari toolbar, overscroll) in sync with the layout background.
+    // Keep browser UI (Safari toolbar/side rail, overscroll) in sync with the layout background.
+    // Newer Safari samples the body background rather than theme-color, so set both.
     // Reads --theme-primary rather than background-color so we get the final colour, not a mid-transition one.
     const themeColorMeta = document.querySelector('meta[name="theme-color"]');
     const syncThemeColor = () => {
@@ -216,6 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!color) return;
         if (themeColorMeta) themeColorMeta.setAttribute('content', color);
         document.documentElement.style.backgroundColor = color;
+        document.body.style.backgroundColor = color;
     };
     const setTheme = (theme) => {
         layout.classList.remove('theme-dark', 'theme-light');
