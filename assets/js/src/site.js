@@ -208,6 +208,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const layout = document.querySelector('.layout');
     if (!layout) return;
 
+    // Keep browser UI (Safari toolbar, overscroll) in sync with the layout background.
+    // Reads --theme-primary rather than background-color so we get the final colour, not a mid-transition one.
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    const syncThemeColor = () => {
+        const color = getComputedStyle(layout).getPropertyValue('--theme-primary').trim();
+        if (!color) return;
+        if (themeColorMeta) themeColorMeta.setAttribute('content', color);
+        document.documentElement.style.backgroundColor = color;
+    };
+    const setTheme = (theme) => {
+        layout.classList.remove('theme-dark', 'theme-light');
+        layout.classList.add(theme);
+        syncThemeColor();
+    };
+
+    syncThemeColor();
+
     const triggers = document.querySelectorAll('[data-scroll-theme]');
     if (!triggers.length) return;
 
@@ -217,12 +234,10 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             const targetTheme = 'theme-' + entry.target.dataset.scrollTheme;
             if (entry.isIntersecting) {
-                layout.classList.remove('theme-dark', 'theme-light');
-                layout.classList.add(targetTheme);
+                setTheme(targetTheme);
             } else if (entry.boundingClientRect.top > window.innerHeight * 0.5) {
                 // Trigger is still below the viewport midpoint — restore initial theme
-                layout.classList.remove('theme-dark', 'theme-light');
-                layout.classList.add(initialTheme);
+                setTheme(initialTheme);
             }
             // Trigger has scrolled past above — keep current theme
         });
@@ -237,8 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
             activeTheme = 'theme-' + el.dataset.scrollTheme;
         }
     });
-    layout.classList.remove('theme-dark', 'theme-light');
-    layout.classList.add(activeTheme);
+    setTheme(activeTheme);
 });
 
 document.addEventListener('DOMContentLoaded', () => {
