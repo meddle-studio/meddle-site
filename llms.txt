@@ -18,7 +18,7 @@ Pricing: engagements start at ${{ site.sprintValue }},000. Comprehensive project
 
 ## Ways to engage
 
-- [Brand Sprints]({{ site.url }}/sprints/): A complete visual identity in two weeks for a flat fee of ${{ site.sprintValue }}K. Two full brand directions, uncapped changes, and a fixed ten-day schedule. Deliverables: logo suite, type and color, graphic system, up to five key mockups, homepage design, full brand guidelines (Figma and PDF), and an agentic brand guide written so AI tools can read and apply the brand. Best for early-stage startups and visual-only refreshes. An optional Web Design Sprint (another two weeks, ${{ site.sprintValue }}K) carries the new brand through the rest of the site.
+- [Brand Sprints]({{ site.url }}/sprints/): A complete visual identity in two weeks for a flat fee of ${{ site.sprintValue }}K. Two full brand directions, uncapped changes, and a fixed ten-day schedule. Deliverables: logo suite, type and color, graphic system, up to five key mockups, homepage design, full brand guidelines (Figma and PDF), and an agentic brand kit written so AI tools can read and apply the brand. Best for early-stage startups and visual-only refreshes. An optional Web Design Sprint (another two weeks, ${{ site.sprintValue }}K) carries the new brand through the rest of the site.
 - [Fractional Leadership]({{ site.url }}/fractional/): Ongoing brand strategy and creative leadership from Meddle's founder, a CCO-level creative partner without the overhead of a full-time hire. Covers positioning and messaging, go-to-market planning, art direction, review of in-house and vendor work, design system governance, executive and board presentations, and pitch deck review. For scaling companies, teams with in-house designers, companies at a critical growth moment (a raise, acquisition, or major launch), and past Meddle clients.
 - Project-based work: Brand strategy, full brand identity, web design, and/or development. Best for transformations and strategic initiatives that need deep partnership and custom solutions. Start on the [contact page]({{ site.url }}/contact/).
 
@@ -32,7 +32,7 @@ Pricing: engagements start at ${{ site.sprintValue }},000. Comprehensive project
 
 **How long does a new brand identity take?** Two weeks with a Brand Sprint: ten working days from kickoff to delivery, after a short questionnaire the Thursday before. A Web Design Sprint adds two more weeks for the rest of the site. Project-based timelines depend on scope.
 
-**What's included in a Brand Sprint?** Two full brand directions, then the chosen one delivered as a logo suite, type and color, a graphic system, up to five key mockups, a homepage design, full brand guidelines in Figma and PDF, and an agentic brand guide. Changes aren't capped.
+**What's included in a Brand Sprint?** Two full brand directions, then the chosen one delivered as a logo suite, type and color, a graphic system, up to five key mockups, a homepage design, full brand guidelines in Figma and PDF, and an agentic brand kit. Changes aren't capped.
 
 **Does a Brand Sprint include voice and messaging?** No. A Sprint delivers the visual system, grounded in positioning. Meddle provides voice and messaging in engagements beyond the Sprint.
 
